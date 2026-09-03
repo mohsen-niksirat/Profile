@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohsen Niksirat — Portfolio</title>
+<title>Mohsen Niksirat — Resume & Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -187,6 +187,48 @@ body{
 }
 @media(max-width:700px){.repo-card.featured{grid-column:span 1}}
 
+/* ── Resume Section ── */
+.resume-section{margin-bottom:2rem}
+.resume-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(480px,1fr));
+  gap:0.9rem;
+}
+@media(max-width:560px){.resume-grid{grid-template-columns:1fr}}
+.resume-card{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:1.25rem;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all 0.3s;
+}
+.resume-card:hover{border-color:rgba(109,92,255,0.2);transform:translateY(-2px)}
+.resume-icon{
+  font-size:1.5rem;width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;background:rgba(109,92,255,0.1);flex-shrink:0;
+}
+.resume-content{flex:1;min-width:0}
+.resume-content h3{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.6rem}
+.resume-item{margin-bottom:0.4rem}
+.resume-degree{display:block;font-size:0.8rem;color:var(--text);font-weight:500}
+.resume-place{display:block;font-size:0.72rem;color:var(--text-dim)}
+.lang-bars{display:flex;flex-direction:column;gap:0.4rem}
+.lang-bar{display:flex;align-items:center;gap:0.5rem}
+.lang-label{font-size:0.7rem;color:var(--text-dim);width:55px;text-align:left;flex-shrink:0}
+.lang-track{flex:1;height:20px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;position:relative}
+.lang-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.4rem;
+  background:linear-gradient(90deg,rgba(109,92,255,0.3),rgba(109,92,255,0.6));transition:width 1s ease}
+.lang-fill span{font-size:0.6rem;font-weight:600;color:#fff}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
+.skill-tag{
+  font-size:0.7rem;padding:0.2rem 0.55rem;border-radius:6px;
+  background:rgba(109,92,255,0.1);color:rgba(167,139,250,0.9);
+  font-weight:500;border:1px solid rgba(109,92,255,0.15);
+  transition:all 0.3s;
+}
+.skill-tag:hover{background:rgba(109,92,255,0.2);border-color:rgba(109,92,255,0.3)}
+
 /* ── Footer ── */
 .footer{
   text-align:center;padding:3rem 0 1rem;
@@ -231,7 +273,7 @@ body{
   <header class="header">
     <img src="https://avatars.githubusercontent.com/u/319197712?v=4" alt="Mohsen Niksirat" class="avatar">
     <h1>Mohsen Niksirat</h1>
-    <p class="tagline">CS grad building practical web apps & tools — Languages, finance, and productivity</p>
+    <p class="tagline">CS grad (BSc + MSc) building practical web apps & tools — Languages, finance, and productivity</p>
     <div class="social-links">
       <a href="https://github.com/mohsen-niksirat" target="_blank">
         <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -247,7 +289,94 @@ body{
   <div class="stats-bar">
     <div class="stat"><div class="num">16</div><div class="label">Repos</div></div>
     <div class="stat"><div class="num">14</div><div class="label">Live Apps</div></div>
-    <div class="stat"><div class="num">4.5K</div><div class="label">Vocab Words</div></div>
+  </div>
+
+  <!-- ═══════ Resume ═══════ -->
+  <div class="resume-section">
+    <div class="resume-grid">
+
+      <!-- Education -->
+      <div class="resume-card">
+        <div class="resume-icon">🎓</div>
+        <div class="resume-content">
+          <h3>تحصیلات</h3>
+          <div class="resume-item">
+            <span class="resume-degree">کارشناسی علوم کامپیوتر</span>
+            <span class="resume-place">دانشگاه محقق اردبیلی</span>
+          </div>
+          <div class="resume-item">
+            <span class="resume-degree">کارشناسی ارشد مهندسی کامپیوتر</span>
+            <span class="resume-place">گرایش معماری سیستم‌های کامپیوتری — دانشگاه تبریز</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Language -->
+      <div class="resume-card">
+        <div class="resume-icon">🌐</div>
+        <div class="resume-content">
+          <h3>زبان انگلیسی — سطح B2</h3>
+          <div class="lang-bars">
+            <div class="lang-bar">
+              <span class="lang-label">وکب</span>
+              <div class="lang-track"><div class="lang-fill" style="width:85%"><span>C1</span></div></div>
+            </div>
+            <div class="lang-bar">
+              <span class="lang-label">گرامر</span>
+              <div class="lang-track"><div class="lang-fill" style="width:50%"><span>A2</span></div></div>
+            </div>
+            <div class="lang-bar">
+              <span class="lang-label">لیسنینگ</span>
+              <div class="lang-track"><div class="lang-fill" style="width:70%"><span>B2</span></div></div>
+            </div>
+            <div class="lang-bar">
+              <span class="lang-label">اسپیکینگ</span>
+              <div class="lang-track"><div class="lang-fill" style="width:60%"><span>B1</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programming Languages -->
+      <div class="resume-card">
+        <div class="resume-icon">💻</div>
+        <div class="resume-content">
+          <h3>زبان‌های برنامه‌نویسی</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="resume-card">
+        <div class="resume-icon">🛠</div>
+        <div class="resume-content">
+          <h3>مهارت‌های فنی</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">FSRS</span>
+            <span class="skill-tag">IndexedDB</span>
+            <span class="skill-tag">Chart.js</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Cloudflare Pages</span>
+            <span class="skill-tag">Single-file Apps</span>
+            <span class="skill-tag">Responsive Design</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <!-- ═══════ Featured ═══════ -->
