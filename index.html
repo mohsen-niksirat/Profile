@@ -24,25 +24,19 @@
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-  line-height:1.6;
+  background:var(--bg);color:var(--text);
+  min-height:100vh;overflow-x:hidden;line-height:1.6;
+  transition:direction 0.3s;
 }
+body[dir="rtl"]{direction:rtl;text-align:right}
+body[dir="ltr"]{direction:ltr;text-align:left}
 
-/* ── 3D Scene Container ── */
-.scene{
-  position:relative;
-  perspective:1200px;
-  perspective-origin:50% 40%;
-  min-height:100vh;
-}
+/* ── 3D Scene ── */
+.scene{position:relative;perspective:1200px;perspective-origin:50% 40%;min-height:100vh}
 
-/* ── Animated Mesh Background ── */
+/* ── Mesh Background ── */
 .mesh-bg{
-  position:fixed;inset:0;z-index:0;
-  overflow:hidden;
+  position:fixed;inset:0;z-index:0;overflow:hidden;
   background:
     radial-gradient(ellipse 120% 80% at 10% 20%, rgba(109,92,255,0.18) 0%, transparent 50%),
     radial-gradient(ellipse 80% 60% at 85% 75%, rgba(6,182,212,0.14) 0%, transparent 50%),
@@ -65,19 +59,6 @@ body{
   100%{opacity:0.7;transform:scale(0.98) translateY(10px)}
 }
 
-/* ── 3D Room Walls ── */
-.room{
-  position:relative;z-index:1;
-  max-width:1100px;margin:0 auto;
-  padding:0 1.5rem 4rem;
-}
-.room::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    linear-gradient(90deg, rgba(109,92,255,0.06) 0%, transparent 3%, transparent 97%, rgba(6,182,212,0.06) 100%),
-    linear-gradient(0deg, rgba(109,92,255,0.04) 0%, transparent 5%, transparent 95%, rgba(244,63,94,0.04) 100%);
-}
-
 /* ── Floor Grid ── */
 .floor-grid{
   position:fixed;bottom:0;left:0;right:0;height:45vh;z-index:0;pointer-events:none;
@@ -92,25 +73,35 @@ body{
 
 /* ── Grain ── */
 .grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  opacity:0.025;
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.025;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-/* ── Content Wrapper ── */
+/* ── Content ── */
 .content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
 
-/* ── Header (Back Wall) ── */
-.header{
-  text-align:center;padding:4rem 0 2rem;
-  transform:translateZ(0px);
-  position:relative;
+/* ── Lang Toggle ── */
+.lang-toggle{
+  position:fixed;top:1rem;z-index:100;
+  display:flex;gap:0;border-radius:10px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
 }
+body[dir="rtl"] .lang-toggle{left:1rem}
+body[dir="ltr"] .lang-toggle{right:1rem}
+.lang-btn{
+  padding:0.4rem 0.8rem;font-size:0.75rem;font-weight:600;
+  border:none;cursor:pointer;transition:all 0.3s;
+  background:transparent;color:var(--text-dim);
+}
+.lang-btn.active{background:var(--accent);color:#fff}
+
+/* ── Header ── */
+.header{text-align:center;padding:4rem 0 2rem;transform:translateZ(0);position:relative}
 .header::before{
   content:'';position:absolute;inset:-40px -60px;
   background:radial-gradient(ellipse at center, rgba(109,92,255,0.08) 0%, transparent 70%);
-  border-radius:30px;z-index:-1;
-  filter:blur(40px);
+  border-radius:30px;z-index:-1;filter:blur(40px);
 }
 .avatar{
   width:120px;height:120px;border-radius:50%;
@@ -125,18 +116,10 @@ body{
   font-size:clamp(2rem,5vw,3rem);font-weight:800;
   background:linear-gradient(135deg,#fff 0%,#a78bfa 50%,#06b6d4 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;margin-bottom:0.5rem;
-  transform:translateZ(40px);
+  background-clip:text;margin-bottom:0.5rem;transform:translateZ(40px);
 }
-.header .tagline{
-  color:var(--text-dim);font-size:1.05rem;font-weight:300;
-  max-width:500px;margin:0 auto 1.5rem;
-  transform:translateZ(30px);
-}
-.social-links{
-  display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;
-  transform:translateZ(35px);
-}
+.header .tagline{color:var(--text-dim);font-size:1.05rem;font-weight:300;max-width:500px;margin:0 auto 1.5rem;transform:translateZ(30px)}
+.social-links{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;transform:translateZ(35px)}
 .social-links a{
   display:inline-flex;align-items:center;gap:0.4rem;
   padding:0.5rem 1rem;border-radius:999px;
@@ -147,11 +130,8 @@ body{
 .social-links a:hover{background:var(--surface-hover);color:var(--text);border-color:var(--accent)}
 .social-links svg{width:16px;height:16px;fill:currentColor}
 
-/* ── Stats bar ── */
-.stats-bar{
-  display:flex;justify-content:center;gap:2.5rem;padding:1.5rem 0 2.5rem;flex-wrap:wrap;
-  transform:translateZ(25px);
-}
+/* ── Stats ── */
+.stats-bar{display:flex;justify-content:center;gap:2.5rem;padding:1.5rem 0 2.5rem;flex-wrap:wrap;transform:translateZ(25px)}
 .stat{text-align:center}
 .stat .num{font-size:1.5rem;font-weight:700;font-family:'JetBrains Mono',monospace;color:var(--accent)}
 .stat .label{font-size:0.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em}
@@ -164,13 +144,9 @@ body{
 }
 .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* ── Resume Section ── */
+/* ── Resume ── */
 .resume-section{margin-bottom:2rem}
-.resume-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(480px,1fr));
-  gap:0.9rem;
-}
+.resume-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:0.9rem}
 @media(max-width:560px){.resume-grid{grid-template-columns:1fr}}
 .resume-card{
   display:flex;gap:1rem;align-items:flex-start;
@@ -198,10 +174,14 @@ body{
 .resume-place{display:block;font-size:0.72rem;color:var(--text-dim)}
 .lang-bars{display:flex;flex-direction:column;gap:0.4rem}
 .lang-bar{display:flex;align-items:center;gap:0.5rem}
-.lang-label{font-size:0.7rem;color:var(--text-dim);width:55px;text-align:left;flex-shrink:0}
-.lang-track{flex:1;height:20px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;position:relative}
-.lang-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:0.4rem;
-  background:linear-gradient(90deg,rgba(109,92,255,0.3),rgba(109,92,255,0.6));transition:width 1s ease}
+.lang-label{font-size:0.7rem;color:var(--text-dim);width:55px;flex-shrink:0}
+body[dir="rtl"] .lang-label{text-align:left}
+body[dir="ltr"] .lang-label{text-align:right}
+.lang-track{flex:1;height:20px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
+.lang-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 0.4rem;
+  background:linear-gradient(90deg,rgba(109,92,255,0.3),rgba(109,92,255,0.6))}
+body[dir="rtl"] .lang-fill{justify-content:flex-end}
+body[dir="ltr"] .lang-fill{justify-content:flex-start}
 .lang-fill span{font-size:0.6rem;font-weight:600;color:#fff}
 .skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
 .skill-tag{
@@ -213,23 +193,14 @@ body{
 .skill-tag:hover{background:rgba(109,92,255,0.2);border-color:rgba(109,92,255,0.3)}
 
 /* ── Repo Grid ── */
-.repo-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:0.9rem;
-}
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0.9rem}
 
 /* ── Repo Card ── */
 .repo-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:1.25rem;
-  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);
-  position:relative;
-  overflow:hidden;
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:1.25rem;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   transform-style:preserve-3d;
 }
 .repo-card::before{
@@ -243,7 +214,6 @@ body{
   box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 40px rgba(109,92,255,0.08);
 }
 .repo-card:hover::before{opacity:1}
-
 .repo-card .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.6rem}
 .repo-card .icon{
   font-size:1.6rem;width:42px;height:42px;
@@ -251,27 +221,14 @@ body{
   border-radius:10px;background:rgba(109,92,255,0.1);flex-shrink:0;
   transform:translateZ(8px);
 }
-.repo-card .badge{
-  font-size:0.6rem;font-weight:600;
-  padding:0.2rem 0.5rem;border-radius:999px;
-  text-transform:uppercase;letter-spacing:0.05em;
-}
+.repo-card .badge{font-size:0.6rem;font-weight:600;padding:0.2rem 0.5rem;border-radius:999px;text-transform:uppercase;letter-spacing:0.05em}
 .badge-live{background:rgba(34,197,94,0.15);color:var(--green)}
-.badge-wip{background:rgba(245,158,11,0.15);color:var(--amber)}
 .badge-source{background:rgba(109,92,255,0.15);color:var(--accent)}
-
 .repo-card h3{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.2rem}
-.repo-card .repo-name{
-  font-family:'JetBrains Mono',monospace;font-size:0.7rem;
-  color:var(--text-dim);margin-bottom:0.5rem;
-}
+.repo-card .repo-name{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-dim);margin-bottom:0.5rem}
 .repo-card .desc{font-size:0.8rem;color:var(--text-dim);line-height:1.5;margin-bottom:0.75rem}
 .repo-card .tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.75rem}
-.repo-card .tag{
-  font-size:0.65rem;padding:0.15rem 0.4rem;
-  border-radius:5px;background:rgba(255,255,255,0.06);
-  color:var(--text-dim);font-weight:500;
-}
+.repo-card .tag{font-size:0.65rem;padding:0.15rem 0.4rem;border-radius:5px;background:rgba(255,255,255,0.06);color:var(--text-dim);font-weight:500}
 .repo-card .card-actions{display:flex;gap:0.4rem}
 .repo-card .card-actions a{
   display:inline-flex;align-items:center;gap:0.3rem;
@@ -279,30 +236,22 @@ body{
   font-size:0.75rem;font-weight:500;text-decoration:none;
   transition:all 0.3s;flex:1;justify-content:center;
 }
-.btn-live{
-  background:var(--accent);color:#fff;
-  box-shadow:0 2px 10px rgba(109,92,255,0.3);
-}
+.btn-live{background:var(--accent);color:#fff;box-shadow:0 2px 10px rgba(109,92,255,0.3)}
 .btn-live:hover{background:#7c6bff;box-shadow:0 4px 16px rgba(109,92,255,0.4)}
-.btn-src{
-  background:var(--surface);border:1px solid var(--border);color:var(--text-dim);
-}
+.btn-src{background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
 .btn-src:hover{background:var(--surface-hover);color:var(--text);border-color:rgba(255,255,255,0.15)}
 
 /* ── Footer ── */
-.footer{
-  text-align:center;padding:3rem 0 1rem;
-  color:var(--text-dim);font-size:0.75rem;
-}
+.footer{text-align:center;padding:3rem 0 1rem;color:var(--text-dim);font-size:0.75rem}
 .footer a{color:var(--accent);text-decoration:none}
 
 /* ── Animations ── */
 @keyframes fadeUp{from{opacity:0;transform:translateZ(-30px) translateY(20px)}to{opacity:1;transform:translateZ(0) translateY(0)}}
-.repo-card{animation:fadeUp 0.6s ease both}
-.repo-card:nth-child(1){animation-delay:0.03s}
-.repo-card:nth-child(2){animation-delay:0.06s}
-.repo-card:nth-child(3){animation-delay:0.09s}
-.repo-card:nth-child(4){animation-delay:0.12s}
+.repo-card,.resume-card{animation:fadeUp 0.6s ease both}
+.repo-card:nth-child(1),.resume-card:nth-child(1){animation-delay:0.03s}
+.repo-card:nth-child(2),.resume-card:nth-child(2){animation-delay:0.06s}
+.repo-card:nth-child(3),.resume-card:nth-child(3){animation-delay:0.09s}
+.repo-card:nth-child(4),.resume-card:nth-child(4){animation-delay:0.12s}
 .repo-card:nth-child(5){animation-delay:0.15s}
 .repo-card:nth-child(6){animation-delay:0.18s}
 .repo-card:nth-child(7){animation-delay:0.21s}
@@ -323,11 +272,17 @@ body{
 ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2)}
 </style>
 </head>
-<body>
+<body dir="rtl">
 
 <div class="mesh-bg"><canvas id="mesh"></canvas></div>
 <div class="floor-grid"></div>
 <div class="grain"></div>
+
+<!-- Language Toggle -->
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="fa" onclick="setLang('fa')">فارسی</button>
+  <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
 
 <div class="scene">
 <div class="content">
@@ -335,7 +290,7 @@ body{
   <header class="header">
     <img src="https://avatars.githubusercontent.com/u/319197712?v=4" alt="Mohsen Niksirat" class="avatar">
     <h1>Mohsen Niksirat</h1>
-    <p class="tagline">CS grad (BSc + MSc) building practical web apps & tools — Languages, finance, and productivity</p>
+    <p class="tagline" data-fa="فاضل علوم کامپیوتر — ساخت ابزارها و اپلیکیشن‌های وب کاربردی" data-en="CS grad (BSc + MSc) building practical web apps & tools — Languages, finance, and productivity"></p>
     <div class="social-links">
       <a href="https://github.com/mohsen-niksirat" target="_blank">
         <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -349,8 +304,8 @@ body{
   </header>
 
   <div class="stats-bar">
-    <div class="stat"><div class="num">16</div><div class="label">Repos</div></div>
-    <div class="stat"><div class="num">14</div><div class="label">Live Apps</div></div>
+    <div class="stat"><div class="num">16</div><div class="label" data-fa="پروژه" data-en="Repos"></div></div>
+    <div class="stat"><div class="num">14</div><div class="label" data-fa="اپ زنده" data-en="Live Apps"></div></div>
   </div>
 
   <!-- ═══════ Resume ═══════ -->
@@ -360,14 +315,14 @@ body{
       <div class="resume-card">
         <div class="resume-icon">🎓</div>
         <div class="resume-content">
-          <h3>تحصیلات</h3>
+          <h3 data-fa="تحصیلات" data-en="Education"></h3>
           <div class="resume-item">
-            <span class="resume-degree">کارشناسی علوم کامپیوتر</span>
-            <span class="resume-place">دانشگاه محقق اردبیلی</span>
+            <span class="resume-degree" data-fa="کارشناسی علوم کامپیوتر" data-en="BSc Computer Science"></span>
+            <span class="resume-place" data-fa="دانشگاه محقق اردبیلی" data-en="University of Mohaghegh Ardabili"></span>
           </div>
           <div class="resume-item">
-            <span class="resume-degree">کارشناسی ارشد مهندسی کامپیوتر</span>
-            <span class="resume-place">گرایش معماری سیستم‌های کامپیوتری — دانشگاه تبریز</span>
+            <span class="resume-degree" data-fa="کارشناسی ارشد مهندسی کامپیوتر" data-en="MSc Computer Engineering"></span>
+            <span class="resume-place" data-fa="گرایش معماری سیستم‌های کامپیوتری — دانشگاه تبریز" data-en="Computer Architecture — University of Tabriz"></span>
           </div>
         </div>
       </div>
@@ -375,22 +330,22 @@ body{
       <div class="resume-card">
         <div class="resume-icon">🌐</div>
         <div class="resume-content">
-          <h3>زبان انگلیسی — سطح B2</h3>
+          <h3 data-fa="زبان انگلیسی — سطح B2" data-en="English — Level B2"></h3>
           <div class="lang-bars">
             <div class="lang-bar">
-              <span class="lang-label">وکب</span>
+              <span class="lang-label" data-fa="وکب" data-en="Vocab"></span>
               <div class="lang-track"><div class="lang-fill" style="width:85%"><span>C1</span></div></div>
             </div>
             <div class="lang-bar">
-              <span class="lang-label">گرامر</span>
+              <span class="lang-label" data-fa="گرامر" data-en="Grammar"></span>
               <div class="lang-track"><div class="lang-fill" style="width:50%"><span>A2</span></div></div>
             </div>
             <div class="lang-bar">
-              <span class="lang-label">لیسنینگ</span>
+              <span class="lang-label" data-fa="لیسنینگ" data-en="Listening"></span>
               <div class="lang-track"><div class="lang-fill" style="width:70%"><span>B2</span></div></div>
             </div>
             <div class="lang-bar">
-              <span class="lang-label">اسپیکینگ</span>
+              <span class="lang-label" data-fa="اسپیکینگ" data-en="Speaking"></span>
               <div class="lang-track"><div class="lang-fill" style="width:60%"><span>B1</span></div></div>
             </div>
           </div>
@@ -400,16 +355,12 @@ body{
       <div class="resume-card">
         <div class="resume-icon">💻</div>
         <div class="resume-content">
-          <h3>زبان‌های برنامه‌نویسی</h3>
+          <h3 data-fa="زبان‌های برنامه‌نویسی" data-en="Programming Languages"></h3>
           <div class="skill-tags">
-            <span class="skill-tag">C</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">C</span><span class="skill-tag">C++</span>
+            <span class="skill-tag">Java</span><span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
           </div>
         </div>
       </div>
@@ -417,19 +368,15 @@ body{
       <div class="resume-card">
         <div class="resume-icon">🛠</div>
         <div class="resume-content">
-          <h3>مهارت‌های فنی</h3>
+          <h3 data-fa="مهارت‌های فنی" data-en="Technical Skills"></h3>
           <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">FSRS</span>
-            <span class="skill-tag">IndexedDB</span>
-            <span class="skill-tag">Chart.js</span>
-            <span class="skill-tag">REST API</span>
-            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Git</span><span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Linux</span><span class="skill-tag">FSRS</span>
+            <span class="skill-tag">IndexedDB</span><span class="skill-tag">Chart.js</span>
+            <span class="skill-tag">REST API</span><span class="skill-tag">Node.js</span>
             <span class="skill-tag">Cloudflare Pages</span>
-            <span class="skill-tag">Single-file Apps</span>
-            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag" data-fa="اپ تک‌فایل" data-en="Single-file Apps"></span>
+            <span class="skill-tag" data-fa="طراحی ریسپانسیو" data-en="Responsive Design"></span>
           </div>
         </div>
       </div>
@@ -438,343 +385,330 @@ body{
   </div>
 
   <!-- ═══════ Learning ═══════ -->
-  <div class="section-title">🎓 یادگیری و آموزش</div>
+  <div class="section-title"><span data-fa="🎓 یادگیری و آموزش" data-en="🎓 Learning & Education"></span></div>
   <div class="repo-grid">
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📚</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📚</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Readner</h3>
       <div class="repo-name">leitner-pro</div>
-      <p class="desc">Smart vocabulary learning with FSRS spaced repetition, PDF reader, 13 languages. Single HTML file.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">FSRS</span><span class="tag">Offline</span></div>
+      <p class="desc" data-fa="یادگیری هوشمند واژگان با تکرار فاصله‌دار FSRS، خواننده PDF، ۱۳ زبان. تک‌فایل HTML — آفلاین کار می‌کند." data-en="Smart vocabulary learning with FSRS spaced repetition, PDF reader, 13 languages. Single HTML file."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">FSRS</span><span class="tag" data-fa="آفلاین" data-en="Offline"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/leitner-pro/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/leitner-pro" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/leitner-pro/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/leitner-pro" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🧠</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🧠</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Leitner Pro Max</h3>
       <div class="repo-name">Leitner-Pro-Max</div>
-      <p class="desc">Advanced Leitner box with CEFR vocabulary packs (A1-C2), long-term memory, quizzes, and 4,500+ words.</p>
+      <p class="desc" data-fa="باکس لایتنر پیشرفته با بسته‌های واژگان CEFR (A1-C2)، حافظه بلندمدت، آزمون و بیش از ۴,۵۰۰ کلمه." data-en="Advanced Leitner box with CEFR vocabulary packs (A1-C2), long-term memory, quizzes, and 4,500+ words."></p>
       <div class="tags"><span class="tag">JavaScript</span><span class="tag">CEFR</span><span class="tag">4,500 Words</span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Leitner-Pro-Max/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Leitner-Pro-Max" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Leitner-Pro-Max/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Leitner-Pro-Max" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📖</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📖</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>VocabForge</h3>
       <div class="repo-name">VocabForge</div>
-      <p class="desc">Build flashcards from any text, PDF or document instantly.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Flashcards</span></div>
+      <p class="desc" data-fa="ساخت فلش‌کارت از هر متن، PDF یا سند در کسری از ثانیه." data-en="Build flashcards from any text, PDF or document instantly."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="فلش‌کارت" data-en="Flashcards"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/VocabForge/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/VocabForge" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/VocabForge/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/VocabForge" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📱</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📱</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Leitner Mobile</h3>
       <div class="repo-name">Leitner_Mobile</div>
-      <p class="desc">Mobile-optimized Leitner flashcard system for on-the-go learning.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Mobile</span></div>
+      <p class="desc" data-fa="سیستم فلش‌کارت لایتنر بهینه‌شده برای موبایل." data-en="Mobile-optimized Leitner flashcard system for on-the-go learning."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="موبایل" data-en="Mobile"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Leitner_Mobile/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Leitner_Mobile" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Leitner_Mobile/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Leitner_Mobile" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📝</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📝</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>English Quiz</h3>
       <div class="repo-name">EnglishQuiz</div>
-      <p class="desc">Interactive English vocabulary quiz with scoring and progress tracking.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Quiz</span></div>
+      <p class="desc" data-fa="آزمون تعاملی واژگان انگلیسی با امتیازدهی و پیگیری پیشرفت." data-en="Interactive English vocabulary quiz with scoring and progress tracking."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="آزمون" data-en="Quiz"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/EnglishQuiz/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/EnglishQuiz" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/EnglishQuiz/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/EnglishQuiz" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🤖</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🤖</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>English Quiz Bot</h3>
       <div class="repo-name">EnglishQuizBeta</div>
-      <p class="desc">Telegram quiz bot — automated English vocabulary quizzes in TypeScript.</p>
-      <div class="tags"><span class="tag">TypeScript</span><span class="tag">Telegram Bot</span></div>
+      <p class="desc" data-fa="بات تلگرام — آزمون خودکار واژگان انگلیسی با TypeScript." data-en="Telegram quiz bot — automated English vocabulary quizzes in TypeScript."></p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag" data-fa="بات تلگرام" data-en="Telegram Bot"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/EnglishQuizBeta/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/EnglishQuizBeta" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/EnglishQuizBeta/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/EnglishQuizBeta" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
   </div>
 
   <!-- ═══════ Entertainment ═══════ -->
-  <div class="section-title" style="margin-top:1.5rem">🎬 سرگرمی</div>
+  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🎬 سرگرمی" data-en="🎬 Entertainment"></span></div>
   <div class="repo-grid">
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🎬</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🎬</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Cinema Sermovie</h3>
       <div class="repo-name">Cinema</div>
-      <p class="desc">Movie browsing and discovery platform with ratings, reviews, and recommendations.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Movies</span></div>
+      <p class="desc" data-fa="پلتفرم جستجو و کشف فیلم‌ها با امتیازدهی، نقد و پیشنهادات." data-en="Movie browsing and discovery platform with ratings, reviews, and recommendations."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="فیلم" data-en="Movies"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Cinema/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Cinema" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Cinema/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Cinema" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">⭐</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">⭐</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>CineScore</h3>
       <div class="repo-name">CineScore</div>
-      <p class="desc">Movie rating and scoring system with community-driven ratings.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Ratings</span></div>
+      <p class="desc" data-fa="سیستم امتیازدهی فیلم با رأی جامعه." data-en="Movie rating and scoring system with community-driven ratings."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="امتیازدهی" data-en="Ratings"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/CineScore/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/CineScore" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/CineScore/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/CineScore" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🎮</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🎮</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Horde Survival</h3>
       <div class="repo-name">HordeSurvival</div>
-      <p class="desc">Kotlin-based survival game with wave combat and procedural generation.</p>
-      <div class="tags"><span class="tag">Kotlin</span><span class="tag">Game</span></div>
+      <p class="desc" data-fa="بازی بقا Kotlin با نبرد موجی و تولید تصادفی." data-en="Kotlin-based survival game with wave combat and procedural generation."></p>
+      <div class="tags"><span class="tag">Kotlin</span><span class="tag" data-fa="بازی" data-en="Game"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/HordeSurvival/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/HordeSurvival" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/HordeSurvival/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/HordeSurvival" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
   </div>
 
   <!-- ═══════ Tools ═══════ -->
-  <div class="section-title" style="margin-top:1.5rem">🧰 ابزارها و بهره‌وری</div>
+  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🧰 ابزارها و بهره‌وری" data-en="🧰 Tools & Productivity"></span></div>
   <div class="repo-grid">
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">💬</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">💬</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Free AI Chat</h3>
       <div class="repo-name">Free-AI-Chat</div>
-      <p class="desc">Clean chat interface powered by AI APIs with multi-model support.</p>
+      <p class="desc" data-fa="رابط چت ساده و تمیز با پشتیبانی از API‌های هوش مصنوعی." data-en="Clean chat interface powered by AI APIs with multi-model support."></p>
       <div class="tags"><span class="tag">HTML</span><span class="tag">AI</span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Free-AI-Chat/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Free-AI-Chat" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Free-AI-Chat/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Free-AI-Chat" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🧰</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🧰</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Toolbox</h3>
       <div class="repo-name">Toolbox</div>
-      <p class="desc">Collection of browser-based utilities — JSON, Base64, QR, color picker, and more.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Utilities</span></div>
+      <p class="desc" data-fa="مجموعه ابزارهای مرورگری — JSON، Base64، QR، انتخابگر رنگ و بیشتر." data-en="Collection of browser-based utilities — JSON, Base64, QR, color picker, and more."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="ابزارها" data-en="Utilities"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Toolbox/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Toolbox" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Toolbox/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Toolbox" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📈</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📈</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Life Tracker</h3>
       <div class="repo-name">life-tracker</div>
-      <p class="desc">Track habits, goals, and life metrics with daily check-ins and streaks.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Habits</span></div>
+      <p class="desc" data-fa="پیگیری عادت‌ها، اهداف و معیارهای زندگی با چک‌این روزانه." data-en="Track habits, goals, and life metrics with daily check-ins and streaks."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="عادت‌ها" data-en="Habits"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/life-tracker/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/life-tracker" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/life-tracker/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/life-tracker" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">👨‍👩‍👧‍👦</div><span class="badge badge-live">● Live</span></div>
-      <h3>Family Tree</h3>
+      <div class="card-top"><div class="icon">👨‍👩‍👧‍👦</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
+      <h3 data-fa="شجره‌نامه خانوادگی" data-en="Family Tree"></h3>
       <div class="repo-name">FamilyTree</div>
-      <p class="desc">Visual family tree builder — single HTML file with full offline storage.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Offline</span></div>
+      <p class="desc" data-fa="ساخت شجره‌نامه بصری خانواده — تک‌فایل HTML با ذخیره کامل آفلاین." data-en="Visual family tree builder — single HTML file with full offline storage."></p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="آفلاین" data-en="Offline"></span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/FamilyTree/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/FamilyTree" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/FamilyTree/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/FamilyTree" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
   </div>
 
   <!-- ═══════ Explorer ═══════ -->
-  <div class="section-title" style="margin-top:1.5rem">🔍 کاوش و تحلیل</div>
+  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🔍 کاوش و تحلیل" data-en="🔍 Explorer & Analytics"></span></div>
   <div class="repo-grid">
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">✈️</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">✈️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>TG Explorer</h3>
       <div class="repo-name">tgexplorer</div>
-      <p class="desc">Explore and search public Telegram channels with a clean web interface.</p>
+      <p class="desc" data-fa="جستجو و کشف کانال‌های عمومی تلگرام با رابط کاربری ساده." data-en="Explore and search public Telegram channels with a clean web interface."></p>
       <div class="tags"><span class="tag">HTML</span><span class="tag">Telegram</span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/tgexplorer/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/tgexplorer" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/tgexplorer/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/tgexplorer" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">📊</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">📊</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>Repodest</h3>
       <div class="repo-name">Repodest</div>
-      <p class="desc">Repository analytics and digest dashboard with Chart.js visualizations.</p>
+      <p class="desc" data-fa="داشبورد تحلیل و خلاصه مخزن با نمودارهای Chart.js." data-en="Repository analytics and digest dashboard with Chart.js visualizations."></p>
       <div class="tags"><span class="tag">CSS</span><span class="tag">Chart.js</span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/Repodest/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/Repodest" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/Repodest/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/Repodest" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
     <div class="repo-card">
-      <div class="card-top"><div class="icon">🎄</div><span class="badge badge-live">● Live</span></div>
+      <div class="card-top"><div class="icon">🎄</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div>
       <h3>GitHub Wrapped</h3>
       <div class="repo-name">github-wrapped</div>
-      <p class="desc">Your year in code — GitHub activity wrapped in a beautiful visual summary.</p>
+      <p class="desc" data-fa="سال کد شما — خلاصه بصری فعالیت GitHub در یک نگاه." data-en="Your year in code — GitHub activity wrapped in a beautiful visual summary."></p>
       <div class="tags"><span class="tag">HTML</span><span class="tag">GitHub</span></div>
       <div class="card-actions">
-        <a href="https://mohsen-niksirat.github.io/github-wrapped/" target="_blank" class="btn-live">▶ Live</a>
-        <a href="https://github.com/mohsen-niksirat/github-wrapped" target="_blank" class="btn-src">Source</a>
+        <a href="https://mohsen-niksirat.github.io/github-wrapped/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a>
+        <a href="https://github.com/mohsen-niksirat/github-wrapped" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a>
       </div>
     </div>
 
   </div>
 
   <footer class="footer">
-    <p>Built with 💜 by <a href="https://github.com/mohsen-niksirat">Mohsen Niksirat</a> · 2026</p>
+    <p data-fa="ساخته شده با 💜 توسط <a href='https://github.com/mohsen-niksirat'>Mohsen Niksirat</a> · ۲۰۲۶" data-en="Built with 💜 by <a href='https://github.com/mohsen-niksirat'>Mohsen Niksirat</a> · 2026"></p>
   </footer>
 
 </div>
 </div>
 
 <script>
+// ── Language Toggle ──
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+  document.body.dir = lang === 'fa' ? 'rtl' : 'ltr';
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+  
+  document.querySelectorAll('[data-fa]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) {
+      if (el.tagName === 'P' && text.includes('<a ')) {
+        el.innerHTML = text;
+      } else {
+        el.textContent = text;
+      }
+    }
+  });
+  
+  localStorage.setItem('lang', lang);
+}
+
+// Load saved language
+const savedLang = localStorage.getItem('lang') || 'fa';
+setLang(savedLang);
+
 // ── Animated Mesh Background ──
 (function(){
   const canvas = document.getElementById('mesh');
   const ctx = canvas.getContext('2d');
   let w, h, particles = [], mouse = {x: -1000, y: -1000};
   
-  function resize(){
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
+  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-  
-  document.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
 
-  const COUNT = 120;
-  const LINK_DIST = 160;
-  const MOUSE_DIST = 220;
+  const COUNT = 120, LINK_DIST = 160, MOUSE_DIST = 220;
 
   class P {
     constructor(){
-      this.x = Math.random() * w;
-      this.y = Math.random() * h;
-      this.vx = (Math.random() - 0.5) * 0.3;
-      this.vy = (Math.random() - 0.5) * 0.3;
+      this.x = Math.random()*w; this.y = Math.random()*h;
+      this.vx = (Math.random()-0.5)*0.3; this.vy = (Math.random()-0.5)*0.3;
       this.depth = Math.random();
-      this.r = this.depth * 2.5 + 0.4;
+      this.r = this.depth*2.5+0.4;
       this.c = ['rgba(109,92,255,','rgba(6,182,212,','rgba(244,63,94,','rgba(139,92,246,','rgba(34,211,238,'][Math.floor(Math.random()*5)];
-      this.alpha = this.depth * 0.4 + 0.15;
-      this.pulse = Math.random() * Math.PI * 2;
-      this.pulseSpeed = Math.random() * 0.01 + 0.005;
+      this.alpha = this.depth*0.4+0.15;
+      this.pulse = Math.random()*Math.PI*2;
+      this.pulseSpeed = Math.random()*0.01+0.005;
     }
-    update(){
-      this.x += this.vx;
-      this.y += this.vy;
-      this.pulse += this.pulseSpeed;
-      if(this.x < 0 || this.x > w) this.vx *= -1;
-      if(this.y < 0 || this.y > h) this.vy *= -1;
-    }
+    update(){ this.x+=this.vx; this.y+=this.vy; this.pulse+=this.pulseSpeed; if(this.x<0||this.x>w) this.vx*=-1; if(this.y<0||this.y>h) this.vy*=-1; }
     draw(){
-      const a = this.alpha + Math.sin(this.pulse) * 0.1;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-      ctx.fillStyle = this.c + Math.max(0,a).toFixed(2) + ')';
-      ctx.fill();
-      if(this.depth > 0.6){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI*2);
-        ctx.fillStyle = this.c + (a * 0.15).toFixed(3) + ')';
-        ctx.fill();
-      }
+      const a = this.alpha+Math.sin(this.pulse)*0.1;
+      ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle = this.c+Math.max(0,a).toFixed(2)+')'; ctx.fill();
+      if(this.depth>0.6){ ctx.beginPath(); ctx.arc(this.x,this.y,this.r*3,0,Math.PI*2); ctx.fillStyle = this.c+(a*0.15).toFixed(3)+')'; ctx.fill(); }
     }
   }
 
-  for(let i = 0; i < COUNT; i++) particles.push(new P());
+  for(let i=0;i<COUNT;i++) particles.push(new P());
 
   function frame(){
-    ctx.clearRect(0, 0, w, h);
-    for(let i = 0; i < particles.length; i++){
-      particles[i].update();
-      particles[i].draw();
-      for(let j = i+1; j < particles.length; j++){
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if(d < LINK_DIST){
-          const depthAvg = (particles[i].depth + particles[j].depth) / 2;
-          const a = 0.08 + depthAvg * 0.1;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = particles[i].c + (a * (1 - d/LINK_DIST)) + ')';
-          ctx.lineWidth = 0.3 + depthAvg * 0.4;
-          ctx.stroke();
+    ctx.clearRect(0,0,w,h);
+    for(let i=0;i<particles.length;i++){
+      particles[i].update(); particles[i].draw();
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, d=Math.sqrt(dx*dx+dy*dy);
+        if(d<LINK_DIST){
+          const depthAvg=(particles[i].depth+particles[j].depth)/2;
+          ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle = particles[i].c+(0.08+depthAvg*0.1)*(1-d/LINK_DIST)+')';
+          ctx.lineWidth = 0.3+depthAvg*0.4; ctx.stroke();
         }
       }
-      const mx = particles[i].x - mouse.x;
-      const my = particles[i].y - mouse.y;
-      const md = Math.sqrt(mx*mx + my*my);
-      if(md < MOUSE_DIST){
-        const a = 0.15 + particles[i].depth * 0.15;
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(mouse.x, mouse.y);
-        ctx.strokeStyle = 'rgba(109,92,255,' + (a * (1 - md/MOUSE_DIST)) + ')';
-        ctx.lineWidth = 0.5 + particles[i].depth * 0.5;
-        ctx.stroke();
+      const mx=particles[i].x-mouse.x, my=particles[i].y-mouse.y, md=Math.sqrt(mx*mx+my*my);
+      if(md<MOUSE_DIST){
+        ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(mouse.x,mouse.y);
+        ctx.strokeStyle = 'rgba(109,92,255,'+(0.15+particles[i].depth*0.15)*(1-md/MOUSE_DIST)+')';
+        ctx.lineWidth = 0.5+particles[i].depth*0.5; ctx.stroke();
       }
     }
     requestAnimationFrame(frame);
   }
   frame();
 
-  // ── 3D Parallax Tilt on Cards ──
+  // ── 3D Parallax Tilt ──
   const cards = document.querySelectorAll('.repo-card, .resume-card');
   document.addEventListener('mousemove', e => {
-    const cx = window.innerWidth / 2;
-    const cy = window.innerHeight / 2;
-    const dx = (e.clientX - cx) / cx;
-    const dy = (e.clientY - cy) / cy;
-    cards.forEach((card, i) => {
+    const cx=window.innerWidth/2, cy=window.innerHeight/2;
+    const dx=(e.clientX-cx)/cx, dy=(e.clientY-cy)/cy;
+    cards.forEach((card,i) => {
       const rect = card.getBoundingClientRect();
-      if(rect.top < window.innerHeight && rect.bottom > 0){
-        const intensity = 0.3 + (i % 3) * 0.1;
-        card.style.transform = `translateZ(${10 + i * 2}px) rotateY(${dx * intensity}deg) rotateX(${-dy * intensity}deg)`;
+      if(rect.top<window.innerHeight && rect.bottom>0){
+        const intensity = 0.3+(i%3)*0.1;
+        card.style.transform = `translateZ(${10+i*2}px) rotateY(${dx*intensity}deg) rotateX(${-dy*intensity}deg)`;
       }
     });
   });
-  document.addEventListener('mouseleave', () => {
-    cards.forEach(card => { card.style.transform = ''; });
-  });
+  document.addEventListener('mouseleave', () => { cards.forEach(c => c.style.transform=''); });
 })();
 </script>
 </body>
