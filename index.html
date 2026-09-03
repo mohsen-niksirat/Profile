@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohsen Niksirat — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;
+  --surface:rgba(255,255,255,0.04);
+  --surface-hover:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.08);
+  --text:#e4e4e7;
+  --text-dim:#71717a;
+  --accent:#6d5cff;
+  --accent-glow:rgba(109,92,255,0.3);
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --rose:#f43f5e;
+  --cyan:#06b6d4;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── Animated Mesh Background ── */
+.mesh-bg{
+  position:fixed;inset:0;z-index:0;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(109,92,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 70%, rgba(6,182,212,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 10%, rgba(244,63,94,0.06) 0%, transparent 60%),
+    var(--bg);
+}
+.mesh-bg canvas{width:100%;height:100%;display:block}
+
+/* ── Grain overlay ── */
+.grain{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── Content ── */
+.content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+/* ── Header ── */
+.header{text-align:center;padding:4rem 0 2rem}
+.avatar{
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid var(--accent);
+  box-shadow:0 0 40px var(--accent-glow),0 0 80px rgba(109,92,255,0.1);
+  margin:0 auto 1.5rem;
+  display:block;
+  object-fit:cover;
+  transition:transform 0.4s,box-shadow 0.4s;
+}
+.avatar:hover{transform:scale(1.05);box-shadow:0 0 60px var(--accent-glow),0 0 120px rgba(109,92,255,0.15)}
+.header h1{
+  font-size:clamp(2rem,5vw,3rem);font-weight:800;
+  background:linear-gradient(135deg,#fff 0%,#a78bfa 50%,#06b6d4 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:0.5rem;
+}
+.header .tagline{color:var(--text-dim);font-size:1.05rem;font-weight:300;max-width:500px;margin:0 auto 1.5rem}
+.social-links{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.social-links a{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  padding:0.5rem 1rem;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:500;
+  transition:all 0.3s;
+}
+.social-links a:hover{background:var(--surface-hover);color:var(--text);border-color:var(--accent)}
+.social-links svg{width:16px;height:16px;fill:currentColor}
+
+/* ── Stats bar ── */
+.stats-bar{
+  display:flex;justify-content:center;gap:2.5rem;padding:1.5rem 0 2.5rem;flex-wrap:wrap;
+}
+.stat{text-align:center}
+.stat .num{font-size:1.5rem;font-weight:700;font-family:'JetBrains Mono',monospace;color:var(--accent)}
+.stat .label{font-size:0.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em}
+
+/* ── Section Title ── */
+.section-title{
+  font-size:1rem;font-weight:600;color:var(--text-dim);
+  margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;
+  text-transform:uppercase;letter-spacing:0.08em;
+}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── Repo Grid ── */
+.repo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:0.9rem;
+}
+
+/* ── Repo Card ── */
+.repo-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.25rem;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.repo-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.repo-card:hover{
+  border-color:rgba(109,92,255,0.3);
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.3),0 0 20px rgba(109,92,255,0.05);
+}
+.repo-card:hover::before{opacity:1}
+
+.repo-card .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.6rem}
+.repo-card .icon{
+  font-size:1.6rem;
+  width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:10px;
+  background:rgba(109,92,255,0.1);
+  flex-shrink:0;
+}
+.repo-card .badge{
+  font-size:0.6rem;font-weight:600;
+  padding:0.2rem 0.5rem;border-radius:999px;
+  text-transform:uppercase;letter-spacing:0.05em;
+}
+.badge-live{background:rgba(34,197,94,0.15);color:var(--green)}
+.badge-wip{background:rgba(245,158,11,0.15);color:var(--amber)}
+.badge-source{background:rgba(109,92,255,0.15);color:var(--accent)}
+
+.repo-card h3{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.2rem}
+.repo-card .repo-name{
+  font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+  color:var(--text-dim);margin-bottom:0.5rem;
+}
+.repo-card .desc{font-size:0.8rem;color:var(--text-dim);line-height:1.5;margin-bottom:0.75rem}
+.repo-card .tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.repo-card .tag{
+  font-size:0.65rem;padding:0.15rem 0.4rem;
+  border-radius:5px;background:rgba(255,255,255,0.06);
+  color:var(--text-dim);font-weight:500;
+}
+.repo-card .card-actions{display:flex;gap:0.4rem}
+.repo-card .card-actions a{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  padding:0.4rem 0.8rem;border-radius:8px;
+  font-size:0.75rem;font-weight:500;text-decoration:none;
+  transition:all 0.3s;flex:1;justify-content:center;
+}
+.btn-live{
+  background:var(--accent);color:#fff;
+  box-shadow:0 2px 10px rgba(109,92,255,0.3);
+}
+.btn-live:hover{background:#7c6bff;box-shadow:0 4px 16px rgba(109,92,255,0.4)}
+.btn-src{
+  background:var(--surface);border:1px solid var(--border);color:var(--text-dim);
+}
+.btn-src:hover{background:var(--surface-hover);color:var(--text);border-color:rgba(255,255,255,0.15)}
+
+/* ── Featured ── */
+.repo-card.featured{
+  grid-column:span 2;
+  background:linear-gradient(135deg,rgba(109,92,255,0.06),rgba(6,182,212,0.04));
+  border-color:rgba(109,92,255,0.15);
+}
+@media(max-width:700px){.repo-card.featured{grid-column:span 1}}
+
+/* ── Footer ── */
+.footer{
+  text-align:center;padding:3rem 0 1rem;
+  color:var(--text-dim);font-size:0.75rem;
+}
+.footer a{color:var(--accent);text-decoration:none}
+
+/* ── Animations ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.repo-card{animation:fadeUp 0.5s ease both}
+.repo-card:nth-child(1){animation-delay:0.03s}
+.repo-card:nth-child(2){animation-delay:0.06s}
+.repo-card:nth-child(3){animation-delay:0.09s}
+.repo-card:nth-child(4){animation-delay:0.12s}
+.repo-card:nth-child(5){animation-delay:0.15s}
+.repo-card:nth-child(6){animation-delay:0.18s}
+.repo-card:nth-child(7){animation-delay:0.21s}
+.repo-card:nth-child(8){animation-delay:0.24s}
+.repo-card:nth-child(9){animation-delay:0.27s}
+.repo-card:nth-child(10){animation-delay:0.3s}
+.repo-card:nth-child(11){animation-delay:0.33s}
+.repo-card:nth-child(12){animation-delay:0.36s}
+.repo-card:nth-child(13){animation-delay:0.39s}
+.repo-card:nth-child(14){animation-delay:0.42s}
+.repo-card:nth-child(15){animation-delay:0.45s}
+.repo-card:nth-child(16){animation-delay:0.48s}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2)}
+</style>
+</head>
+<body>
+
+<div class="mesh-bg"><canvas id="mesh"></canvas></div>
+<div class="grain"></div>
+
+<div class="content">
+
+  <header class="header">
+    <img src="https://avatars.githubusercontent.com/u/319197712?v=4" alt="Mohsen Niksirat" class="avatar">
+    <h1>Mohsen Niksirat</h1>
+    <p class="tagline">CS grad building practical web apps & tools — Languages, finance, and productivity</p>
+    <div class="social-links">
+      <a href="https://github.com/mohsen-niksirat" target="_blank">
+        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="https://t.me/mohsenniksirat" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+        Telegram
+      </a>
+    </div>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat"><div class="num">16</div><div class="label">Repos</div></div>
+    <div class="stat"><div class="num">14</div><div class="label">Live Apps</div></div>
+    <div class="stat"><div class="num">4.5K</div><div class="label">Vocab Words</div></div>
+  </div>
+
+  <!-- ═══════ Featured ═══════ -->
+  <div class="section-title">⭐ پروژه‌های ویژه</div>
+  <div class="repo-grid">
+
+    <div class="repo-card featured">
+      <div class="card-top">
+        <div class="icon">📚</div>
+        <span class="badge badge-live">● Live</span>
+      </div>
+      <h3>Readner (leitner-pro)</h3>
+      <div class="repo-name">leitner-pro</div>
+      <p class="desc">Smart vocabulary learning with FSRS spaced repetition, PDF reader, 13 languages. Single HTML file — works offline.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">FSRS</span><span class="tag">Offline</span><span class="tag">13 Languages</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/leitner-pro/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/leitner-pro" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card featured">
+      <div class="card-top">
+        <div class="icon">🧠</div>
+        <span class="badge badge-live">● Live</span>
+      </div>
+      <h3>Leitner Pro Max</h3>
+      <div class="repo-name">Leitner-Pro-Max</div>
+      <p class="desc">Advanced Leitner box with CEFR vocabulary packs (A1-C2), VocabForge, long-term memory, quizzes, and 4,500+ words.</p>
+      <div class="tags"><span class="tag">JavaScript</span><span class="tag">CEFR</span><span class="tag">4,500 Words</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Leitner-Pro-Max/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Leitner-Pro-Max" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════ Learning & Education ═══════ -->
+  <div class="section-title" style="margin-top:1.5rem">🎓 یادگیری و آموزش</div>
+  <div class="repo-grid">
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">📖</div><span class="badge badge-live">● Live</span></div>
+      <h3>VocabForge</h3>
+      <div class="repo-name">VocabForge</div>
+      <p class="desc">Build flashcards from any text, PDF or document instantly.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Flashcards</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/VocabForge/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/VocabForge" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">📱</div><span class="badge badge-live">● Live</span></div>
+      <h3>Leitner Mobile</h3>
+      <div class="repo-name">Leitner_Mobile</div>
+      <p class="desc">Mobile-optimized Leitner flashcard system for on-the-go learning.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Mobile</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Leitner_Mobile/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Leitner_Mobile" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">📝</div><span class="badge badge-live">● Live</span></div>
+      <h3>English Quiz</h3>
+      <div class="repo-name">EnglishQuiz</div>
+      <p class="desc">Interactive English vocabulary quiz with scoring and progress tracking.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Quiz</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/EnglishQuiz/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/EnglishQuiz" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">🤖</div><span class="badge badge-live">● Live</span></div>
+      <h3>English Quiz Bot</h3>
+      <div class="repo-name">EnglishQuizBeta</div>
+      <p class="desc">Telegram quiz bot — automated English vocabulary quizzes in TypeScript.</p>
+      <div class="tags"><span class="tag">TypeScript</span><span class="tag">Telegram Bot</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/EnglishQuizBeta/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/EnglishQuizBeta" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════ Entertainment ═══════ -->
+  <div class="section-title" style="margin-top:1.5rem">🎬 سرگرمی</div>
+  <div class="repo-grid">
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">🎬</div><span class="badge badge-live">● Live</span></div>
+      <h3>Cinema Sermovie</h3>
+      <div class="repo-name">Cinema</div>
+      <p class="desc">Movie browsing and discovery platform with ratings, reviews, and recommendations.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Movies</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Cinema/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Cinema" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">⭐</div><span class="badge badge-live">● Live</span></div>
+      <h3>CineScore</h3>
+      <div class="repo-name">CineScore</div>
+      <p class="desc">Movie rating and scoring system with community-driven ratings.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Ratings</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/CineScore/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/CineScore" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">🎮</div><span class="badge badge-live">● Live</span></div>
+      <h3>Horde Survival</h3>
+      <div class="repo-name">HordeSurvival</div>
+      <p class="desc">Kotlin-based survival game with wave combat and procedural generation.</p>
+      <div class="tags"><span class="tag">Kotlin</span><span class="tag">Game</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/HordeSurvival/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/HordeSurvival" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════ Tools & Productivity ═══════ -->
+  <div class="section-title" style="margin-top:1.5rem">🧰 ابزارها و بهره‌وری</div>
+  <div class="repo-grid">
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">💬</div><span class="badge badge-live">● Live</span></div>
+      <h3>Free AI Chat</h3>
+      <div class="repo-name">Free-AI-Chat</div>
+      <p class="desc">Clean chat interface powered by AI APIs with multi-model support.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">AI</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Free-AI-Chat/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Free-AI-Chat" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">🧰</div><span class="badge badge-live">● Live</span></div>
+      <h3>Toolbox</h3>
+      <div class="repo-name">Toolbox</div>
+      <p class="desc">Collection of browser-based utilities — JSON, Base64, QR, color picker, and more.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Utilities</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Toolbox/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Toolbox" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">📈</div><span class="badge badge-live">● Live</span></div>
+      <h3>Life Tracker</h3>
+      <div class="repo-name">life-tracker</div>
+      <p class="desc">Track habits, goals, and life metrics with daily check-ins and streaks.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Habits</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/life-tracker/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/life-tracker" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">👨‍👩‍👧‍👦</div><span class="badge badge-live">● Live</span></div>
+      <h3>Family Tree</h3>
+      <div class="repo-name">FamilyTree</div>
+      <p class="desc">Visual family tree builder — single HTML file with full offline storage.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Offline</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/FamilyTree/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/FamilyTree" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════ Explorer & Analytics ═══════ -->
+  <div class="section-title" style="margin-top:1.5rem">🔍 کاوش و تحلیل</div>
+  <div class="repo-grid">
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">✈️</div><span class="badge badge-live">● Live</span></div>
+      <h3>TG Explorer</h3>
+      <div class="repo-name">tgexplorer</div>
+      <p class="desc">Explore and search public Telegram channels with a clean web interface.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">Telegram</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/tgexplorer/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/tgexplorer" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">📊</div><span class="badge badge-live">● Live</span></div>
+      <h3>Repodest</h3>
+      <div class="repo-name">Repodest</div>
+      <p class="desc">Repository analytics and digest dashboard with Chart.js visualizations.</p>
+      <div class="tags"><span class="tag">CSS</span><span class="tag">Chart.js</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/Repodest/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/Repodest" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+    <div class="repo-card">
+      <div class="card-top"><div class="icon">🎄</div><span class="badge badge-live">● Live</span></div>
+      <h3>GitHub Wrapped</h3>
+      <div class="repo-name">github-wrapped</div>
+      <p class="desc">Your year in code — GitHub activity wrapped in a beautiful visual summary.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">GitHub</span></div>
+      <div class="card-actions">
+        <a href="https://mohsen-niksirat.github.io/github-wrapped/" target="_blank" class="btn-live">▶ Live</a>
+        <a href="https://github.com/mohsen-niksirat/github-wrapped" target="_blank" class="btn-src">Source</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>Built with 💜 by <a href="https://github.com/mohsen-niksirat">Mohsen Niksirat</a> · 2026</p>
+  </footer>
+</div>
+
+<script>
+// ── Animated Mesh Background ──
+(function(){
+  const canvas = document.getElementById('mesh');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [], mouse = {x: -1000, y: -1000};
+  
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  
+  document.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+
+  const COUNT = 70;
+  const LINK_DIST = 140;
+  const MOUSE_DIST = 180;
+
+  class P {
+    constructor(){
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - 0.5) * 0.35;
+      this.vy = (Math.random() - 0.5) * 0.35;
+      this.r = Math.random() * 1.5 + 0.5;
+      this.c = ['rgba(109,92,255,','rgba(6,182,212,','rgba(244,63,94,'][Math.floor(Math.random()*3)];
+    }
+    update(){
+      this.x += this.vx;
+      this.y += this.vy;
+      if(this.x < 0 || this.x > w) this.vx *= -1;
+      if(this.y < 0 || this.y > h) this.vy *= -1;
+    }
+    draw(){
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = this.c + '0.5)';
+      ctx.fill();
+    }
+  }
+
+  for(let i = 0; i < COUNT; i++) particles.push(new P());
+
+  function frame(){
+    ctx.clearRect(0, 0, w, h);
+    for(let i = 0; i < particles.length; i++){
+      particles[i].update();
+      particles[i].draw();
+      for(let j = i+1; j < particles.length; j++){
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if(d < LINK_DIST){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = particles[i].c + (0.12 * (1 - d/LINK_DIST)) + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+      const mx = particles[i].x - mouse.x;
+      const my = particles[i].y - mouse.y;
+      const md = Math.sqrt(mx*mx + my*my);
+      if(md < MOUSE_DIST){
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(109,92,255,' + (0.25 * (1 - md/MOUSE_DIST)) + ')';
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
