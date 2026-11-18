@@ -1237,7 +1237,34 @@ html[lang="fa"] {
       }
     }
 
-    @media (max-height: 700px) {
+    /* Compact stack so Calendar + Weather fit comfortably on 768p laptops */
+    @media (max-height: 760px) {
+      top: 14px;
+      gap: 10px;
+
+      .calendar-widget {
+        padding: 12px 14px 10px;
+      }
+
+      .calendar-head {
+        margin-bottom: 6px;
+      }
+
+      .calendar-grid {
+        row-gap: 2px;
+      }
+
+      .calendar-day {
+        width: 22px;
+        height: 22px;
+      }
+
+      .weather-widget {
+        padding: 10px 14px;
+      }
+    }
+
+    @media (max-height: 520px) {
       .calendar-widget {
         display: none;
       }
@@ -5175,8 +5202,22 @@ html[lang="fa"] {
       inset-inline-start: 20px;
       bottom: calc(var(--dock-space) + 14px);
 
-      /* Only where it has room beside the welcome text. */
-      @media (max-height: 819px), (max-width: 1099px) {
+      /* Match the 256px widget column so it fits beside the hero on laptops. */
+      @media (max-height: 819px), (max-width: 1440px) {
+        width: 256px;
+        padding: 10px 12px 9px;
+        gap: 7px;
+        bottom: calc(var(--dock-space) + 10px);
+      }
+
+      @media (max-height: 720px) {
+        .gh-commits {
+          display: none;
+        }
+      }
+
+      /* Only hide when truly too short or too narrow beside the welcome text. */
+      @media (max-height: 580px), (max-width: 1149px) {
         display: none;
       }
     }
@@ -5184,6 +5225,13 @@ html[lang="fa"] {
     &.is-mobile {
       width: 100%;
     }
+  }
+
+  .gh-handle {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .gh-head {

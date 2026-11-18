@@ -3,20 +3,20 @@ import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { useGSAP } from "@gsap/react";
 import { openProject, openWindow } from "../../lib/actions";
+import { asset } from "../../lib/paths";
 import { prefetchWindow } from "../../windows";
 import { useT } from "../../i18n";
-import { useContent } from "../../i18n/content";
 
 gsap.registerPlugin(Draggable);
 
-// `label` is a ui.js key; `project` takes its (localized) title.
+// `label` is a ui.js key; `name` is a crisp 1-line repo folder name.
 const ICONS = [
-  { id: "projects", label: "desktop.projects", icon: "/images/folder.png", open: () => openWindow("finder", { location: "work" }), prefetch: "finder" },
-  { id: "relay", project: "relay", icon: "/images/folder.png", open: () => openProject("relay"), prefetch: "safari" },
-  { id: "flow", project: "flow", icon: "/images/folder.png", open: () => openProject("flow"), prefetch: "safari" },
-  { id: "sooda", project: "sooda", icon: "/images/folder.png", open: () => openProject("sooda"), prefetch: "safari" },
-  { id: "about", label: "desktop.about", icon: "/images/txt.png", open: () => openWindow("notes", { noteId: "about" }), prefetch: "notes" },
-  { id: "resume", label: "desktop.resume", icon: "/images/pdf.png", open: () => openWindow("resume"), prefetch: "resume" },
+  { id: "projects", label: "desktop.projects", icon: asset("/images/folder.png"), open: () => openWindow("finder", { location: "work" }), prefetch: "finder" },
+  { id: "repodest", name: "Repodest", icon: asset("/images/folder.png"), open: () => openProject("repodest"), prefetch: "safari" },
+  { id: "leitner-pro-max", name: "Readner", icon: asset("/images/folder.png"), open: () => openProject("leitner-pro-max"), prefetch: "safari" },
+  { id: "9router", name: "9Router", icon: asset("/images/folder.png"), open: () => openProject("9router"), prefetch: "safari" },
+  { id: "about", label: "desktop.about", icon: asset("/images/txt.png"), open: () => openWindow("notes", { noteId: "about" }), prefetch: "notes" },
+  { id: "resume", label: "desktop.resume", icon: asset("/images/pdf.png"), open: () => openWindow("resume"), prefetch: "resume" },
 ];
 
 // Files on the desktop. Drag them around; click to open.
@@ -24,9 +24,7 @@ const DesktopIcons = () => {
   const ref = useRef(null);
   const lastDrag = useRef(0);
   const t = useT();
-  const { projects } = useContent();
-  const nameOf = (item) =>
-    item.project ? projects.find((p) => p.id === item.project)?.title : t(item.label);
+  const nameOf = (item) => item.name ?? t(item.label);
 
   useGSAP(
     () => {
