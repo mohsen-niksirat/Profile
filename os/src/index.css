@@ -5919,3 +5919,835 @@ html[lang="fa"] {
     cursor: pointer;
   }
 }
+
+/* ─── Multi-OS Architecture: Windows 11 Fluent & Ubuntu GNOME ──────────────── */
+
+@layer components {
+  /* Settings OS Selector Cards */
+  .os-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .os-options-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .os-option-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    border: 1.5px solid var(--line);
+    text-align: start;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background: var(--surface-3);
+      border-color: var(--line-strong);
+      transform: translateY(-1px);
+    }
+
+    &.is-active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+  }
+
+  .os-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .os-card-icon {
+    font-size: 24px;
+  }
+
+  .os-card-badge {
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.08);
+    color: var(--text-2);
+  }
+
+  .os-card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .os-card-desc {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--text-3);
+  }
+
+  .os-active-check {
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+  }
+
+  /* ─── Windows 11 Desktop & Window Styling ──────────────────────────────── */
+  html[data-os="windows"] {
+    --menubar-h: 0px;
+
+    .desktop.is-windows {
+      padding-top: 24px;
+      padding-bottom: 56px;
+    }
+
+    .window {
+      border-radius: 8px;
+      box-shadow:
+        0 0 0 1px rgb(255 255 255 / 0.1),
+        0 16px 48px -8px rgb(0 0 0 / 0.7);
+    }
+
+    .window-header.is-os-windows {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 34px;
+      padding: 0 0 0 10px;
+      background: rgb(32 32 36 / 0.95);
+      border-bottom: 1px solid rgb(255 255 255 / 0.06);
+    }
+
+    .win11-header-title-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .win11-header-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    .win11-controls {
+      display: inline-flex;
+      align-items: stretch;
+      height: 34px;
+    }
+
+    .win11-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 34px;
+      color: rgb(255 255 255 / 0.85);
+      transition: background-color 0.1s, color 0.1s;
+
+      &:hover {
+        background: rgb(255 255 255 / 0.12);
+        color: #fff;
+      }
+
+      &.win11-btn-close:hover {
+        background: #e81123 !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  /* Windows 11 Taskbar */
+  .win11-taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 7500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    background: rgb(28 28 32 / 0.85);
+    backdrop-filter: blur(40px) saturate(2);
+    -webkit-backdrop-filter: blur(40px) saturate(2);
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .win11-taskbar-left,
+  .win11-taskbar-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 140px;
+  }
+
+  .win11-taskbar-right {
+    justify-content: flex-end;
+  }
+
+  .win11-taskbar-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .win11-weather-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-tb-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+
+    &.is-active,
+    &.is-focused {
+      background: rgb(255 255 255 / 0.15);
+    }
+  }
+
+  .win11-tb-sep {
+    width: 1px;
+    height: 18px;
+    margin: 0 4px;
+    background: rgb(255 255 255 / 0.12);
+  }
+
+  .win11-running-pill {
+    position: absolute;
+    bottom: 2px;
+    width: 6px;
+    height: 3px;
+    border-radius: 999px;
+    background: #60cdff;
+    transition: width 0.15s;
+  }
+
+  .win11-tb-icon.is-focused .win11-running-pill {
+    width: 15px;
+  }
+
+  .win11-tray-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-tray-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-clock-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1.15;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-clock-time {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .win11-clock-date {
+    font-size: 11px;
+    color: rgb(255 255 255 / 0.7);
+  }
+
+  .win11-peek-desktop {
+    width: 6px;
+    height: 28px;
+    border-inline-start: 1px solid rgb(255 255 255 / 0.15);
+    margin-inline-start: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.2);
+    }
+  }
+
+  /* Windows 11 Start Menu */
+  .win11-start-menu {
+    position: fixed;
+    bottom: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 8500;
+    width: 580px;
+    max-height: min(640px, calc(100vh - 72px));
+    display: flex;
+    flex-direction: column;
+    padding: 24px 28px 16px;
+    border-radius: 12px;
+    background: rgb(32 32 36 / 0.92);
+    backdrop-filter: blur(50px) saturate(2);
+    -webkit-backdrop-filter: blur(50px) saturate(2);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow: 0 24px 60px rgb(0 0 0 / 0.75);
+    animation: pop-in 0.15s ease-out;
+  }
+
+  @media (max-width: 620px) {
+    .win11-start-menu {
+      width: calc(100vw - 20px);
+      padding: 16px;
+    }
+  }
+
+  .win11-start-search {
+    margin-bottom: 20px;
+  }
+
+  .win11-search-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 38px;
+    padding: 0 14px;
+    border-radius: 20px;
+    background: rgb(20 20 24 / 0.75);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    color: var(--text-2);
+    font-size: 13.5px;
+    text-align: start;
+    transition: border-color 0.12s;
+
+    &:hover {
+      border-color: #60cdff;
+    }
+  }
+
+  .win11-start-section {
+    margin-bottom: 20px;
+  }
+
+  .win11-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .win11-section-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .win11-section-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12px;
+    color: var(--text-3);
+    padding: 3px 8px;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+      color: #fff;
+    }
+  }
+
+  .win11-pinned-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  @media (max-width: 620px) {
+    .win11-pinned-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .win11-app-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 4px;
+    border-radius: 6px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-app-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-bottom: 6px;
+  }
+
+  .win11-app-name {
+    font-size: 11.5px;
+    color: rgb(255 255 255 / 0.88);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .win11-rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  @media (max-width: 620px) {
+    .win11-rec-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .win11-rec-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.08);
+    }
+  }
+
+  .win11-rec-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgb(255 255 255 / 0.06);
+  }
+
+  .win11-rec-title {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .win11-rec-sub {
+    font-size: 11px;
+    color: var(--text-3);
+  }
+
+  .win11-start-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    margin-top: auto;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .win11-footer-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .win11-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .win11-user-role {
+    font-size: 11px;
+    color: var(--text-3);
+  }
+
+  .win11-footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .win11-os-picker {
+    display: flex;
+    align-items: center;
+    background: rgb(255 255 255 / 0.08);
+    padding: 2px;
+    border-radius: 6px;
+    gap: 2px;
+  }
+
+  .win11-os-btn {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.15);
+    }
+
+    &.is-active {
+      background: #00adef;
+    }
+  }
+
+  .win11-power-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    color: rgb(255 255 255 / 0.85);
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+      color: #fff;
+    }
+  }
+
+  /* ─── Ubuntu GNOME Desktop & Window Styling ───────────────────────────── */
+  html[data-os="ubuntu"] {
+    --menubar-h: 28px;
+
+    .desktop.is-ubuntu {
+      padding-top: 28px;
+      padding-inline-start: 60px;
+    }
+
+    .window {
+      border-radius: 10px;
+      box-shadow:
+        0 0 0 1px rgb(255 255 255 / 0.1),
+        0 18px 50px -10px rgb(0 0 0 / 0.8);
+    }
+
+    .window-header.is-os-ubuntu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 36px;
+      padding: 0 12px;
+      background: #242424;
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+    }
+
+    .ubuntu-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ub-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgb(255 255 255 / 0.15);
+      color: #fff;
+      transition: background-color 0.12s;
+
+      &:hover {
+        background: rgb(255 255 255 / 0.3);
+      }
+
+      &.ub-btn-close:hover {
+        background: #e95420;
+      }
+    }
+  }
+
+  /* Ubuntu Top Bar */
+  .ubuntu-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    z-index: 7500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: #111;
+    color: #dedede;
+    font-size: 13px;
+  }
+
+  .ubuntu-topbar-left,
+  .ubuntu-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+  }
+
+  .ubuntu-topbar-right {
+    justify-content: flex-end;
+  }
+
+  .ubuntu-activities-btn {
+    padding: 1px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.15);
+      color: #fff;
+    }
+  }
+
+  .ubuntu-app-title {
+    font-weight: 700;
+    color: #fff;
+    margin-inline-start: 6px;
+  }
+
+  .ubuntu-clock-btn {
+    font-weight: 500;
+    padding: 1px 12px;
+    border-radius: 12px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.15);
+      color: #fff;
+    }
+  }
+
+  .ubuntu-system-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: background-color 0.1s;
+
+    &:hover,
+    &.is-active {
+      background: rgb(255 255 255 / 0.15);
+    }
+  }
+
+  .ubuntu-system-menu {
+    position: absolute;
+    top: 32px;
+    inset-inline-end: 10px;
+    z-index: 8500;
+    width: 240px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #242424;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.6);
+    animation: pop-in 0.14s ease-out;
+  }
+
+  .ubuntu-os-options {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .ubuntu-os-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-align: start;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+
+    &.is-active {
+      background: #e95420;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+
+  .ubuntu-menu-sep {
+    height: 1px;
+    margin: 6px 4px;
+    background: rgb(255 255 255 / 0.1);
+  }
+
+  .ubuntu-menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-align: start;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+      color: #fff;
+    }
+  }
+
+  /* Ubuntu Dock (Yaru Left Launcher) */
+  .ubuntu-dock {
+    position: fixed;
+    top: 28px;
+    bottom: 0;
+    left: 0;
+    width: 56px;
+    z-index: 7000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px 0;
+    background: rgb(17 17 17 / 0.94);
+    border-inline-end: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .ubuntu-dock-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .ubuntu-dock-item-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ubuntu-running-indicator {
+    position: absolute;
+    left: 2px;
+    width: 3.5px;
+    height: 5px;
+    border-radius: 999px;
+    background: #e95420;
+
+    &.is-active {
+      height: 18px;
+    }
+  }
+
+  .ubuntu-dock-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+
+    &.is-focused {
+      background: rgb(255 255 255 / 0.18);
+    }
+  }
+
+  .ubuntu-dock-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .ubuntu-apps-grid-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+  }
+}

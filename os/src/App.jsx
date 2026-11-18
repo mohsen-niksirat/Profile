@@ -10,6 +10,9 @@ import MissionControl from "./components/MissionControl";
 import KeyboardShortcuts from "./components/KeyboardShortcuts";
 import ContextMenu from "./components/desktop/ContextMenu";
 import Toast from "./components/Toast";
+import WindowsTaskbar from "./components/windows11/WindowsTaskbar";
+import UbuntuShell from "./components/ubuntu/UbuntuShell";
+import useSettingsStore from "#store/settings";
 import { LockScreen, BootScreen } from "./components/desktop/SystemOverlays";
 import { windows } from "./windows";
 import useUiStore from "#store/ui";
@@ -37,6 +40,7 @@ const App = () => {
   useMobileBackNavigation(isMobile);
   useDeepLink();
   const brightness = useUiStore((s) => s.brightness);
+  const osMode = useSettingsStore((s) => s.osMode || "macos");
 
   return (
     <>
@@ -46,6 +50,38 @@ const App = () => {
 
       {isMobile ? (
         <MobileHome />
+      ) : osMode === "windows" ? (
+        <>
+          <main className="desktop is-windows" aria-label={t("menu.desktop")} onContextMenu={onDesktopContextMenu}>
+            <div className="widgets">
+              <CalendarWidget />
+              <WeatherWidget />
+              <FeaturedWidget />
+            </div>
+            <Welcome />
+            <GitHubWidget className="is-desktop" />
+            <DesktopIcons />
+          </main>
+          <WindowsTaskbar />
+          <MissionControl />
+          <ContextMenu />
+        </>
+      ) : osMode === "ubuntu" ? (
+        <>
+          <UbuntuShell />
+          <main className="desktop is-ubuntu" aria-label={t("menu.desktop")} onContextMenu={onDesktopContextMenu}>
+            <div className="widgets">
+              <CalendarWidget />
+              <WeatherWidget />
+              <FeaturedWidget />
+            </div>
+            <Welcome />
+            <GitHubWidget className="is-desktop" />
+            <DesktopIcons />
+          </main>
+          <MissionControl />
+          <ContextMenu />
+        </>
       ) : (
         <>
           <MenuBar />

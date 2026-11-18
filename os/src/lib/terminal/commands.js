@@ -966,6 +966,36 @@ export const COMMANDS = {
   },
   clear: { group: "System", summary: "clear the screen (Ctrl+L)", run: ({ io }) => (io.clear(), ok()) },
   exit: { group: "System", summary: "close the terminal", run: ({ io }) => (io.close(), ok()) },
+  os: {
+    group: "System",
+    summary: "switch desktop environment (macos, windows, ubuntu)",
+    usage: "os [macos|windows|ubuntu]",
+    run: ({ args }) => {
+      const target = args[0]?.toLowerCase();
+      if (!target) {
+        return ok([
+          line(span("Available Desktop Environments:", "t-h2")),
+          line(span("  os macos    ", "t-cmd", { run: "os macos" }), span("Switch to macOS Sonoma", "t-muted")),
+          line(span("  os windows  ", "t-cmd", { run: "os windows" }), span("Switch to Windows 11 Fluent", "t-muted")),
+          line(span("  os ubuntu   ", "t-cmd", { run: "os ubuntu" }), span("Switch to Ubuntu 24.04 GNOME", "t-muted")),
+        ]);
+      }
+      if (["macos", "mac", "apple", "darwin"].includes(target)) {
+        import("#store/settings").then((m) => m.default.getState().setOsMode("macos"));
+        return ok([line(span("🍎 Switched to macOS Sonoma desktop.", "t-ok"))]);
+      }
+      if (["windows", "win", "win11", "w"].includes(target)) {
+        import("#store/settings").then((m) => m.default.getState().setOsMode("windows"));
+        return ok([line(span("🪟 Switched to Windows 11 desktop.", "t-ok"))]);
+      }
+      if (["ubuntu", "linux", "gnome", "u"].includes(target)) {
+        import("#store/settings").then((m) => m.default.getState().setOsMode("ubuntu"));
+        return ok([line(span("🐧 Switched to Ubuntu Linux desktop.", "t-ok"))]);
+      }
+      return fail(`Unknown OS: ${target}. Choose from: macos, windows, ubuntu`);
+    },
+  },
+
 
   // Fun
   fortune: {

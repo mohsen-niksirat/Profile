@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import useUiStore from "#store/ui";
 import useWindowStore from "#store/window";
+import useSettingsStore from "#store/settings";
 import { useDismiss } from "../../hooks/useDismiss";
 import { useIsDark, useToggleDark } from "../../hooks/useTheme";
 import { openApp } from "../../lib/actions";
@@ -29,6 +30,16 @@ const Menu = ({ x, y }) => {
     { id: "dark", label: t(isDark ? "menu.lightMode" : "menu.darkMode"), run: toggleDark },
     { id: "lock", label: t("menu.lockScreen"), hint: "⌥⇧L", run: () => ui().lockScreen() },
     { id: "lang", label: t("ctx.language"), run: toggleLocale },
+    "-",
+    {
+      id: "os-switch",
+      label: locale === "fa" ? "سوییچ سیستم‌عامل (ویندوز / مک / لینوکس)" : "Switch OS (Win / Mac / Linux)",
+      run: () => {
+        const cur = useSettingsStore.getState().osMode || "macos";
+        const next = cur === "macos" ? "windows" : cur === "windows" ? "ubuntu" : "macos";
+        useSettingsStore.getState().setOsMode(next);
+      },
+    },
     "-",
     { id: "kb", label: t("menu.shortcuts"), hint: "?", run: () => ui().openShortcuts() },
   ];

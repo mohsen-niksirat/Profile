@@ -13,6 +13,11 @@ export const useIsDark = () => {
 export const useApplyTheme = () => {
   const isDark = useIsDark();
   const wallpaperId = useSettingsStore((s) => s.wallpaper);
+  const osMode = useSettingsStore((s) => s.osMode || "macos");
+
+  useEffect(() => {
+    document.documentElement.dataset.os = osMode;
+  }, [osMode]);
 
   useEffect(() => {
     const root = document.documentElement;

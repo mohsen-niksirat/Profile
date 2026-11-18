@@ -7,6 +7,33 @@ import useSettingsStore from "#store/settings";
 import { useIsDark } from "../hooks/useTheme";
 import { setLocale, useLocale, useT } from "../i18n";
 
+const OS_OPTIONS = [
+  {
+    id: "macos",
+    name: "macOS Sonoma",
+    badge: "Apple",
+    icon: "🍎",
+    descEn: "Glass blur, top MenuBar, floating Dock & traffic lights.",
+    descFa: "طراحی شیشه‌ای، منوبار بالا، داک شناور و چراغ‌های ترافیکی.",
+  },
+  {
+    id: "windows",
+    name: "Windows 11",
+    badge: "Microsoft",
+    icon: "🪟",
+    descEn: "Centered Taskbar, Start menu & Fluent window controls.",
+    descFa: "تسک‌بار وسط‌چین، منوی استارت و کنترل‌های فلوئنت ویندوز.",
+  },
+  {
+    id: "ubuntu",
+    name: "Ubuntu 24.04",
+    badge: "Linux",
+    icon: "🐧",
+    descEn: "GNOME top bar, left Yaru dock & orange accents.",
+    descFa: "تاپ‌بار گنوم، داک عمودی چپ و تم رنگی یارو اوبونتو.",
+  },
+];
+
 const APPEARANCES = ["light", "dark", "auto"];
 const LANGUAGES = [
   { id: "en", label: "English", sample: "Aa" },
@@ -22,7 +49,7 @@ const WALLPAPER_NAMES_FA = {
 };
 
 const Settings = () => {
-  const { appearance, wallpaper, setAppearance, setWallpaper } = useSettingsStore();
+  const { appearance, wallpaper, osMode = 'macos', setAppearance, setWallpaper, setOsMode } = useSettingsStore();
   const isDark = useIsDark();
   const { isMobile } = useWindowContext();
   const t = useT();
@@ -32,7 +59,46 @@ const Settings = () => {
     <>
       <WindowHeader title={t("settings.title")} />
       <div className="window-body settings @container">
-        <section className="settings-group" aria-labelledby="appearance-title">
+                <section className="settings-group" aria-labelledby="os-title">
+          <h3 id="os-title" className="settings-title">
+            {locale === "fa" ? "سیستم‌عامل دسکتاپ" : "Desktop Operating System"}
+          </h3>
+          <div className="settings-card">
+            <div className="os-options-grid" role="radiogroup" aria-label="Operating System">
+              {OS_OPTIONS.map((opt) => (
+                <button
+                  key={opt.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={osMode === opt.id}
+                  className={clsx("os-option-card", osMode === opt.id && "is-active")}
+                  onClick={() => setOsMode(opt.id)}
+                >
+                  <div className="os-card-header">
+                    <span className="os-card-icon">{opt.icon}</span>
+                    <span className="os-card-badge">{opt.badge}</span>
+                  </div>
+                  <h4 className="os-card-name">{opt.name}</h4>
+                  <p className="os-card-desc">
+                    {locale === "fa" ? opt.descFa : opt.descEn}
+                  </p>
+                  {osMode === opt.id && (
+                    <span className="os-active-check">
+                      <Check className="size-3.5 stroke-[3]" />
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+            <p className="settings-hint">
+              {locale === "fa"
+                ? "می‌توانید محیط پورتفولیو را درجا بین مک‌اواس، ویندوز ۱۱ و اوبونتو تغییر دهید."
+                : "Hot-swap the entire portfolio desktop shell between macOS, Windows 11, and Ubuntu Linux in real time."}
+            </p>
+          </div>
+        </section>
+
+<section className="settings-group" aria-labelledby="appearance-title">
           <h3 id="appearance-title" className="settings-title">
             {t("settings.appearance")}
           </h3>

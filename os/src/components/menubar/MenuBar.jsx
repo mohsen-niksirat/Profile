@@ -5,6 +5,7 @@ import ControlCenter from "./ControlCenter";
 import { menuLinks } from "#constants";
 import useWindowStore, { selectFocusedKey } from "#store/window";
 import useUiStore from "#store/ui";
+import useSettingsStore from "#store/settings";
 import { useNow } from "../../hooks/useNow";
 import { useDismiss } from "../../hooks/useDismiss";
 import { useToggleDark, useIsDark } from "../../hooks/useTheme";
@@ -53,6 +54,19 @@ const MenuBar = () => {
     "-",
     { id: "lock", label: t("menu.lockScreen"), hint: "⌥⇧L", run: () => ui().lockScreen() },
     { id: "restart", label: t("menu.restart"), run: () => ui().triggerBoot() },
+    "-",
+    {
+      id: "os-win",
+      label: locale === "fa" ? "سوییچ به ویندوز ۱۱" : "Switch to Windows 11",
+      hint: "Win11",
+      run: () => useSettingsStore.getState().setOsMode("windows"),
+    },
+    {
+      id: "os-ub",
+      label: locale === "fa" ? "سوییچ به اوبونتو لینوکس" : "Switch to Ubuntu Linux",
+      hint: "Ubuntu",
+      run: () => useSettingsStore.getState().setOsMode("ubuntu"),
+    },
     "-",
     { id: "closeAll", label: t("menu.closeAll"), run: closeAll },
   ];

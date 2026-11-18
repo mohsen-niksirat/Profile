@@ -13,8 +13,10 @@ const useSettingsStore = create(
       appearance:
         legacyTheme === "dark" || legacyTheme === "light" ? legacyTheme : "auto",
       wallpaper: legacyWallpaper || "default",
+      osMode: "macos", // "macos" | "windows" | "ubuntu"
       setAppearance: (appearance) => set({ appearance }),
       setWallpaper: (wallpaper) => set({ wallpaper }),
+      setOsMode: (osMode) => set({ osMode }),
     }),
     {
       name: "portfolio:settings",

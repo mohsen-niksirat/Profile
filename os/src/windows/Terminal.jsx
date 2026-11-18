@@ -96,12 +96,32 @@ const Line = ({ l, onRun }) => {
   );
 };
 
-const Prompt = ({ cwd, ok }) => (
-  <>
-    <span className="t-path">{cwd}</span>
-    <span className={ok ? "t-arrow" : "t-arrow is-error"}> ❯ </span>
-  </>
-);
+const Prompt = ({ cwd, ok }) => {
+  const osMode = useSettingsStore((s) => s.osMode || "macos");
+  if (osMode === "windows") {
+    return (
+      <span className="text-[#60cdff] font-semibold">
+        {`PS C:\\Users\\Mohsen${cwd === "~" ? "" : `\\${cwd}`}> `}
+      </span>
+    );
+  }
+  if (osMode === "ubuntu") {
+    return (
+      <>
+        <span className="text-[#3ccf6a] font-semibold">mohsen@ubuntu</span>
+        <span className="text-white/60">:</span>
+        <span className="text-[#60cdff] font-semibold">{cwd}</span>
+        <span className={ok ? "text-white" : "text-red-400"}>$ </span>
+      </>
+    );
+  }
+  return (
+    <>
+      <span className="t-path">{cwd}</span>
+      <span className={ok ? "t-arrow" : "t-arrow is-error"}> ❯ </span>
+    </>
+  );
+};
 
 const Terminal = () => {
   const { windowKey, isMobile } = useWindowContext();
