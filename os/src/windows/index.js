@@ -9,6 +9,7 @@ export const loaders = {
   notes: () => import("./Notes"),
   photos: () => import("./Photos"),
   terminal: () => import("./Terminal"),
+  calculator: () => import("./Calculator"),
   vscode: () => import("./Vscode"),
   contact: () => import("./Contact"),
   resume: () => import("./Resume"),

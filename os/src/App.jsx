@@ -10,6 +10,7 @@ import MissionControl from "./components/MissionControl";
 import KeyboardShortcuts from "./components/KeyboardShortcuts";
 import ContextMenu from "./components/desktop/ContextMenu";
 import Toast from "./components/Toast";
+import { LockScreen, BootScreen } from "./components/desktop/SystemOverlays";
 import { windows } from "./windows";
 import useUiStore from "#store/ui";
 import { useIsMobile } from "./hooks/useMediaQuery";
@@ -71,6 +72,8 @@ const App = () => {
       <Spotlight />
       <KeyboardShortcuts />
       <Toast />
+      <LockScreen />
+      <BootScreen />
       <div
         className="brightness-overlay"
         style={{ opacity: ((100 - brightness) / 100) * 0.85 }}

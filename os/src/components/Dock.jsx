@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { apps, dockLayout } from "#constants";
@@ -13,7 +14,19 @@ const byId = Object.fromEntries(apps.map((a) => [a.id, a]));
 const Dock = () => {
   const dockRef = useRef(null);
   const windows = useWindowStore((s) => s.windows);
+  const [bouncingId, setBouncingId] = useState(null);
   const t = useT();
+
+  const handleLaunch = (app) => {
+    // PuruVJ/macos-web bounce feedback when launching an inactive application
+    if (app.window && !app.data && !windows[app.window]?.isOpen && !prefersReducedMotion()) {
+      setBouncingId(app.id);
+      setTimeout(() => {
+        setBouncingId((curr) => (curr === app.id ? null : curr));
+      }, 750);
+    }
+    openApp(app.id);
+  };
 
   // macOS magnification: icons near the cursor grow and lift.
   useGSAP(
@@ -69,11 +82,11 @@ const Dock = () => {
             <li key={id} className="dock-item">
               <button
                 type="button"
-                className="dock-icon"
+                className={clsx("dock-icon", bouncingId === app.id && "is-bouncing")}
                 aria-label={app.href ? t("app.newTab", { name }) : name}
                 onPointerEnter={() => app.window && prefetchWindow(app.window)}
                 onFocus={() => app.window && prefetchWindow(app.window)}
-                onClick={() => openApp(app.id)}
+                onClick={() => handleLaunch(app)}
               >
                 <img src={app.icon} alt="" width="64" height="64" draggable="false" />
               </button>

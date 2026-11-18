@@ -41,7 +41,13 @@ export const useGlobalShortcuts = (isMobile) => {
         ui.toggleMissionControl();
         return;
       }
-      if (ui.spotlightOpen || ui.missionControlOpen) return;
+      // ⌥⇧L or ⌃⌘Q: Lock Screen
+      if ((e.altKey && e.shiftKey && e.code === "KeyL") || (e.ctrlKey && e.metaKey && e.code === "KeyQ")) {
+        e.preventDefault();
+        ui.lockScreen();
+        return;
+      }
+      if (ui.spotlightOpen || ui.missionControlOpen || ui.locked) return;
 
       // "?" (or the Persian "؟") lists every shortcut, and closes the list.
       if (!typing && !e.metaKey && !e.ctrlKey && (e.key === "?" || e.key === "؟")) {

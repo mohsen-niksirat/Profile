@@ -12,7 +12,14 @@ const LANGUAGES = [
   { id: "en", label: "English", sample: "Aa" },
   { id: "fa", label: "فارسی", sample: "اب" },
 ];
-const WALLPAPER_NAMES_FA = { default: "ونتورا", nature: "طبیعت", tech: "تکنولوژی", abstract: "انتزاعی" };
+const WALLPAPER_NAMES_FA = {
+  default: "ونتورا",
+  nature: "طبیعت",
+  tech: "تکنولوژی",
+  abstract: "انتزاعی",
+  monterey: "مونتری",
+  bigsur: "بیگ‌سر",
+};
 
 const Settings = () => {
   const { appearance, wallpaper, setAppearance, setWallpaper } = useSettingsStore();

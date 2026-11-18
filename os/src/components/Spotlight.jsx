@@ -9,6 +9,7 @@ import {
   Keyboard,
   Languages,
   LayoutGrid,
+  Lock,
   Mail,
   Moon,
   Search,
@@ -123,6 +124,16 @@ const buildIndex = (locale, t) => {
         const dark = document.documentElement.classList.contains("dark");
         s.setAppearance(dark ? "light" : "dark");
       },
+    },
+    {
+      id: "act-lock",
+      group: t("spotlight.actions"),
+      title: t("menu.lockScreen"),
+      subtitle: "⌥⇧L",
+      glyph: Lock,
+      desktopOnly: true,
+      terms: `${bothLanguages("menu.lockScreen")} lock screen sleep security`,
+      run: () => ui().lockScreen(),
     },
     {
       id: "act-mc",

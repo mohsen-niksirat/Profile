@@ -13,6 +13,8 @@ const OVERLAYS_CLOSED = {
 
 const useUiStore = create((set) => ({
   ...OVERLAYS_CLOSED,
+  locked: false,
+  booting: false,
   brightness: 100,
   toast: null,
 
@@ -26,6 +28,10 @@ const useUiStore = create((set) => ({
   closeMissionControl: () => set({ missionControlOpen: false }),
   openShortcuts: () => set({ ...OVERLAYS_CLOSED, shortcutsOpen: true }),
   closeShortcuts: () => set({ shortcutsOpen: false }),
+  lockScreen: () => set({ ...OVERLAYS_CLOSED, locked: true }),
+  unlockScreen: () => set({ locked: false }),
+  triggerBoot: () => set({ ...OVERLAYS_CLOSED, locked: false, booting: true }),
+  finishBoot: () => set({ booting: false }),
   // { x, y } in viewport pixels, or null.
   openContextMenu: (x, y) => set({ ...OVERLAYS_CLOSED, contextMenu: { x, y } }),
   closeContextMenu: () => set({ contextMenu: null }),

@@ -15,72 +15,6 @@ import { useContent } from "../../i18n/content";
 
 const CLOCK = { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" };
 
-const AppleMenu = () => {
-  const [open, setOpen] = useState(false);
-  const btnRef = useRef(null);
-  const menuRef = useRef(null);
-  const close = useCallback(() => setOpen(false), []);
-  useDismiss(open, [btnRef, menuRef], close);
-  const toggleDark = useToggleDark();
-  const isDark = useIsDark();
-  const closeAll = useWindowStore((s) => s.closeAll);
-  const t = useT();
-  const ui = useUiStore.getState;
-
-  const items = [
-    { id: "about", label: t("menu.aboutMe"), run: () => openApp("notes") },
-    { id: "projects", label: t("menu.projects"), run: () => openApp("safari") },
-    { id: "resume", label: t("menu.resume"), run: () => openApp("resume") },
-    "-",
-    { id: "settings", label: t("menu.settings"), run: () => openApp("settings") },
-    { id: "dark", label: t(isDark ? "menu.lightMode" : "menu.darkMode"), run: toggleDark },
-    { id: "spotlight", label: t("menu.spotlight"), hint: "⌘K", run: () => ui().openSpotlight() },
-    { id: "mc", label: t("menu.missionControl"), hint: "F3", run: () => ui().toggleMissionControl() },
-    { id: "kb", label: t("menu.shortcuts"), hint: "?", run: () => ui().openShortcuts() },
-    "-",
-    { id: "closeAll", label: t("menu.closeAll"), run: closeAll },
-  ];
-
-  return (
-    <div className="relative">
-      <button
-        ref={btnRef}
-        type="button"
-        className="menubar-item menubar-apple"
-        aria-label={t("menu.appleMenu")}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-      >
-        <AppleLogo className="h-[15px] w-auto" />
-      </button>
-      {open && (
-        <div ref={menuRef} className="menu-dropdown" role="menu">
-          {items.map((item, i) =>
-            item === "-" ? (
-              <div key={i} className="menu-sep" role="separator" />
-            ) : (
-              <button
-                key={item.id}
-                type="button"
-                role="menuitem"
-                className="menu-item"
-                onClick={() => {
-                  item.run();
-                  close();
-                }}
-              >
-                <span>{item.label}</span>
-                {item.hint && <kbd className="ltr">{item.hint}</kbd>}
-              </button>
-            ),
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
-
 const MenuBar = () => {
   const now = useNow();
   const t = useT();
@@ -89,26 +23,175 @@ const MenuBar = () => {
   const focused = useWindowStore(selectFocusedKey);
   const { controlCenterOpen, toggleControlCenter, closeControlCenter, openSpotlight } =
     useUiStore();
+  const [activeMenu, setActiveMenu] = useState(null); // "apple" | "view" | "window" | null
+  const leftNavRef = useRef(null);
   const ccBtnRef = useRef(null);
   const ccRef = useRef(null);
+
+  const closeMenus = useCallback(() => setActiveMenu(null), []);
+  useDismiss(Boolean(activeMenu), [leftNavRef], closeMenus);
   useDismiss(controlCenterOpen, [ccBtnRef, ccRef], closeControlCenter);
+
+  const toggleDark = useToggleDark();
+  const isDark = useIsDark();
+  const closeAll = useWindowStore((s) => s.closeAll);
+  const ui = useUiStore.getState;
 
   const clock = formatDate(now, CLOCK, locale);
 
+  const appleItems = [
+    { id: "about", label: t("menu.aboutMe"), run: () => openApp("notes") },
+    { id: "projects", label: t("menu.projects"), run: () => openApp("safari") },
+    { id: "resume", label: t("menu.resume"), run: () => openApp("resume") },
+    { id: "calc", label: t("menu.calculator"), run: () => openApp("calculator") },
+    "-",
+    { id: "settings", label: t("menu.settings"), run: () => openApp("settings") },
+    { id: "dark", label: t(isDark ? "menu.lightMode" : "menu.darkMode"), run: toggleDark },
+    { id: "spotlight", label: t("menu.spotlight"), hint: "⌘K", run: () => ui().openSpotlight() },
+    { id: "mc", label: t("menu.missionControl"), hint: "F3", run: () => ui().toggleMissionControl() },
+    { id: "kb", label: t("menu.shortcuts"), hint: "?", run: () => ui().openShortcuts() },
+    "-",
+    { id: "lock", label: t("menu.lockScreen"), hint: "⌥⇧L", run: () => ui().lockScreen() },
+    { id: "restart", label: t("menu.restart"), run: () => ui().triggerBoot() },
+    "-",
+    { id: "closeAll", label: t("menu.closeAll"), run: closeAll },
+  ];
+
+  const viewItems = [
+    { id: "wallpaper", label: t("menu.wallpaper"), run: () => openApp("settings") },
+    { id: "dark", label: t(isDark ? "menu.lightMode" : "menu.darkMode"), run: toggleDark },
+    { id: "mc", label: t("menu.missionControl"), hint: "F3", run: () => ui().toggleMissionControl() },
+    { id: "desktop", label: t("menu.showDesktop"), hint: "⌥D", run: () => useWindowStore.getState().toggleShowDesktop() },
+    "-",
+    { id: "lang", label: t("menu.languageAria"), hint: "⌥L", run: toggleLocale },
+  ];
+
+  const windowItems = [
+    {
+      id: "minimize",
+      label: t("menu.minimize"),
+      hint: "⌥M",
+      disabled: !focused,
+      run: () => focused && useWindowStore.getState().minimizeWindow(focused),
+    },
+    {
+      id: "zoom",
+      label: t("menu.zoom"),
+      hint: "⌥Z",
+      disabled: !focused,
+      run: () => focused && useWindowStore.getState().toggleMaximize(focused),
+    },
+    {
+      id: "cycle",
+      label: t("menu.cycle"),
+      hint: "⌥`",
+      run: () => useWindowStore.getState().cycleWindows(),
+    },
+    "-",
+    { id: "closeAll", label: t("menu.closeAll"), run: closeAll },
+  ];
+
+  // PuruVJ/macos-web inspired top-bar hover switching
+  const handleMenuHover = (id) => {
+    if (activeMenu && activeMenu !== id) {
+      setActiveMenu(id);
+    }
+  };
+
+  const handleMenuClick = (id) => {
+    setActiveMenu((curr) => (curr === id ? null : id));
+  };
+
+  const renderDropdown = (items) => (
+    <div className="menu-dropdown" role="menu">
+      {items.map((item, i) =>
+        item === "-" ? (
+          <div key={i} className="menu-sep" role="separator" />
+        ) : (
+          <button
+            key={item.id}
+            type="button"
+            role="menuitem"
+            disabled={item.disabled}
+            className="menu-item"
+            onClick={() => {
+              closeMenus();
+              item.run();
+            }}
+          >
+            <span>{item.label}</span>
+            {item.hint && <kbd className="ltr">{item.hint}</kbd>}
+          </button>
+        ),
+      )}
+    </div>
+  );
+
   return (
     <header className="menubar">
-      <nav className="menubar-left" aria-label={t("menu.menuBar")}>
-        <AppleMenu />
+      <nav ref={leftNavRef} className="menubar-left" aria-label={t("menu.menuBar")}>
+        {/* Apple Menu */}
+        <div className="relative">
+          <button
+            type="button"
+            className="menubar-item menubar-apple"
+            aria-label={t("menu.appleMenu")}
+            aria-haspopup="menu"
+            aria-expanded={activeMenu === "apple"}
+            onClick={() => handleMenuClick("apple")}
+            onPointerEnter={() => handleMenuHover("apple")}
+          >
+            <AppleLogo className="h-[15px] w-auto" />
+          </button>
+          {activeMenu === "apple" && renderDropdown(appleItems)}
+        </div>
+
+        {/* Current Active Window / User Title */}
         <span className="menubar-item menubar-app">
           {focused ? t(`window.${focused}`) : profile.name}
         </span>
+
+        {/* View Menu */}
+        <div className="relative">
+          <button
+            type="button"
+            className="menubar-item"
+            aria-haspopup="menu"
+            aria-expanded={activeMenu === "view"}
+            onClick={() => handleMenuClick("view")}
+            onPointerEnter={() => handleMenuHover("view")}
+          >
+            {t("menu.view")}
+          </button>
+          {activeMenu === "view" && renderDropdown(viewItems)}
+        </div>
+
+        {/* Window Menu */}
+        <div className="relative">
+          <button
+            type="button"
+            className="menubar-item"
+            aria-haspopup="menu"
+            aria-expanded={activeMenu === "window"}
+            onClick={() => handleMenuClick("window")}
+            onPointerEnter={() => handleMenuHover("window")}
+          >
+            {t("menu.window")}
+          </button>
+          {activeMenu === "window" && renderDropdown(windowItems)}
+        </div>
+
+        {/* Direct Navigation Links */}
         {menuLinks.map((link) => (
           <button
             key={link.id}
             type="button"
             className="menubar-item"
             onPointerEnter={() => prefetchWindow(link.window)}
-            onClick={() => openWindow(link.window)}
+            onClick={() => {
+              closeMenus();
+              openWindow(link.window);
+            }}
           >
             {t(`menu.${link.id}`)}
           </button>
