@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-18T07:11:53.795Z",
+  "generatedAt": "2026-11-18T20:40:53.603Z",
   "totals": {
-    "stars": 118,
+    "stars": 119,
     "forks": 7,
     "repos": 47,
-    "followers": 53,
-    "last30": 0
+    "followers": 54,
+    "last30": 1
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
   "growthSource": "daily-snapshots",
@@ -46,10 +46,10 @@
       "description": "3D version of HordeSurvival - You can play it in your browsers"
     },
     "tgexplorer": {
-      "stars": 7,
+      "stars": 8,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-18T00:59:15Z",
+      "pushedAt": "2026-11-18T20:30:48Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -116,34 +116,43 @@
     },
     {
       "m": "2026-11-18",
-      "v": 118
+      "v": 119
     }
   ],
   "timeline": [
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-18T07:11:36Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": ""
-    },
     {
       "repo": "tgexplorer",
       "slug": "tgexplorer",
       "tag": "Live",
       "name": "tgexplorer",
-      "at": "2026-11-18T00:59:15Z",
+      "at": "2026-11-18T20:30:48Z",
       "url": "https://mohsen-niksirat.github.io/tgexplorer/",
       "body": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts."
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-18T16:03:42Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": ""
+    },
+    {
+      "repo": "mohsen-tech-blog",
+      "slug": null,
+      "tag": "Live",
+      "name": "mohsen-tech-blog",
+      "at": "2026-11-18T10:47:28Z",
+      "url": "https://mohsen-niksirat.github.io/mohsen-tech-blog/",
+      "body": ""
     },
     {
       "repo": "CineScore",
       "slug": null,
       "tag": "Live",
       "name": "CineScore",
-      "at": "2026-11-17T09:39:29Z",
+      "at": "2026-11-18T08:58:14Z",
       "url": "https://mohsen-niksirat.github.io/CineScore/",
       "body": "🎬 CineScore — Movie rating and scoring system"
     },
@@ -379,15 +388,6 @@
       "name": "CinePlay",
       "at": "2026-10-10T16:11:32Z",
       "url": "https://mohsen-niksirat.github.io/CinePlay/",
-      "body": ""
-    },
-    {
-      "repo": "mohsen-tech-blog",
-      "slug": null,
-      "tag": "Live",
-      "name": "mohsen-tech-blog",
-      "at": "2026-10-09T15:27:47Z",
-      "url": "https://mohsen-niksirat.github.io/mohsen-tech-blog/",
       "body": ""
     },
     {
