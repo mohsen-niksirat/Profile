@@ -6486,7 +6486,28 @@ html[lang="fa"] {
 
     .desktop.is-ubuntu {
       padding-top: 28px;
-      padding-inline-start: 60px;
+    }
+
+    .ubuntu-dock {
+      position: fixed;
+      top: 28px;
+      bottom: 0;
+      inset-inline-start: 0;
+      width: 56px;
+      z-index: 7000;
+    }
+
+    /* Shift widgets and github widget cleanly away from the 56px Ubuntu dock */
+    .widgets,
+    .gh-widget.is-desktop {
+      inset-inline-start: 76px !important;
+    }
+
+    @media (max-width: 1440px) {
+      .widgets,
+      .gh-widget.is-desktop {
+        inset-inline-start: 72px !important;
+      }
     }
 
     .window {
@@ -6751,3 +6772,219 @@ html[lang="fa"] {
     }
   }
 }
+
+  /* Prominent OS Switcher Badges in macOS, Windows 11 & Ubuntu */
+  .menubar-os-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    background: rgb(255 255 255 / 0.12);
+    border-radius: 5px;
+    border: 1px solid rgb(255 255 255 / 0.18);
+    padding: 0 8px;
+
+    &:hover,
+    &.is-active {
+      background: rgb(255 255 255 / 0.24);
+    }
+  }
+
+  .menubar-os-dropdown {
+    min-width: 190px;
+  }
+
+  .win11-os-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    height: 32px;
+    border-radius: 4px;
+    background: rgb(255 255 255 / 0.08);
+    border: 1px solid rgb(255 255 255 / 0.15);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s, border-color 0.1s;
+
+    &:hover,
+    &.is-active {
+      background: rgb(255 255 255 / 0.16);
+      border-color: #60cdff;
+    }
+  }
+
+  .win11-os-flyout {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    inset-inline-end: 0;
+    z-index: 8500;
+    width: 260px;
+    padding: 6px;
+    border-radius: 8px;
+    background: rgb(32 32 36 / 0.95);
+    backdrop-filter: blur(40px) saturate(2);
+    -webkit-backdrop-filter: blur(40px) saturate(2);
+    border: 1px solid rgb(255 255 255 / 0.15);
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.7);
+    animation: pop-in 0.12s ease-out;
+  }
+
+  .win11-flyout-title {
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(255 255 255 / 0.5);
+  }
+
+  .win11-flyout-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-align: start;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+
+    &.is-active {
+      background: rgb(96 205 255 / 0.2);
+      border: 1px solid #60cdff;
+    }
+  }
+
+  .win11-start-os-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    background: rgb(255 255 255 / 0.05);
+    border: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .win11-os-box-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgb(255 255 255 / 0.65);
+  }
+
+  .win11-os-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .win11-os-box-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    border-radius: 5px;
+    background: rgb(255 255 255 / 0.08);
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    transition: all 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.15);
+    }
+
+    &.is-active {
+      background: #0078d4;
+      font-weight: 600;
+    }
+  }
+
+  .ubuntu-os-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.15);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.1s, border-color 0.1s;
+
+    &:hover,
+    &.is-active {
+      background: rgb(255 255 255 / 0.2);
+      border-color: #e95420;
+    }
+  }
+
+  .ubuntu-os-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    inset-inline-start: 0;
+    z-index: 8500;
+    width: 280px;
+    padding: 6px;
+    border-radius: 8px;
+    background: #242424;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    box-shadow: 0 16px 40px rgb(0 0 0 / 0.7);
+    animation: pop-in 0.12s ease-out;
+  }
+
+  .ubuntu-os-dropdown-title {
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(255 255 255 / 0.45);
+  }
+
+  .ubuntu-os-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    text-align: start;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: rgb(255 255 255 / 0.1);
+    }
+
+    &.is-active {
+      background: rgb(233 84 32 / 0.25);
+      border: 1px solid #e95420;
+    }
+  }
+
+  .ubuntu-switch-os-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 12px;
+    background: rgb(233 84 32 / 0.25);
+    border: 1px solid rgb(233 84 32 / 0.5);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.1s;
+
+    &:hover {
+      background: #e95420;
+    }
+  }

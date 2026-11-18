@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
 import {
+  ChevronDown,
   Grid,
   Power,
   Volume2,
@@ -10,6 +11,7 @@ import { apps, dockLayout } from "#constants";
 import useWindowStore, { selectFocusedKey } from "#store/window";
 import useUiStore from "#store/ui";
 import useSettingsStore from "#store/settings";
+import { useDismiss } from "../../hooks/useDismiss";
 import { useNow } from "../../hooks/useNow";
 import { openApp } from "../../lib/actions";
 import { formatDate, toggleLocale, useLocale, useT } from "../../i18n";
@@ -26,6 +28,13 @@ const UBUNTU_CLOCK = {
 
 const UbuntuShell = () => {
   const [systemOpen, setSystemOpen] = useState(false);
+  const [osMenuOpen, setOsMenuOpen] = useState(false);
+  const osMenuRef = useRef(null);
+  const systemMenuRef = useRef(null);
+
+  useDismiss(osMenuOpen, [osMenuRef], () => setOsMenuOpen(false));
+  useDismiss(systemOpen, [systemMenuRef], () => setSystemOpen(false));
+
   const now = useNow();
   const t = useT();
   const locale = useLocale();
@@ -68,8 +77,70 @@ const UbuntuShell = () => {
           >
             {locale === "fa" ? "فعالیت‌ها" : "Activities"}
           </button>
-          <span className="ubuntu-app-title">
-            {focused ? t(`window.${focused}`) : "Ubuntu 24.04 LTS"}
+
+          {/* Prominent OS Switcher Dropdown on top-left of Ubuntu */}
+          <div ref={osMenuRef} className="relative">
+            <button
+              type="button"
+              className={clsx("ubuntu-os-badge", osMenuOpen && "is-active")}
+              onClick={() => setOsMenuOpen((v) => !v)}
+              aria-expanded={osMenuOpen}
+              title={locale === "fa" ? "تغییر سیستم‌عامل" : "Switch Operating System"}
+            >
+              <span>🐧 Ubuntu 24.04</span>
+              <ChevronDown className="size-3.5 opacity-60" />
+            </button>
+
+            {osMenuOpen && (
+              <div className="ubuntu-os-dropdown" role="menu">
+                <p className="ubuntu-os-dropdown-title">
+                  {locale === "fa" ? "تغییر محیط دسکتاپ" : "Switch Desktop Environment"}
+                </p>
+                <button
+                  type="button"
+                  className={clsx("ubuntu-os-dropdown-item", osMode === "macos" && "is-active")}
+                  onClick={() => {
+                    setOsMode("macos");
+                    setOsMenuOpen(false);
+                  }}
+                >
+                  <span className="text-xl">🍎</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-white">macOS Sonoma</p>
+                    <p className="text-xs text-white/50">Cupertino Glass, Top MenuBar & Dock</p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  className={clsx("ubuntu-os-dropdown-item", osMode === "windows" && "is-active")}
+                  onClick={() => {
+                    setOsMode("windows");
+                    setOsMenuOpen(false);
+                  }}
+                >
+                  <span className="text-xl">🪟</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-white">Windows 11 Fluent</p>
+                    <p className="text-xs text-white/50">Redmond Taskbar, Start Menu & Mica</p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  className={clsx("ubuntu-os-dropdown-item", osMode === "ubuntu" && "is-active")}
+                  onClick={() => setOsMenuOpen(false)}
+                >
+                  <span className="text-xl">🐧</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-orange-400">Ubuntu 24.04 LTS (Active)</p>
+                    <p className="text-xs text-white/50">Canonical Yaru & GNOME Shell</p>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
+          <span className="ubuntu-app-title max-md:hidden">
+            {focused ? t(`window.${focused}`) : ""}
           </span>
         </div>
 
@@ -84,6 +155,19 @@ const UbuntuShell = () => {
         </div>
 
         <div className="ubuntu-topbar-right">
+          {/* Explicit Switch OS button on the right */}
+          <button
+            type="button"
+            className="ubuntu-switch-os-pill"
+            onClick={() => setOsMenuOpen((v) => !v)}
+            title="Switch OS (macOS / Windows / Ubuntu)"
+          >
+            <span>💻</span>
+            <span className="text-xs font-semibold max-sm:hidden">
+              {locale === "fa" ? "سوییچ OS" : "Switch OS"}
+            </span>
+          </button>
+
           <button
             type="button"
             className="ubuntu-tray-btn"
@@ -95,82 +179,84 @@ const UbuntuShell = () => {
             </span>
           </button>
 
-          <button
-            type="button"
-            className={clsx("ubuntu-system-pill", systemOpen && "is-active")}
-            onClick={() => setSystemOpen((v) => !v)}
-            aria-label="System Menu"
-          >
-            <Wifi className="size-3.5" />
-            <Volume2 className="size-3.5" />
-            <Power className="size-3.5 text-orange-400" />
-          </button>
+          <div ref={systemMenuRef} className="relative">
+            <button
+              type="button"
+              className={clsx("ubuntu-system-pill", systemOpen && "is-active")}
+              onClick={() => setSystemOpen((v) => !v)}
+              aria-label="System Menu"
+            >
+              <Wifi className="size-3.5" />
+              <Volume2 className="size-3.5" />
+              <Power className="size-3.5 text-orange-400" />
+            </button>
 
-          {/* Ubuntu System Dropdown Menu */}
-          {systemOpen && (
-            <div className="ubuntu-system-menu" role="menu">
-              <div className="ubuntu-os-switch-header">
-                <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">
-                  Select OS Environment
-                </span>
-                <div className="ubuntu-os-options">
-                  <button
-                    type="button"
-                    className={clsx("ubuntu-os-item", osMode === "macos" && "is-active")}
-                    onClick={() => {
-                      setOsMode("macos");
-                      setSystemOpen(false);
-                    }}
-                  >
-                    🍎 macOS Sonoma
-                  </button>
-                  <button
-                    type="button"
-                    className={clsx("ubuntu-os-item", osMode === "windows" && "is-active")}
-                    onClick={() => {
-                      setOsMode("windows");
-                      setSystemOpen(false);
-                    }}
-                  >
-                    🪟 Windows 11
-                  </button>
-                  <button
-                    type="button"
-                    className={clsx("ubuntu-os-item", osMode === "ubuntu" && "is-active")}
-                    onClick={() => {
-                      setOsMode("ubuntu");
-                      setSystemOpen(false);
-                    }}
-                  >
-                    🐧 Ubuntu 24.04
-                  </button>
+            {/* Ubuntu System Dropdown Menu */}
+            {systemOpen && (
+              <div className="ubuntu-system-menu" role="menu">
+                <div className="ubuntu-os-switch-header">
+                  <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">
+                    Select OS Environment
+                  </span>
+                  <div className="ubuntu-os-options">
+                    <button
+                      type="button"
+                      className={clsx("ubuntu-os-item", osMode === "macos" && "is-active")}
+                      onClick={() => {
+                        setOsMode("macos");
+                        setSystemOpen(false);
+                      }}
+                    >
+                      🍎 macOS Sonoma
+                    </button>
+                    <button
+                      type="button"
+                      className={clsx("ubuntu-os-item", osMode === "windows" && "is-active")}
+                      onClick={() => {
+                        setOsMode("windows");
+                        setSystemOpen(false);
+                      }}
+                    >
+                      🪟 Windows 11
+                    </button>
+                    <button
+                      type="button"
+                      className={clsx("ubuntu-os-item", osMode === "ubuntu" && "is-active")}
+                      onClick={() => {
+                        setOsMode("ubuntu");
+                        setSystemOpen(false);
+                      }}
+                    >
+                      🐧 Ubuntu 24.04
+                    </button>
+                  </div>
                 </div>
+
+                <div className="ubuntu-menu-sep" />
+
+                <button
+                  type="button"
+                  className="ubuntu-menu-item"
+                  onClick={() => {
+                    setSystemOpen(false);
+                    ui().lockScreen();
+                  }}
+                >
+                  <span>{locale === "fa" ? "قفل کردن صفحه" : "Lock Screen"}</span>
+                </button>
+                <button
+                  type="button"
+                  className="ubuntu-menu-item"
+                  onClick={() => {
+                    setSystemOpen(false);
+                    ui().triggerBoot();
+                  }}
+                >
+                  <span>{locale === "fa" ? "راه‌اندازی مجدد…" : "Restart…"}</span>
+                </button>
               </div>
-
-              <div className="ubuntu-menu-sep" />
-
-              <button
-                type="button"
-                className="ubuntu-menu-item"
-                onClick={() => {
-                  setSystemOpen(false);
-                  ui().lockScreen();
-                }}
-              >
-                <span>{locale === "fa" ? "قفل کردن صفحه" : "Lock Screen"}</span>
-              </button>
-              <button
-                type="button"
-                className="ubuntu-menu-item"
-                onClick={() => {
-                  setSystemOpen(false);
-                  ui().triggerBoot();
-                }}
-              >
-                <span>{locale === "fa" ? "راه‌اندازی مجدد…" : "Restart…"}</span>
-              </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </header>
 

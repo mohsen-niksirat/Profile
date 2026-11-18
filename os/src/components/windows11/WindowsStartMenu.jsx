@@ -71,6 +71,36 @@ const WindowsStartMenu = ({ open, onClose, startBtnRef }) => {
         </button>
       </div>
 
+      {/* Prominent OS Switcher Banner in Start Menu */}
+      <div className="win11-start-os-box">
+        <span className="win11-os-box-label">
+          {locale === "fa" ? "سیستم‌عامل دسکتاپ:" : "Operating System:"}
+        </span>
+        <div className="win11-os-box-grid">
+          <button
+            type="button"
+            className={clsx("win11-os-box-btn", osMode === "macos" && "is-active")}
+            onClick={() => switchOs("macos")}
+          >
+            <span>🍎 macOS</span>
+          </button>
+          <button
+            type="button"
+            className={clsx("win11-os-box-btn", osMode === "windows" && "is-active")}
+            onClick={() => switchOs("windows")}
+          >
+            <span>🪟 Win 11</span>
+          </button>
+          <button
+            type="button"
+            className={clsx("win11-os-box-btn", osMode === "ubuntu" && "is-active")}
+            onClick={() => switchOs("ubuntu")}
+          >
+            <span>🐧 Ubuntu</span>
+          </button>
+        </div>
+      </div>
+
       {/* Pinned Section */}
       <div className="win11-start-section">
         <div className="win11-section-header">

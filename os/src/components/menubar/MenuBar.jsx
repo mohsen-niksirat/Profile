@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import { Search, SlidersHorizontal, Wifi } from "lucide-react";
+import { ChevronDown, Search, SlidersHorizontal, Wifi } from "lucide-react";
 import AppleLogo from "./AppleLogo";
 import ControlCenter from "./ControlCenter";
 import { menuLinks } from "#constants";
@@ -32,6 +32,9 @@ const MenuBar = () => {
   const closeMenus = useCallback(() => setActiveMenu(null), []);
   useDismiss(Boolean(activeMenu), [leftNavRef], closeMenus);
   useDismiss(controlCenterOpen, [ccBtnRef, ccRef], closeControlCenter);
+  const [osMenuOpen, setOsMenuOpen] = useState(false);
+  const osMenuRef = useRef(null);
+  useDismiss(osMenuOpen, [osMenuRef], () => setOsMenuOpen(false));
 
   const toggleDark = useToggleDark();
   const isDark = useIsDark();
@@ -215,6 +218,51 @@ const MenuBar = () => {
       <div className="notch" aria-hidden="true" />
 
       <div className="menubar-right">
+        {/* Prominent OS Switcher pill in macOS MenuBar */}
+        <div ref={osMenuRef} className="relative">
+          <button
+            type="button"
+            className="menubar-item menubar-os-badge"
+            onClick={() => setOsMenuOpen((v) => !v)}
+            title="Switch Operating System"
+            aria-expanded={osMenuOpen}
+          >
+            <span>🍎 macOS</span>
+            <ChevronDown className="size-3 opacity-60" />
+          </button>
+          {osMenuOpen && (
+            <div className="menu-dropdown menubar-os-dropdown" role="menu">
+              <button
+                type="button"
+                className="menu-item is-active font-semibold"
+                onClick={() => setOsMenuOpen(false)}
+              >
+                <span>🍎 macOS Sonoma</span>
+                <span className="text-xs opacity-60">Active</span>
+              </button>
+              <button
+                type="button"
+                className="menu-item"
+                onClick={() => {
+                  setOsMenuOpen(false);
+                  useSettingsStore.getState().setOsMode("windows");
+                }}
+              >
+                <span>🪟 Windows 11 Fluent</span>
+              </button>
+              <button
+                type="button"
+                className="menu-item"
+                onClick={() => {
+                  setOsMenuOpen(false);
+                  useSettingsStore.getState().setOsMode("ubuntu");
+                }}
+              >
+                <span>🐧 Ubuntu 24.04 LTS</span>
+              </button>
+            </div>
+          )}
+        </div>
         <button
           type="button"
           className="menubar-item menubar-lang"

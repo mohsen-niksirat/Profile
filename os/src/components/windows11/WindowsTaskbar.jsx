@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import clsx from "clsx";
 import {
   ChevronUp,
-  FolderGit2,
   LayoutGrid,
   Search,
   Volume2,
@@ -11,7 +10,9 @@ import {
 import { apps, dockLayout } from "#constants";
 import useWindowStore, { selectFocusedKey } from "#store/window";
 import useUiStore from "#store/ui";
+import useSettingsStore from "#store/settings";
 import WindowsStartMenu from "./WindowsStartMenu";
+import { useDismiss } from "../../hooks/useDismiss";
 import { useNow } from "../../hooks/useNow";
 import { openApp } from "../../lib/actions";
 import { formatDate, toggleLocale, useLocale, useT } from "../../i18n";
@@ -34,7 +35,12 @@ const DATE_FMT = { year: "numeric", month: "numeric", day: "numeric" };
 
 const WindowsTaskbar = () => {
   const [startOpen, setStartOpen] = useState(false);
+  const [osFlyoutOpen, setOsFlyoutOpen] = useState(false);
   const startBtnRef = useRef(null);
+  const osFlyoutRef = useRef(null);
+
+  useDismiss(osFlyoutOpen, [osFlyoutRef], () => setOsFlyoutOpen(false));
+
   const windows = useWindowStore((s) => s.windows);
   const focused = useWindowStore(selectFocusedKey);
   const toggleShowDesktop = useWindowStore((s) => s.toggleShowDesktop);
@@ -42,6 +48,8 @@ const WindowsTaskbar = () => {
   const focusWindow = useWindowStore((s) => s.focusWindow);
   const openSpotlight = useUiStore((s) => s.openSpotlight);
   const toggleMissionControl = useUiStore((s) => s.toggleMissionControl);
+  const setOsMode = useSettingsStore((s) => s.setOsMode);
+  const osMode = useSettingsStore((s) => s.osMode || "macos");
   const now = useNow();
   const t = useT();
   const locale = useLocale();
@@ -147,6 +155,67 @@ const WindowsTaskbar = () => {
 
         {/* Right System Tray */}
         <div className="win11-taskbar-right">
+          {/* Prominent OS Switcher pill in Windows 11 System Tray */}
+          <div ref={osFlyoutRef} className="relative">
+            <button
+              type="button"
+              className={clsx("win11-tray-btn win11-os-badge", osFlyoutOpen && "is-active")}
+              onClick={() => setOsFlyoutOpen((v) => !v)}
+              title={locale === "fa" ? "سوییچ سیستم‌عامل" : "Switch Operating System"}
+              aria-expanded={osFlyoutOpen}
+            >
+              <span>🪟 Win 11</span>
+              <ChevronUp className="size-3 opacity-60" />
+            </button>
+
+            {osFlyoutOpen && (
+              <div className="win11-os-flyout" role="menu">
+                <p className="win11-flyout-title">
+                  {locale === "fa" ? "تغییر سیستم‌عامل" : "Switch Operating System"}
+                </p>
+                <button
+                  type="button"
+                  className={clsx("win11-flyout-item", osMode === "macos" && "is-active")}
+                  onClick={() => {
+                    setOsMode("macos");
+                    setOsFlyoutOpen(false);
+                  }}
+                >
+                  <span className="text-lg">🍎</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-white">macOS Sonoma</p>
+                    <p className="text-xs text-white/50">Cupertino Glass & Floating Dock</p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  className={clsx("win11-flyout-item", osMode === "windows" && "is-active")}
+                  onClick={() => setOsFlyoutOpen(false)}
+                >
+                  <span className="text-lg">🪟</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-[#60cdff]">Windows 11 (Active)</p>
+                    <p className="text-xs text-white/50">Fluent Taskbar & Start Menu</p>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  className={clsx("win11-flyout-item", osMode === "ubuntu" && "is-active")}
+                  onClick={() => {
+                    setOsMode("ubuntu");
+                    setOsFlyoutOpen(false);
+                  }}
+                >
+                  <span className="text-lg">🐧</span>
+                  <div className="min-w-0 flex-1 text-start">
+                    <p className="font-semibold text-white">Ubuntu 24.04 LTS</p>
+                    <p className="text-xs text-white/50">Canonical Yaru & GNOME Shell</p>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
           <button
             type="button"
             className="win11-tray-btn win11-lang-btn"
