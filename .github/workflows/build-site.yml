@@ -1,0 +1,51 @@
+name: 🖥️ Build site
+
+on:
+  push:
+    branches: [main]
+    paths: ['os/**', 'projects.json', 'build.mjs', '.github/workflows/build-site.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: hub-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: os/package-lock.json
+
+      - name: 📦 Install
+        working-directory: os
+        run: npm ci
+
+      - name: 🏗️ Build the desktop
+        working-directory: os
+        run: npm run build
+
+      - name: 🏗️ Rebuild generated pages
+        run: node build.mjs
+
+      - name: 🚀 Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          STAGE="index.html fa static images icons files music p timeline sitemap.xml robots.txt"
+          git add -A $STAGE
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -m "🖥️ Build site — $(TZ=Asia/Tehran date +'%Y-%m-%d %H:%M') Tabriz"
+          for attempt in 1 2 3; do
+            git push && exit 0
+            git pull --rebase origin main
+          done
+          exit 1

@@ -1,0 +1,480 @@
+{
+  "generatedAt": "2026-11-17T21:07:19.655Z",
+  "totals": {
+    "stars": 118,
+    "forks": 7,
+    "repos": 47,
+    "followers": 53,
+    "last30": 0
+  },
+  "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
+  "growthSource": "daily-snapshots",
+  "stats": {
+    "repodest": {
+      "stars": 18,
+      "forks": 2,
+      "language": "JavaScript",
+      "pushedAt": "2026-11-12T08:03:31Z",
+      "description": "Repodest is a client-side GitHub repository analyzer and LLM-ready digest generator. Paste any GitHub URL, get a health score, language breakdown, file explorer, commit insights, and fun trophies — then pack selected files into a prompt you can paste straight into ChatGPT, Claude, or Gemini."
+    },
+    "leitner-pro-max": {
+      "stars": 4,
+      "forks": 0,
+      "language": "JavaScript",
+      "pushedAt": "2026-11-07T19:43:56Z",
+      "description": " 📚 Readner — Smart vocabulary learning with FSRS, PDF reader, spaced repetition, 13 languages. Single HTML file."
+    },
+    "aidahl": {
+      "stars": 8,
+      "forks": 3,
+      "language": "Python",
+      "pushedAt": "2026-09-20T18:48:37Z",
+      "description": "OpenAI-compatible Telegram assistant with BYOK (users bring their own API keys), plus optional Manus Agent mode for image/edit/research tasks."
+    },
+    "9router": {
+      "stars": 2,
+      "forks": 0,
+      "language": "JavaScript",
+      "pushedAt": "2026-11-04T23:42:07Z",
+      "description": "Universal Multi-Provider AI Gateway & Telegram Mini App. Intelligently route, load-balance (Round-Robin, Smart Router, Fallback), and pool API keys across Gemini, Groq, DeepSeek, OpenAI with per-user encryption & vision support."
+    },
+    "horde-survival-3d": {
+      "stars": 6,
+      "forks": 0,
+      "language": "GDScript",
+      "pushedAt": "2026-11-10T06:13:08Z",
+      "description": "3D version of HordeSurvival - You can play it in your browsers"
+    },
+    "tgexplorer": {
+      "stars": 7,
+      "forks": 1,
+      "language": "HTML",
+      "pushedAt": "2026-11-17T15:59:28Z",
+      "description": "A web app to explore public Telegram channels"
+    },
+    "speakai-coach": {
+      "stars": 2,
+      "forks": 0,
+      "language": "TypeScript",
+      "pushedAt": "2026-09-30T18:04:58Z",
+      "description": "Real-time AI speaking coach for IELTS and everyday English practice"
+    },
+    "datalens": {
+      "stars": 4,
+      "forks": 0,
+      "language": "JavaScript",
+      "pushedAt": "2026-09-17T19:51:06Z",
+      "description": "A local-first data workbench — paste or drop any data (CSV/JSON/YAML/XML/SQL/Excel), view it as a table, chart it, get stats and convert formats. 100% in-browser, zero dependencies, offline PWA."
+    },
+    "codevis": {
+      "stars": 3,
+      "forks": 0,
+      "language": "JavaScript",
+      "pushedAt": "2026-11-04T03:17:22Z",
+      "description": "Visual programming concepts explained through interactive canvas animations. A new concept every day — from data structures to design patterns — with step-by-step playback, synced code, and one-click PNG sharing. Zero dependencies, single HTML file, runs on GitHub Pages"
+    },
+    "mcp-studio": {
+      "stars": 1,
+      "forks": 0,
+      "language": "TypeScript",
+      "pushedAt": "2026-11-03T01:48:19Z",
+      "description": "The Visual IDE & Testing Studio for Model Context Protocol (MCP) Servers"
+    },
+    "a11y-inspector": {
+      "stars": 2,
+      "forks": 0,
+      "language": "JavaScript",
+      "pushedAt": "2026-09-11T23:40:42Z",
+      "description": null
+    },
+    "bountyradar": {
+      "stars": 4,
+      "forks": 0,
+      "language": "Python",
+      "pushedAt": "2026-09-19T23:18:16Z",
+      "description": "Local Windows app that finds paid freelance & open-source bounties for any freelancer type — frontend, backend, mobile, data/ML, DevOps, security, docs/writing, design, full-stack."
+    },
+    "ravaan": {
+      "stars": 1,
+      "forks": 0,
+      "language": "Python",
+      "pushedAt": "2026-11-16T15:47:03Z",
+      "description": "Ravaan (روان) — Windows typing assistant for bilingual Persian/English typists: layout conversion, smart ZWNJ, autocorrect, snippets, Jalali dates, and more."
+    },
+    "devcompass": {
+      "stars": 3,
+      "forks": 0,
+      "language": "HTML",
+      "pushedAt": "2026-09-16T21:44:27Z",
+      "description": "Free bilingual (FA/EN) quiz: which tech stack should you learn? 2-minute personality quiz with shareable result card, friend challenge links, and offline PWA. No backend."
+    }
+  },
+  "growth": [
+    {
+      "m": "2026-11-17",
+      "v": 118
+    }
+  ],
+  "timeline": [
+    {
+      "repo": "tgexplorer",
+      "slug": "tgexplorer",
+      "tag": "Live",
+      "name": "tgexplorer",
+      "at": "2026-11-17T15:59:28Z",
+      "url": "https://mohsen-niksirat.github.io/tgexplorer/",
+      "body": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts."
+    },
+    {
+      "repo": "CineScore",
+      "slug": null,
+      "tag": "Live",
+      "name": "CineScore",
+      "at": "2026-11-17T09:39:29Z",
+      "url": "https://mohsen-niksirat.github.io/CineScore/",
+      "body": "🎬 CineScore — Movie rating and scoring system"
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v3.0.0",
+      "name": "Ravaan v3.0.0",
+      "at": "2026-11-16T15:49:53Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v3.0.0",
+      "body": "# Ravaan (روان) v3.0.0\r \r ---\r"
+    },
+    {
+      "repo": "Cinema",
+      "slug": null,
+      "tag": "Live",
+      "name": "Cinema",
+      "at": "2026-11-16T14:41:00Z",
+      "url": "https://mohsen-niksirat.github.io/Cinema/",
+      "body": "🎬 Cinema Sermovie — Movie browsing and discovery platform"
+    },
+    {
+      "repo": "Biosphera",
+      "slug": null,
+      "tag": "Live",
+      "name": "Biosphera",
+      "at": "2026-11-14T05:13:42Z",
+      "url": "https://mohsen-niksirat.github.io/Biosphera/",
+      "body": "In-browser digital life simulation powered by genetic algorithms, tiny neural networks, and natural selection. Zero dependencies. 100% Client-Side. 60 FPS Emergent Evolution"
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v2.7.4",
+      "name": "Ravaan v2.7.4",
+      "at": "2026-11-13T06:43:54Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.4",
+      "body": "# Ravaan (روان) v2.7.4\r \r ---\r"
+    },
+    {
+      "repo": "Repodest",
+      "slug": "repodest",
+      "tag": "Live",
+      "name": "Repodest",
+      "at": "2026-11-12T08:03:31Z",
+      "url": "https://mohsen-niksirat.github.io/Repodest/",
+      "body": "Client-side GitHub repository analyzer and LLM-ready digest generator. Paste any GitHub URL to get a 0–100 health score, language breakdown, interactive file explorer, commit insights, and fun trophies — then pack selected files into a prompt ready for ChatGPT, Claude, or Gemini."
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v2.7.3",
+      "name": "Ravaan v2.7.3",
+      "at": "2026-11-12T05:05:14Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.3",
+      "body": "# Ravaan (روان) v2.7.3\r \r ---\r"
+    },
+    {
+      "repo": "News-Channel-Bot",
+      "slug": null,
+      "tag": "Live",
+      "name": "News-Channel-Bot",
+      "at": "2026-11-12T03:28:03Z",
+      "url": "https://mohsen-niksirat.github.io/News-Channel-Bot/",
+      "body": "🤖 Turn RSS news feeds into AI-written Persian posts for your Telegram channel — auto/manual publishing, review queue, filters & digest."
+    },
+    {
+      "repo": "Leitner-Pro-Max",
+      "slug": "leitner-pro-max",
+      "tag": "Live",
+      "name": "Leitner-Pro-Max",
+      "at": "2026-11-07T19:43:56Z",
+      "url": "https://mohsen-niksirat.github.io/Leitner-Pro-Max/",
+      "body": "Smart vocabulary learning suite combining the modern FSRS spaced-repetition scheduler, an integrated PDF reader for click-to-card extraction, interactive WordWeb semantic graphs, 4,500+ CEFR (A1–C2) words, and support for 13 languages in an offline-first PWA — plus a native Kotlin + Jetpack Compose Android app (ReadNer)."
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v2.7.1",
+      "name": "Ravaan v2.7.1",
+      "at": "2026-11-05T22:16:30Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.1",
+      "body": "# Ravaan (روان) v2.7.1\r \r ---\r"
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v2.7.0",
+      "name": "Ravaan v2.7.0",
+      "at": "2026-11-05T19:48:56Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.0",
+      "body": "# Ravaan (روان) v2.7.0\r \r ---\r"
+    },
+    {
+      "repo": "9router_TG_Bot",
+      "slug": "9router",
+      "tag": "Open Source",
+      "name": "9router_TG_Bot",
+      "at": "2026-11-04T23:42:07Z",
+      "url": "https://github.com/mohsen-niksirat/9router_TG_Bot",
+      "body": "Universal Multi-Provider AI Gateway & Telegram Mini App that routes, load-balances (Round-Robin, Smart Router, automatic 429 failover), and pools API keys across Gemini, Groq, DeepSeek, OpenAI, and OpenRouter — complete with per-user AES key encryption and multimodal vision support."
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-04T20:12:29Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": ""
+    },
+    {
+      "repo": "Repodest-Extension",
+      "slug": null,
+      "tag": "v1.3.0",
+      "name": "Repodest for GitHub v1.3.0",
+      "at": "2026-11-04T19:22:23Z",
+      "url": "https://github.com/mohsen-niksirat/Repodest-Extension/releases/tag/v1.3.0",
+      "body": "**Full Changelog**: https://github.com/mohsen-niksirat/Repodest-Extension/compare/v1.2.0...v1.3.0"
+    },
+    {
+      "repo": "Repodest-Extension",
+      "slug": null,
+      "tag": "v1.2.0",
+      "name": "Repodest for GitHub v1.2.0",
+      "at": "2026-11-04T18:24:57Z",
+      "url": "https://github.com/mohsen-niksirat/Repodest-Extension/releases/tag/v1.2.0",
+      "body": "**Full Changelog**: https://github.com/mohsen-niksirat/Repodest-Extension/commits/v1.2.0"
+    },
+    {
+      "repo": "CodeVis",
+      "slug": "codevis",
+      "tag": "Live",
+      "name": "CodeVis",
+      "at": "2026-11-04T03:17:22Z",
+      "url": "https://mohsen-niksirat.github.io/CodeVis/",
+      "body": "Visual computer science & programming concepts explained through interactive HTML5 Canvas animations — 49 topics spanning data structures, sorting, recursion, networking, and design patterns with step-by-step playback, synced code highlighting, daily streaks, and 1-click PNG cards in a zero-dependency single HTML file."
+    },
+    {
+      "repo": "api-key-manager",
+      "slug": null,
+      "tag": "Live",
+      "name": "api-key-manager",
+      "at": "2026-11-03T15:53:38Z",
+      "url": "https://mohsen-niksirat.github.io/api-key-manager/",
+      "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
+    },
+    {
+      "repo": "Mcp-Studio",
+      "slug": "mcp-studio",
+      "tag": "v1.5.3",
+      "name": "MCP-Studio v1.5.3",
+      "at": "2026-11-03T01:51:16Z",
+      "url": "https://github.com/mohsen-niksirat/Mcp-Studio/releases/tag/v1.5.3",
+      "body": "## 🚀 What's New in MCP-Studio v1.5.3 The open-source \"Postman for Model Context Protocol (MCP)\". ### ✨ Key Features:"
+    },
+    {
+      "repo": "Mcp-Studio",
+      "slug": "mcp-studio",
+      "tag": "v1.5.2",
+      "name": "MCP-Studio v1.5.2",
+      "at": "2026-11-02T19:44:26Z",
+      "url": "https://github.com/mohsen-niksirat/Mcp-Studio/releases/tag/v1.5.2",
+      "body": "## 🚀 What's New in MCP-Studio v1.5.2 The open-source \"Postman for Model Context Protocol (MCP)\". ### ✨ Key Features:"
+    },
+    {
+      "repo": "Mcp-Studio",
+      "slug": "mcp-studio",
+      "tag": "v1.5.1",
+      "name": "MCP-Studio v1.5.1",
+      "at": "2026-11-02T19:06:47Z",
+      "url": "https://github.com/mohsen-niksirat/Mcp-Studio/releases/tag/v1.5.1",
+      "body": "## 🚀 What's New in MCP-Studio v1.5.1 The open-source \"Postman for Model Context Protocol (MCP)\". ### ✨ Key Features:"
+    },
+    {
+      "repo": "Mcp-Studio",
+      "slug": "mcp-studio",
+      "tag": "v1.5.0",
+      "name": "MCP-Studio v1.5.0",
+      "at": "2026-11-01T23:09:35Z",
+      "url": "https://github.com/mohsen-niksirat/Mcp-Studio/releases/tag/v1.5.0",
+      "body": "## 🚀 What's New in MCP-Studio v1.5.0 The open-source \"Postman for Model Context Protocol (MCP)\". ### ✨ Key Features:"
+    },
+    {
+      "repo": "Mcp-Studio",
+      "slug": "mcp-studio",
+      "tag": "v1.4.0",
+      "name": "MCP-Studio v1.4.0",
+      "at": "2026-10-31T22:29:50Z",
+      "url": "https://github.com/mohsen-niksirat/Mcp-Studio/releases/tag/v1.4.0",
+      "body": "## 🚀 What's New in MCP-Studio v1.4.0 The open-source \"Postman for Model Context Protocol (MCP)\". ### ✨ Key Features:"
+    },
+    {
+      "repo": "Nebula-Drift",
+      "slug": null,
+      "tag": "Live",
+      "name": "Nebula-Drift",
+      "at": "2026-10-25T21:16:44Z",
+      "url": "https://mohsen-niksirat.github.io/Nebula-Drift/",
+      "body": ""
+    },
+    {
+      "repo": "Tonora",
+      "slug": null,
+      "tag": "Live",
+      "name": "Tonora",
+      "at": "2026-10-24T18:59:36Z",
+      "url": "https://mohsen-niksirat.github.io/Tonora/",
+      "body": "Play · Learn · Compose — all in your browser."
+    },
+    {
+      "repo": "RepoLaunch",
+      "slug": null,
+      "tag": "Live",
+      "name": "RepoLaunch",
+      "at": "2026-10-19T20:46:55Z",
+      "url": "https://mohsen-niksirat.github.io/RepoLaunch/",
+      "body": "Turn any GitHub repository into a modern, high-converting landing page — in seconds."
+    },
+    {
+      "repo": "ReadNer",
+      "slug": null,
+      "tag": "v0.1.0",
+      "name": "LeitnerProMax v0.1.0",
+      "at": "2026-10-12T17:14:02Z",
+      "url": "https://github.com/mohsen-niksirat/ReadNer/releases/tag/v0.1.0",
+      "body": "معرفی امکانات اصلی شامل:\r 🧠 الگوریتم تکرار فاصله‌دار علمی FSRS و جعبه لایتنر\r 🗣️ مربی مکالمه صوتی دوطرفه SpeakAI Voice Coach با تشخیص گفتار و تلفظ محلی (TTS)\r"
+    },
+    {
+      "repo": "kite-downloader",
+      "slug": null,
+      "tag": "Kite_0.1.0_x64-setup",
+      "name": "Kite_0.1.0_x64-setup",
+      "at": "2026-10-11T22:42:46Z",
+      "url": "https://github.com/mohsen-niksirat/kite-downloader/releases/tag/Kite_0.1.0_x64-setup",
+      "body": ""
+    },
+    {
+      "repo": "CinePlay",
+      "slug": null,
+      "tag": "Live",
+      "name": "CinePlay",
+      "at": "2026-10-10T16:11:32Z",
+      "url": "https://mohsen-niksirat.github.io/CinePlay/",
+      "body": ""
+    },
+    {
+      "repo": "mohsen-tech-blog",
+      "slug": null,
+      "tag": "Live",
+      "name": "mohsen-tech-blog",
+      "at": "2026-10-09T15:27:47Z",
+      "url": "https://mohsen-niksirat.github.io/mohsen-tech-blog/",
+      "body": ""
+    },
+    {
+      "repo": "SpeakAI-Coach",
+      "slug": "speakai-coach",
+      "tag": "Live",
+      "name": "SpeakAI-Coach",
+      "at": "2026-09-30T18:04:58Z",
+      "url": "https://mohsen-niksirat.github.io/SpeakAI-Coach/",
+      "body": "Real-time AI speaking and conversation coach for IELTS preparation and everyday English fluency — offering live voice dialogue, turn-by-turn grammar & pronunciation corrections, 8 distinct coach personas, a 6-dimension evaluation report, and realistic IELTS Speaking band estimation."
+    },
+    {
+      "repo": "Horde_Survival_3D_Godot",
+      "slug": "horde-survival-3d",
+      "tag": "v2.0.1",
+      "name": "v2.0.1",
+      "at": "2026-09-29T02:27:02Z",
+      "url": "https://github.com/mohsen-niksirat/Horde_Survival_3D_Godot/releases/tag/v2.0.1",
+      "body": "<html>\r <body>\r <!--StartFragment--><p class=\"m-0 mb-[14px]\" style=\"box-sizing: border-box; border: 0px solid; margin: 0px 0px 14px; padding: 0px; overscroll-behavior-x: none; color: rgb(244, 244, 245); font-family: system-ui, -apple-system, BlinkMacSystemFont"
+    },
+    {
+      "repo": "DailyEnglishBot",
+      "slug": null,
+      "tag": "Open Source",
+      "name": "DailyEnglishBot",
+      "at": "2026-09-22T23:41:56Z",
+      "url": "https://github.com/mohsen-niksirat/DailyEnglishBot",
+      "body": "🎓 Daily AI English lessons + quizzes for Telegram channels (word + idiom + example, weekly leaderboard, FA/EN UI)"
+    },
+    {
+      "repo": "AIDahl",
+      "slug": "aidahl",
+      "tag": "Open Source",
+      "name": "AIDahl",
+      "at": "2026-09-20T18:48:37Z",
+      "url": "https://github.com/mohsen-niksirat/AIDahl",
+      "body": "Multi-provider Telegram AI assistant built on a Bring-Your-Own-Key (BYOK) architecture with OpenRouter & OpenAI-compatible endpoints, real-time message streaming, named multi-chat threads, Supabase persistence, token quotas, and an optional Manus Agent mode for image generation, editing, and deep web research."
+    },
+    {
+      "repo": "BountyRadar",
+      "slug": "bountyradar",
+      "tag": "Live",
+      "name": "BountyRadar",
+      "at": "2026-09-19T23:18:16Z",
+      "url": "https://mohsen-niksirat.github.io/BountyRadar/",
+      "body": "Local Windows application that discovers paid open-source bounties and freelance opportunities across 10 developer specializations — complete with preflight GO / CAUTION / STOP scoring, competition & payout analysis, Windows toast notifications in watch mode, and a bilingual EN/FA UI."
+    },
+    {
+      "repo": "DataLens",
+      "slug": "datalens",
+      "tag": "Live",
+      "name": "DataLens",
+      "at": "2026-09-17T19:51:06Z",
+      "url": "https://mohsen-niksirat.github.io/DataLens/",
+      "body": "A local-first data workbench: paste or drop CSV, JSON, YAML, XML, SQL, or Excel files to inspect sortable tables, compute column statistics, render interactive SVG charts, and convert between formats — 100% client-side with zero dependencies and zero uploads."
+    },
+    {
+      "repo": "DevCompass",
+      "slug": "devcompass",
+      "tag": "Live",
+      "name": "DevCompass",
+      "at": "2026-09-16T21:44:27Z",
+      "url": "https://mohsen-niksirat.github.io/DevCompass/",
+      "body": "Free 2-minute bilingual (FA/EN) career personality quiz that matches newcomers to the right software engineering track across 8 paths — complete with radar breakdowns, learning roadmaps, shareable visual cards, and friend-challenge URLs in a zero-backend offline PWA."
+    },
+    {
+      "repo": "promptopia",
+      "slug": null,
+      "tag": "Live",
+      "name": "promptopia",
+      "at": "2026-09-13T21:45:00Z",
+      "url": "https://mohsen-niksirat.github.io/promptopia/",
+      "body": "گالری پرامپت آماده هوش مصنوعی — کپی کن، در جیمینای یا چت‌جی‌پی‌تی بساز | Gallery of ready-made AI image prompts — copy & create in Gemini or ChatGPT. PWA, bilingual FA/EN."
+    },
+    {
+      "repo": "A11y-Inspector",
+      "slug": "a11y-inspector",
+      "tag": "Live",
+      "name": "A11y-Inspector",
+      "at": "2026-09-11T23:40:42Z",
+      "url": "https://mohsen-niksirat.github.io/A11y-Inspector/",
+      "body": "In-browser HTML accessibility auditor and CI-ready CLI — evaluates WCAG contrast ratios, heading hierarchy, ARIA attributes, and form semantics, generates a 0–100 health score with actionable fix hints, and supports 6 languages offline."
+    },
+    {
+      "repo": "Horde_Survival_3D_Unity",
+      "slug": null,
+      "tag": "Open Source",
+      "name": "Horde_Survival_3D_Unity",
+      "at": "2026-09-08T21:57:27Z",
+      "url": "https://github.com/mohsen-niksirat/Horde_Survival_3D_Unity",
+      "body": ""
+    }
+  ]
+}

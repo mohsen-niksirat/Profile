@@ -1,521 +1,103 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohsen Niksirat — Resume & Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Mohsen Niksirat · محسن نیک‌سیرت — Software Engineer &amp; AI Builder</title>
+    <meta name="description" content="Mohsen Niksirat (محسن نیک‌سیرت) — M.Sc. Computer Architecture, Software Engineer &amp; AI Product Builder. 47+ open-source repos &amp; 33+ live apps: Repodest, Leitner Pro Max, 9router, AIDahl, SpeakAI Coach, Horde Survival 3D." />
+    <meta name="author" content="Mohsen Niksirat" />
+    <meta name="theme-color" content="#e9ecf2" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://mohsen-niksirat.github.io/Profile/" />
+    <link rel="alternate" hreflang="en" href="https://mohsen-niksirat.github.io/Profile/" />
+    <link rel="alternate" hreflang="fa" href="https://mohsen-niksirat.github.io/Profile/fa/" />
+    <link rel="alternate" hreflang="x-default" href="https://mohsen-niksirat.github.io/Profile/" />
 
-/* ── Dark Theme (default) ── */
-:root{
-  --bg:#0a0a0f;--bg2:#12121a;
-  --surface:rgba(255,255,255,0.04);--surface-hover:rgba(255,255,255,0.08);
-  --border:rgba(255,255,255,0.08);
-  --text:#e4e4e7;--text-dim:#71717a;
-  --accent:#6d5cff;--accent-glow:rgba(109,92,255,0.3);
-  --green:#22c55e;--amber:#f59e0b;--cyan:#06b6d4;
-  --card-bg:rgba(255,255,255,0.04);--card-border:rgba(255,255,255,0.08);
-  --tag-bg:rgba(255,255,255,0.06);--tag-text:#71717a;
-}
-[data-theme="light"]{
-  --bg:#f5f5f7;--bg2:#eaeaef;
-  --surface:rgba(0,0,0,0.03);--surface-hover:rgba(0,0,0,0.06);
-  --border:rgba(0,0,0,0.08);
-  --text:#1a1a2e;--text-dim:#6b7280;
-  --accent:#5b4cdb;--accent-glow:rgba(91,76,219,0.2);
-  --card-bg:rgba(255,255,255,0.7);--card-border:rgba(0,0,0,0.08);
-  --tag-bg:rgba(0,0,0,0.05);--tag-text:#6b7280;
-}
+    <link rel="icon" type="image/png" href="/Profile/avatar.png" />
+    <link rel="apple-touch-icon" href="/Profile/avatar.png" />
 
-html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  background:var(--bg);color:var(--text);
-  min-height:100vh;overflow-x:hidden;line-height:1.6;
-  transition:background 0.5s,color 0.5s;
-}
-body[dir="rtl"]{direction:rtl;text-align:right}
-body[dir="ltr"]{direction:ltr;text-align:left}
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Mohsen Niksirat" />
+    <meta property="og:title" content="Mohsen Niksirat · محسن نیک‌سیرت — Software Engineer &amp; AI Builder" />
+    <meta property="og:description" content="M.Sc. Computer Architecture · 47+ open-source repos &amp; 33+ live apps. Explore my work like a Mac: projects, notes, terminal, live GitHub activity &amp; more." />
+    <meta property="og:url" content="https://mohsen-niksirat.github.io/Profile/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fa_IR" />
+    <meta property="og:image" content="https://mohsen-niksirat.github.io/Profile/og-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mohsen Niksirat — Software Engineer &amp; AI Product Builder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mohsen Niksirat · محسن نیک‌سیرت — Software Engineer &amp; AI Builder" />
+    <meta name="twitter:description" content="M.Sc. Computer Architecture · 47+ open-source repos &amp; 33+ live apps. Explore my work like a Mac." />
+    <meta name="twitter:image" content="https://mohsen-niksirat.github.io/Profile/og-card.png" />
 
-/* ── Mesh Background ── */
-.mesh-bg{
-  position:fixed;inset:0;z-index:0;overflow:hidden;
-  background:
-    radial-gradient(ellipse 120% 80% at 10% 20%, rgba(109,92,255,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 85% 75%, rgba(6,182,212,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 50% 5%, rgba(244,63,94,0.08) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, var(--bg2) 0%, var(--bg) 70%);
-  transition:background 0.5s;
-}
-[data-theme="light"] .mesh-bg{
-  background:
-    radial-gradient(ellipse 120% 80% at 10% 20%, rgba(91,76,219,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 85% 75%, rgba(6,182,212,0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 50% 5%, rgba(244,63,94,0.04) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, #eaeaef 0%, #f5f5f7 70%);
-}
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin />
 
-/* ── Floating 3D Shapes ── */
-.world-3d{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.geo-shape{position:absolute;border:1px solid rgba(109,92,255,0.1);transition:border-color 0.5s}
-[data-theme="light"] .geo-shape{border-color:rgba(91,76,219,0.12)}
-.geo-cube{width:60px;height:60px;transform:rotateX(45deg) rotateZ(45deg);animation:spin3d 12s linear infinite}
-.geo-cube::before,.geo-cube::after{content:'';position:absolute;inset:0;border:1px solid rgba(6,182,212,0.08)}
-.geo-cube::before{transform:rotateY(90deg)}
-.geo-cube::after{transform:rotateX(90deg)}
-@keyframes spin3d{from{transform:rotateX(45deg) rotateZ(0deg)}to{transform:rotateX(45deg) rotateZ(360deg)}}
-.geo-ring{width:80px;height:80px;border-radius:50%;border:2px solid rgba(244,63,94,0.06);animation:spinRing 15s linear infinite}
-@keyframes spinRing{from{transform:rotateX(70deg) rotateZ(0deg)}to{transform:rotateX(70deg) rotateZ(360deg)}}
-.geo-diamond{width:40px;height:40px;transform:rotateX(60deg) rotateZ(45deg);animation:spin3d 10s linear infinite reverse}
+    <!-- FONTS -->
+<style>@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;
+src:url(/Profile/assets/fonts/inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;
+src:url(/Profile/assets/fonts/inter-600.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;
+src:url(/Profile/assets/fonts/inter-700.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:swap;
+src:url(/Profile/assets/fonts/inter-800.woff2) format('woff2')}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:400;font-display:swap;
+src:url(/Profile/assets/fonts/vazirmatn-400.woff2) format('woff2')}
+@font-face{font-family:'Vazirmatn';font-style:normal;font-weight:700;font-display:swap;
+src:url(/Profile/assets/fonts/vazirmatn-700.woff2) format('woff2')}</style>
+<!-- /FONTS -->
 
-/* ── Floor Grid ── */
-.floor-grid{
-  position:fixed;bottom:0;left:0;right:0;height:45vh;z-index:0;pointer-events:none;
-  background:
-    repeating-linear-gradient(90deg, rgba(109,92,255,0.03) 0px, transparent 1px, transparent 80px),
-    repeating-linear-gradient(0deg, rgba(109,92,255,0.03) 0px, transparent 1px, transparent 80px);
-  transform:perspective(500px) rotateX(60deg);transform-origin:bottom center;
-  mask-image:linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 80%);
-  -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 80%);
-}
-[data-theme="light"] .floor-grid{
-  background:
-    repeating-linear-gradient(90deg, rgba(91,76,219,0.05) 0px, transparent 1px, transparent 80px),
-    repeating-linear-gradient(0deg, rgba(91,76,219,0.05) 0px, transparent 1px, transparent 80px);
-}
+    <script>
+      (function () {
+        try {
+          var s = JSON.parse(localStorage.getItem("portfolio:settings") || "{}").state || {};
+          var a = s.appearance || "auto";
+          var dark = a === "dark" || (a === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+        try {
+          var l = localStorage.getItem("portfolio:locale");
+          if (l === "fa" || (!l && /^fa/i.test(navigator.language || ""))) {
+            document.documentElement.lang = "fa";
+            document.documentElement.dir = "rtl";
+          }
+        } catch (e) {}
+      })();
+    </script>
 
-.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.02;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* ── Content ── */
-.content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}
-
-/* ── Top Controls ── */
-.top-controls{
-  position:fixed;top:1rem;z-index:100;
-  display:flex;gap:0.5rem;align-items:center;
-}
-body[dir="rtl"] .top-controls{left:1rem}
-body[dir="ltr"] .top-controls{right:1rem}
-.ctrl-group{
-  display:flex;gap:0;border-radius:10px;overflow:hidden;
-  background:var(--surface);border:1px solid var(--border);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:background 0.3s,border-color 0.3s;
-}
-.ctrl-btn{
-  padding:0.4rem 0.7rem;font-size:0.72rem;font-weight:600;
-  border:none;cursor:pointer;transition:all 0.3s;
-  background:transparent;color:var(--text-dim);
-}
-.ctrl-btn.active{background:var(--accent);color:#fff}
-.theme-btn{
-  width:36px;height:36px;border-radius:10px;border:1px solid var(--border);
-  background:var(--surface);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;
-  transition:all 0.3s;color:var(--text);
-}
-.theme-btn:hover{background:var(--surface-hover);border-color:var(--accent)}
-
-/* ── Header ── */
-.header{text-align:center;padding:4rem 0 2rem;position:relative}
-.header::before{
-  content:'';position:absolute;inset:-40px -60px;
-  background:radial-gradient(ellipse at center, rgba(109,92,255,0.06) 0%, transparent 70%);
-  border-radius:30px;z-index:-1;filter:blur(40px);
-}
-.avatar{
-  width:120px;height:120px;border-radius:50%;
-  border:3px solid var(--accent);
-  box-shadow:0 0 40px var(--accent-glow),0 0 80px rgba(109,92,255,0.1);
-  margin:0 auto 1.5rem;display:block;object-fit:cover;
-  transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.4s;
-}
-.avatar:hover{transform:scale(1.08);box-shadow:0 0 60px var(--accent-glow),0 0 120px rgba(109,92,255,0.2)}
-.header h1{
-  font-size:clamp(2rem,5vw,3rem);font-weight:800;
-  background:linear-gradient(135deg,var(--text) 0%,#a78bfa 50%,#06b6d4 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;margin-bottom:0.5rem;
-}
-.header .tagline{color:var(--text-dim);font-size:1.05rem;font-weight:300;max-width:500px;margin:0 auto 1.5rem}
-.social-links{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
-.social-links a{
-  display:inline-flex;align-items:center;gap:0.4rem;
-  padding:0.5rem 1rem;border-radius:999px;
-  background:var(--surface);border:1px solid var(--border);
-  color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:500;
-  transition:all 0.3s;backdrop-filter:blur(10px);
-}
-.social-links a:hover{background:var(--surface-hover);color:var(--text);border-color:var(--accent)}
-.social-links svg{width:16px;height:16px;fill:currentColor}
-
-/* ── Stats ── */
-.stats-bar{display:flex;justify-content:center;gap:2.5rem;padding:1.5rem 0 2.5rem;flex-wrap:wrap}
-.stat{text-align:center}
-.stat .num{font-size:1.5rem;font-weight:700;font-family:'JetBrains Mono',monospace;color:var(--accent)}
-.stat .label{font-size:0.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em}
-
-/* ── Section Title ── */
-.section-title{
-  font-size:1rem;font-weight:600;color:var(--text-dim);
-  margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem;
-  text-transform:uppercase;letter-spacing:0.08em;
-}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* ── Resume ── */
-.resume-section{margin-bottom:2rem}
-.resume-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:0.9rem}
-@media(max-width:560px){.resume-grid{grid-template-columns:1fr}}
-.resume-card{
-  display:flex;gap:1rem;align-items:flex-start;
-  background:var(--card-bg);border:1px solid var(--card-border);
-  border-radius:14px;padding:1.25rem;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-}
-.resume-card:hover{
-  border-color:rgba(109,92,255,0.2);transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(0,0,0,0.15),0 0 30px rgba(109,92,255,0.03);
-}
-.resume-icon{
-  font-size:1.5rem;width:40px;height:40px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:10px;background:rgba(109,92,255,0.1);flex-shrink:0;
-}
-.resume-content{flex:1;min-width:0}
-.resume-content h3{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.6rem}
-.resume-item{margin-bottom:0.4rem}
-.resume-degree{display:block;font-size:0.8rem;color:var(--text);font-weight:500}
-.resume-place{display:block;font-size:0.72rem;color:var(--text-dim)}
-.lang-bars{display:flex;flex-direction:column;gap:0.4rem}
-.lang-bar{display:flex;align-items:center;gap:0.5rem}
-.lang-label{font-size:0.7rem;color:var(--text-dim);width:55px;flex-shrink:0}
-body[dir="rtl"] .lang-label{text-align:left}
-body[dir="ltr"] .lang-label{text-align:right}
-.lang-track{flex:1;height:20px;background:var(--tag-bg);border-radius:6px;overflow:hidden}
-.lang-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 0.4rem;
-  background:linear-gradient(90deg,rgba(109,92,255,0.3),rgba(109,92,255,0.6))}
-body[dir="rtl"] .lang-fill{justify-content:flex-end}
-body[dir="ltr"] .lang-fill{justify-content:flex-start}
-.lang-fill span{font-size:0.6rem;font-weight:600;color:#fff}
-.skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem}
-.skill-tag{
-  font-size:0.7rem;padding:0.2rem 0.55rem;border-radius:6px;
-  background:rgba(109,92,255,0.1);color:rgba(109,92,250,0.9);
-  font-weight:500;border:1px solid rgba(109,92,255,0.15);transition:all 0.3s;
-}
-.skill-tag:hover{background:rgba(109,92,255,0.2);border-color:rgba(109,92,255,0.3)}
-
-/* ── Repo Grid ── */
-.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0.9rem}
-
-/* ── Repo Card ── */
-.repo-card{
-  background:var(--card-bg);border:1px solid var(--card-border);border-radius:14px;
-  padding:1.25rem;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);
-  position:relative;overflow:hidden;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-}
-.repo-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
-  opacity:0;transition:opacity 0.4s;
-}
-.repo-card:hover{
-  border-color:rgba(109,92,255,0.3);transform:translateY(-5px);
-  box-shadow:0 20px 50px rgba(0,0,0,0.15),0 0 40px rgba(109,92,255,0.05);
-}
-.repo-card:hover::before{opacity:1}
-.repo-card .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.6rem}
-.repo-card .icon{
-  font-size:1.6rem;width:42px;height:42px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:10px;background:rgba(109,92,255,0.1);flex-shrink:0;
-}
-.repo-card .badge{font-size:0.6rem;font-weight:600;padding:0.2rem 0.5rem;border-radius:999px;text-transform:uppercase;letter-spacing:0.05em}
-.badge-live{background:rgba(34,197,94,0.15);color:var(--green)}
-.badge-source{background:rgba(109,92,255,0.15);color:var(--accent)}
-.repo-card h3{font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.2rem}
-.repo-card .repo-name{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-dim);margin-bottom:0.5rem}
-.repo-card .desc{font-size:0.8rem;color:var(--text-dim);line-height:1.5;margin-bottom:0.75rem}
-.repo-card .tags{display:flex;gap:0.3rem;flex-wrap:wrap;margin-bottom:0.75rem}
-.repo-card .tag{font-size:0.65rem;padding:0.15rem 0.4rem;border-radius:5px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
-.repo-card .card-actions{display:flex;gap:0.4rem}
-.repo-card .card-actions a{
-  display:inline-flex;align-items:center;gap:0.3rem;
-  padding:0.4rem 0.8rem;border-radius:8px;
-  font-size:0.75rem;font-weight:500;text-decoration:none;
-  transition:all 0.3s;flex:1;justify-content:center;
-}
-.btn-live{background:var(--accent);color:#fff;box-shadow:0 2px 10px rgba(109,92,255,0.3)}
-.btn-live:hover{background:#7c6bff;box-shadow:0 4px 16px rgba(109,92,255,0.4)}
-.btn-src{background:var(--surface);border:1px solid var(--border);color:var(--text-dim)}
-.btn-src:hover{background:var(--surface-hover);color:var(--text);border-color:rgba(109,92,255,0.3)}
-
-.footer{text-align:center;padding:3rem 0 1rem;color:var(--text-dim);font-size:0.75rem}
-.footer a{color:var(--accent);text-decoration:none}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.repo-card,.resume-card{animation:fadeUp 0.6s ease both}
-.repo-card:nth-child(1),.resume-card:nth-child(1){animation-delay:0.03s}
-.repo-card:nth-child(2),.resume-card:nth-child(2){animation-delay:0.06s}
-.repo-card:nth-child(3),.resume-card:nth-child(3){animation-delay:0.09s}
-.repo-card:nth-child(4),.resume-card:nth-child(4){animation-delay:0.12s}
-.repo-card:nth-child(5){animation-delay:0.15s}
-.repo-card:nth-child(6){animation-delay:0.18s}
-.repo-card:nth-child(7){animation-delay:0.21s}
-.repo-card:nth-child(8){animation-delay:0.24s}
-.repo-card:nth-child(9){animation-delay:0.27s}
-.repo-card:nth-child(10){animation-delay:0.3s}
-.repo-card:nth-child(11){animation-delay:0.33s}
-.repo-card:nth-child(12){animation-delay:0.36s}
-.repo-card:nth-child(13){animation-delay:0.39s}
-.repo-card:nth-child(14){animation-delay:0.42s}
-.repo-card:nth-child(15){animation-delay:0.45s}
-.repo-card:nth-child(16){animation-delay:0.48s}
-.repo-card:nth-child(17){animation-delay:0.51s}
-.repo-card:nth-child(18){animation-delay:0.54s}
-.repo-card:nth-child(19){animation-delay:0.57s}
-.repo-card:nth-child(20){animation-delay:0.6s}
-
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2)}
-[data-theme="light"] ::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.15)}
-</style>
-</head>
-<body dir="rtl">
-
-<canvas id="mesh" style="position:fixed;inset:0;z-index:0;width:100%;height:100%"></canvas>
-
-<div class="world-3d">
-  <div class="geo-shape geo-cube" id="cube1" style="top:25%;left:8%"></div>
-  <div class="geo-shape geo-ring" id="ring1" style="top:60%;right:5%"></div>
-  <div class="geo-shape geo-diamond" id="diamond1" style="top:45%;left:15%"></div>
-  <div class="geo-shape geo-cube" id="cube2" style="top:70%;right:12%;width:40px;height:40px"></div>
-  <div class="geo-shape geo-ring" id="ring2" style="top:20%;right:15%;width:50px;height:50px"></div>
-</div>
-
-<div class="floor-grid"></div>
-<div class="grain"></div>
-
-<!-- Top Controls -->
-<div class="top-controls">
-  <div class="ctrl-group">
-    <button class="ctrl-btn active" data-lang="fa" onclick="setLang('fa')">فارسی</button>
-    <button class="ctrl-btn" data-lang="en" onclick="setLang('en')">EN</button>
-  </div>
-  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="تغییر تم">🌙</button>
-</div>
-
-<div class="scene" style="perspective:1200px;perspective-origin:50% 40%;min-height:100vh">
-<div class="content">
-
-  <header class="header">
-    <img src="https://avatars.githubusercontent.com/u/319197712?v=4" alt="Mohsen Niksirat" class="avatar" id="avatar">
-    <h1>Mohsen Niksirat</h1>
-    <p class="tagline" data-fa="ساخت ابزارها و اپلیکیشن‌های وب کاربردی" data-en="CS grad (BSc + MSc) building practical web apps & tools — Languages, finance, and productivity"></p>
-    <div class="social-links">
-      <a href="https://github.com/mohsen-niksirat" target="_blank"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
-      <a href="https://t.me/mohsenniksirat" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>Telegram</a>
-    </div>
-  </header>
-
-  <div class="stats-bar">
-    <div class="stat"><div class="num">44</div><div class="label" data-fa="پروژه" data-en="Repos"></div></div>
-    <div class="stat"><div class="num">33</div><div class="label" data-fa="اپ زنده" data-en="Live Apps"></div></div>
-  </div>
-
-  <div class="resume-section">
-    <div class="resume-grid">
-      <div class="resume-card">
-        <div class="resume-icon">🎓</div>
-        <div class="resume-content">
-          <h3 data-fa="تحصیلات" data-en="Education"></h3>
-          <div class="resume-item"><span class="resume-degree" data-fa="کارشناسی علوم کامپیوتر" data-en="BSc Computer Science"></span><span class="resume-place" data-fa="دانشگاه محقق اردبیلی" data-en="University of Mohaghegh Ardabili"></span></div>
-          <div class="resume-item"><span class="resume-degree" data-fa="کارشناسی ارشد مهندسی کامپیوتر" data-en="MSc Computer Engineering"></span><span class="resume-place" data-fa="گرایش معماری سیستم‌های کامپیوتری — دانشگاه تبریز" data-en="Computer Architecture — University of Tabriz"></span></div>
-        </div>
-      </div>
-      <div class="resume-card">
-        <div class="resume-icon">🌐</div>
-        <div class="resume-content">
-          <h3 data-fa="زبان انگلیسی — سطح B2" data-en="English — Level B2"></h3>
-          <div class="lang-bars">
-            <div class="lang-bar"><span class="lang-label" data-fa="وکب" data-en="Vocab"></span><div class="lang-track"><div class="lang-fill" style="width:85%"><span>C1</span></div></div></div>
-            <div class="lang-bar"><span class="lang-label" data-fa="گرامر" data-en="Grammar"></span><div class="lang-track"><div class="lang-fill" style="width:50%"><span>A2</span></div></div></div>
-            <div class="lang-bar"><span class="lang-label" data-fa="لیسنینگ" data-en="Listening"></span><div class="lang-track"><div class="lang-fill" style="width:70%"><span>B2</span></div></div></div>
-            <div class="lang-bar"><span class="lang-label" data-fa="اسپیکینگ" data-en="Speaking"></span><div class="lang-track"><div class="lang-fill" style="width:60%"><span>B1</span></div></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="resume-card">
-        <div class="resume-icon">💻</div>
-        <div class="resume-content">
-          <h3 data-fa="زبان‌های برنامه‌نویسی" data-en="Programming Languages"></h3>
-          <div class="skill-tags"><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">C#</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">GDScript</span><span class="skill-tag">Kotlin</span></div>
-        </div>
-      </div>
-      <div class="resume-card">
-        <div class="resume-icon">🛠</div>
-        <div class="resume-content">
-          <h3 data-fa="مهارت‌های فنی" data-en="Technical Skills"></h3>
-          <div class="skill-tags"><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span><span class="skill-tag">Linux</span><span class="skill-tag">FSRS</span><span class="skill-tag">IndexedDB</span><span class="skill-tag">Chart.js</span><span class="skill-tag">REST API</span><span class="skill-tag">Node.js</span><span class="skill-tag">Cloudflare Pages</span><span class="skill-tag">PWA</span><span class="skill-tag">Canvas</span><span class="skill-tag">Godot</span><span class="skill-tag">Unity</span><span class="skill-tag">Telegram Bot</span><span class="skill-tag">WCAG / A11y</span><span class="skill-tag" data-fa="اپ تک‌فایل" data-en="Single-file Apps"></span><span class="skill-tag" data-fa="طراحی ریسپانسیو" data-en="Responsive Design"></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title"><span data-fa="🎓 یادگیری و آموزش" data-en="🎓 Learning & Education"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">📚</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Readner</h3><div class="repo-name">leitner-pro</div><p class="desc" data-fa="یادگیری هوشمند واژگان با تکرار فاصله‌دار FSRS، خواننده PDF، ۱۳ زبان. تک‌فایل HTML — آفلاین کار می‌کند." data-en="Smart vocabulary learning with FSRS spaced repetition, PDF reader, 13 languages. Single HTML file."></p><div class="tags"><span class="tag">HTML</span><span class="tag">FSRS</span><span class="tag" data-fa="آفلاین" data-en="Offline"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/leitner-pro/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/leitner-pro" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧠</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Leitner Pro Max</h3><div class="repo-name">Leitner-Pro-Max</div><p class="desc" data-fa="باکس لایتنر پیشرفته با بسته‌های واژگان CEFR (A1-C2)، حافظه بلندمدت، آزمون و بیش از ۴,۵۰۰ کلمه." data-en="Advanced Leitner box with CEFR vocabulary packs (A1-C2), long-term memory, quizzes, and 4,500+ words."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">CEFR</span><span class="tag">4,500 Words</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Leitner-Pro-Max/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Leitner-Pro-Max" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📖</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>VocabForge</h3><div class="repo-name">VocabForge</div><p class="desc" data-fa="ساخت فلش‌کارت از هر متن، PDF یا سند در کسری از ثانیه." data-en="Build flashcards from any text, PDF or document instantly."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="فلش‌کارت" data-en="Flashcards"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/VocabForge/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/VocabForge" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📱</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Leitner Mobile</h3><div class="repo-name">Leitner_Mobile</div><p class="desc" data-fa="سیستم فلش‌کارت لایتنر بهینه‌شده برای موبایل." data-en="Mobile-optimized Leitner flashcard system for on-the-go learning."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="موبایل" data-en="Mobile"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Leitner_Mobile/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Leitner_Mobile" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📝</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>English Quiz</h3><div class="repo-name">EnglishQuiz</div><p class="desc" data-fa="آزمون تعاملی واژگان انگلیسی با امتیازدهی و پیگیری پیشرفت." data-en="Interactive English vocabulary quiz with scoring and progress tracking."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="آزمون" data-en="Quiz"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/EnglishQuiz/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/EnglishQuiz" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🤖</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>English Quiz Bot</h3><div class="repo-name">EnglishQuizBeta</div><p class="desc" data-fa="بات تلگرام — آزمون خودکار واژگان انگلیسی با TypeScript." data-en="Telegram quiz bot — automated English vocabulary quizzes in TypeScript."></p><div class="tags"><span class="tag">TypeScript</span><span class="tag" data-fa="بات تلگرام" data-en="Telegram Bot"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/EnglishQuizBeta/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/EnglishQuizBeta" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧭</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>DevCompass</h3><div class="repo-name">DevCompass</div><p class="desc" data-fa="کوییز «چه استکی یاد بگیرم؟» — ۲ دقیقه، ۸ مسیر حرفه‌ای، کارت نتیجه قابل اشتراک و چالش دوست. دوزبانه و آفلاین." data-en="Free 2-minute quiz: which tech stack should you learn? 8 career tracks, shareable result card, friend challenges, offline PWA."></p><div class="tags"><span class="tag">HTML</span><span class="tag">PWA</span><span class="tag" data-fa="آموزش" data-en="Education"></span><span class="tag" data-fa="دوزبانه" data-en="Bilingual"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/DevCompass/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/DevCompass" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧩</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>CodeVis</h3><div class="repo-name">CodeVis</div><p class="desc" data-fa="مفاهیم برنامه‌نویسی با انیمیشن Canvas — ۴۹ مفهوم تعاملی، کد همگام، مفهوم روزانه، خروجی PNG و PWA آفلاین." data-en="Visual programming concepts via interactive canvas animations — 49 concepts, synced code panel, daily streak, PNG share, offline PWA."></p><div class="tags"><span class="tag">HTML</span><span class="tag">Canvas</span><span class="tag" data-fa="علوم کامپیوتر" data-en="Computer Science"></span><span class="tag">PWA</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/CodeVis/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/CodeVis" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎙️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>SpeakAI Coach</h3><div class="repo-name">SpeakAI-Coach</div><p class="desc" data-fa="تدریس و تمرین زنده انگلیسی با هوش مصنوعی — مکالمهٔ صوتی بلادرنگ، تصحیح گرامر و تلفظ، ۸ نقش مربی، گزارش ارزیابی شش‌محوری و تخمین نمرهٔ آیلتس." data-en="Real-time AI English speaking & text coach — live voice chat, grammar/pronunciation corrections, 8 coach personas, 6-dimension assessment report & IELTS band estimation."></p><div class="tags"><span class="tag">TypeScript</span><span class="tag">AI</span><span class="tag">PWA</span><span class="tag" data-fa="مکالمه" data-en="Speaking"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/SpeakAI-Coach/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/SpeakAI-Coach" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📱</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>ReadNer Android</h3><div class="repo-name">ReadNer</div><p class="desc" data-fa="نسخهٔ اندرویدی لایتنر پرو-مکس — یادگیری واژگان با FSRS، مربی صوتی SpeakAI، خواننده PDF و دستیار جمینای؛ ساخته‌شده با Kotlin و Jetpack Compose." data-en="Android version of Leitner Pro Max — FSRS vocabulary learning, SpeakAI voice coach, PDF reader and a Gemini assistant, built with Kotlin + Jetpack Compose."></p><div class="tags"><span class="tag">Kotlin</span><span class="tag">Android</span><span class="tag">FSRS</span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/ReadNer" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🎬 سرگرمی" data-en="🎬 Entertainment"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">🎬</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Cinema Sermovie</h3><div class="repo-name">Cinema</div><p class="desc" data-fa="پلتفرم جستجو و کشف فیلم‌ها با امتیازدهی، نقد و پیشنهادات." data-en="Movie browsing and discovery platform with ratings, reviews, and recommendations."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="فیلم" data-en="Movies"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Cinema/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Cinema" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">⭐</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>CineScore</h3><div class="repo-name">CineScore</div><p class="desc" data-fa="سیستم امتیازدهی فیلم با رأی جامعه." data-en="Movie rating and scoring system with community-driven ratings."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="امتیازدهی" data-en="Ratings"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/CineScore/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/CineScore" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎞️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>CinePlay</h3><div class="repo-name">CinePlay</div><p class="desc" data-fa="پلیر آنلاین فیلم و سریال از لینک مستقیم — HLS، زیرنویس SRT/VTT/ASS، دوبله، ادامه تماشا، حالت سریال و PWA." data-en="Online movie & series player from direct links — HLS streaming, SRT/VTT/ASS subtitles, multi-version dubbing, resume, series mode, PWA."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">HLS</span><span class="tag">PWA</span><span class="tag" data-fa="پلیر" data-en="Player"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/CinePlay/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/CinePlay" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎮</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Horde Survival</h3><div class="repo-name">HordeSurvival</div><p class="desc" data-fa="بازی بقا Kotlin با نبرد موجی و تولید تصادفی." data-en="Kotlin-based survival game with wave combat and procedural generation."></p><div class="tags"><span class="tag">Kotlin</span><span class="tag" data-fa="بازی" data-en="Game"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/HordeSurvival/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/HordeSurvival" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🕹️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Horde Survival 3D</h3><div class="repo-name">Horde_Survival_3D_Godot</div><p class="desc" data-fa="بازی بقای roguelite سه‌بعدی مرورگر با Godot 4 — ۵ سلاح و ارتقا، ۹ دشمن، باس سه‌فازی، ریلیکت‌ها و ذخیره متا." data-en="Browser 3D survival roguelite in Godot 4 — weapons & evolutions, 9 enemy archetypes, 3-phase boss, relics, and persistent meta saves."></p><div class="tags"><span class="tag">Godot</span><span class="tag">GDScript</span><span class="tag" data-fa="بازی سه‌بعدی" data-en="3D Game"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Horde_Survival_3D_Godot/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Horde_Survival_3D_Godot" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📱</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Horde Survival 3D Unity</h3><div class="repo-name">Horde_Survival_3D_Unity</div><p class="desc" data-fa="نسخه اندروید با Unity — کنترل دو‌سمتی، شلیک خودکار، کارت‌های ارتقا، صدای procedural و هدف ۲۰۰ دشمن." data-en="Unity Android version — dual-zone controls, auto-aim, upgrade cards, procedural audio, and a 200-enemy performance target."></p><div class="tags"><span class="tag">Unity</span><span class="tag">C#</span><span class="tag" data-fa="اندروید" data-en="Android"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/Horde_Survival_3D_Unity" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎹</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Tonora</h3><div class="repo-name">Tonora</div><p class="desc" data-fa="نوازندگی، یادگیری و آهنگ‌سازی موسیقی در مرورگر — پیانو تعاملی و ابزارهای آهنگ‌سازی به‌صورت PWA آفلاین." data-en="Play, learn and compose music in your browser — interactive piano and composer tools as an offline PWA."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Music</span><span class="tag">PWA</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Tonora/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Tonora" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧬</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Biosphera</h3><div class="repo-name">Biosphera</div><p class="desc" data-fa="شبیه‌سازی حیات دیجیتال در مرورگر با الگوریتم ژنتیک و شبکه‌های عصبی کوچک — بدون وابستگی، کاملاً سمت کلاینت و تکامل ظاهرشونده با ۶۰ فریم." data-en="In-browser digital life simulation powered by genetic algorithms and tiny neural networks — zero dependencies, 100% client-side, emergent evolution at 60 FPS."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag" data-fa="شبیه‌سازی" data-en="Simulation"></span><span class="tag" data-fa="تکامل" data-en="Evolution"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Biosphera/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Biosphera" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🌌</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Nebula Drift</h3><div class="repo-name">Nebula-Drift</div><p class="desc" data-fa="شوتر فضایی روگ‌لایت دوبعدی با Godot 4 — پرواز با کشوار Kestrel-9 میان نُه سکتور تاشدهٔ سحابی، ارتقاهای نجات‌یافته و پیشرفت دائمی بین دوره‌ها." data-en="2D space-shooter roguelite in Godot 4 — pilot the Kestrel-9 through nine folding nebula sectors, salvage upgrades and meta-progression that persists between runs."></p><div class="tags"><span class="tag">Godot</span><span class="tag">GDScript</span><span class="tag" data-fa="بازی فضایی" data-en="Space"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Nebula-Drift/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Nebula-Drift" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🧰 ابزارها و بهره‌وری" data-en="🧰 Tools & Productivity"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">🚀</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>RepoLaunch</h3><div class="repo-name">RepoLaunch</div><p class="desc" data-fa="تبدیل هر مخزن GitHub به صفحهٔ فرود مدرن در چند ثانیه — پیش‌نمایش زنده، ویرایش درجا، ۴ تم، ۷ زبان و انتشار یک‌کلیکی با GitHub Pages. بدون سرور." data-en="Turn any GitHub repo into a modern landing page in seconds — live preview, in-place editing, 4 themes, 7 languages & 1-click GitHub Pages publish. No backend."></p><div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag" data-fa="فرود" data-en="Landing"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/RepoLaunch/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/RepoLaunch" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🔑</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>API Key Manager</h3><div class="repo-name">api-key-manager</div><p class="desc" data-fa="مدیریت حریم‌خصوصی‌محور و آفلاین کلیدهای API — رمزنگاری AES-GCM، ۲۵+ پرووایدر، دوزبانه FA/EN، سطل بازیافت و PWA نصب‌شدنی." data-en="Privacy-first, offline API key manager — AES-GCM encryption, 25+ providers, bilingual FA/EN UI, soft-delete trash, and an installable PWA."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">PWA</span><span class="tag">IndexedDB</span><span class="tag" data-fa="حریم خصوصی" data-en="Privacy"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/api-key-manager/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/api-key-manager" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧰</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Toolbox</h3><div class="repo-name">Toolbox</div><p class="desc" data-fa="مجموعه ابزارهای مرورگری — JSON، Base64، QR، انتخابگر رنگ و بیشتر." data-en="Collection of browser-based utilities — JSON, Base64, QR, color picker, and more."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="ابزارها" data-en="Utilities"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Toolbox/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Toolbox" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📈</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Life Tracker</h3><div class="repo-name">life-tracker</div><p class="desc" data-fa="پیگیری عادت‌ها، اهداف و معیارهای زندگی با چک‌این روزانه." data-en="Track habits, goals, and life metrics with daily check-ins and streaks."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="عادت‌ها" data-en="Habits"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/life-tracker/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/life-tracker" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">👨‍👩‍👧‍👦</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3 data-fa="شجره‌نامه خانوادگی" data-en="Family Tree"></h3><div class="repo-name">FamilyTree</div><p class="desc" data-fa="ساخت شجره‌نامه بصری خانواده — تک‌فایل HTML با ذخیره کامل آفلاین." data-en="Visual family tree builder — single HTML file with full offline storage."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="آفلاین" data-en="Offline"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/FamilyTree/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/FamilyTree" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧩</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>All-In-One</h3><div class="repo-name">All-In-One</div><p class="desc" data-fa="هاب مینی‌اپ‌های تلگرام — مجموعه ابزار رایگان و بدون سرور در یک لانچر، با پشتیبانی آفلاین و سه زبانه (فا/EN/AR)." data-en="Telegram Mini Apps hub — free serverless tools in one launcher, offline-ready and trilingual (FA/EN/AR)."></p><div class="tags"><span class="tag">PWA</span><span class="tag">Telegram</span><span class="tag" data-fa="بدون سرور" data-en="Serverless"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/All-In-One/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/All-In-One" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📊</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>DataLens</h3><div class="repo-name">DataLens</div><p class="desc" data-fa="ورک‌بنچ محلی داده — CSV/JSON/YAML/XML/SQL/Excel را در مرورگر ببین، نمودار بکش، آمار بگیر و تبدیل کن. ۱۰۰٪ کلاینت‌ساید و آفلاین." data-en="Local-first data workbench — view, chart, analyze and convert CSV/JSON/YAML/XML/SQL/Excel entirely in-browser. Offline PWA, zero upload."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Charts</span><span class="tag" data-fa="حریم خصوصی" data-en="Privacy"></span><span class="tag">PWA</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/DataLens/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/DataLens" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎯</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>BountyRadar</h3><div class="repo-name">BountyRadar</div><p class="desc" data-fa="یابنده باونتی و پروژه فریلنسری — ۱۰ پروفایل مهارتی، امتیازدهی GO/CAUTION/STOP، واچ خودکار با توست ویندوز، رابط دوزبانه." data-en="Local bounty finder for freelancers — 10 skill profiles, preflight GO/CAUTION/STOP scoring, Windows toast watch mode, EN/FA UI."></p><div class="tags"><span class="tag">Python</span><span class="tag" data-fa="فریلنسری" data-en="Freelance"></span><span class="tag">Windows</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/BountyRadar/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/BountyRadar" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">♿</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>A11y Inspector</h3><div class="repo-name">A11y-Inspector</div><p class="desc" data-fa="ممیزی دسترس‌پذیری HTML کاملاً داخل مرورگر — WCAG کنتراست، امتیاز ۰–۱۰۰، CLI برای CI، ۶ زبان و PWA." data-en="Privacy-first in-browser HTML accessibility auditor — WCAG contrast checks, 0–100 score, CI-ready CLI, six languages, offline PWA."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag">WCAG</span><span class="tag" data-fa="دسترس‌پذیری" data-en="Accessibility"></span><span class="tag">CLI</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/A11y-Inspector/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/A11y-Inspector" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">✨</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Promptopia</h3><div class="repo-name">promptopia</div><p class="desc" data-fa="گالری ۱٬۳۶۶+ پرامپت آماده تصویر هوش مصنوعی — کپی یک‌کلیکی، باز کردن در Gemini/ChatGPT، ۱۸ دسته، PWA و دوزبانه." data-en="Gallery of 1,366+ ready AI image prompts — one-click copy, open in Gemini/ChatGPT, 18 categories, offline PWA, bilingual FA/EN."></p><div class="tags"><span class="tag">HTML</span><span class="tag">PWA</span><span class="tag">AI</span><span class="tag" data-fa="پرامپت" data-en="Prompts"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/promptopia/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/promptopia" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🪁</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Kite Downloader</h3><div class="repo-name">kite-downloader</div><p class="desc" data-fa="مدیریت دانلود سریع و سبک دسکتاپ با Rust و Tauri v2 — صف و همزمانی تنظیم‌پذیر، دسته‌بندی هوشمند، تشخیص لینک از کلیپ‌بورد و رابط گلس‌مورفیسم." data-en="Fast, lightweight desktop download manager in Rust + Tauri v2 — configurable queue & concurrency, smart category filters, clipboard link sniffer and a glassmorphism UI."></p><div class="tags"><span class="tag">Rust</span><span class="tag">Tauri</span><span class="tag" data-fa="ویندوز" data-en="Windows"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/kite-downloader" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">⌨️</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Ravaan</h3><div class="repo-name">Ravaan</div><p class="desc" data-fa="دستیار تایپ ویندوز برای دوزبانه‌نویس‌های فارسی/انگلیسی — تبدیل چیدمان، نیم‌فاصلهٔ هوشمند، املای خودکار، اسنیپت و تاریخ شمسی." data-en="Windows typing assistant for bilingual Persian/English typists — layout conversion, smart ZWNJ, autocorrect, snippets and Jalali dates."></p><div class="tags"><span class="tag">Python</span><span class="tag" data-fa="ویندوز" data-en="Windows"></span><span class="tag" data-fa="دوزبانه" data-en="Bilingual"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/Ravaan" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🤖 هوش مصنوعی و بات‌ها" data-en="🤖 AI & Bots"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">💬</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Free AI Chat</h3><div class="repo-name">Free-AI-Chat</div><p class="desc" data-fa="رابط چت ساده و تمیز با پشتیبانی از API‌های هوش مصنوعی." data-en="Clean chat interface powered by AI APIs with multi-model support."></p><div class="tags"><span class="tag">HTML</span><span class="tag">AI</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Free-AI-Chat/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Free-AI-Chat" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧠</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>AIDahl</h3><div class="repo-name">AIDahl</div><p class="desc" data-fa="بات تلگرام هوش مصنوعی — چند سرویس‌دهنده با BYOK، استریم پاسخ، چند گفتگو، سهمیه توکن و حالت Manus Agent برای تصویر و تحقیق." data-en="Telegram AI assistant — multi-provider BYOK, streaming replies, named chats, token quotas, and Manus Agent mode for image/edit/research tasks."></p><div class="tags"><span class="tag">Python</span><span class="tag" data-fa="بات تلگرام" data-en="Telegram Bot"></span><span class="tag">Supabase</span><span class="tag">BYOK</span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/AIDahl" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📊</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Telegram VIP SaaS</h3><div class="repo-name">telegram-vip-saas</div><p class="desc" data-fa="پلتفرم آمادهٔ تولید برای فروش اشتراک ویژه به کانال‌های خصوصی تلگرام — پرداخت با ستارهٔ تلگرام یا کریپتو، لینک دعوت یک‌بارمصرف، داشبورد مدیر، تبلیغات و سیستم معرفی." data-en="Production-ready SaaS for selling VIP access to private Telegram channels — Telegram Stars & crypto payments, single-use invite links, admin dashboard, broadcast & referral system."></p><div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag" data-fa="پلتفرم" data-en="SaaS"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/telegram-vip-saas" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📰</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>News Channel Bot</h3><div class="repo-name">News-Channel-Bot</div><p class="desc" data-fa="تبدیل فیدهای RSS به پست‌های فارسی نوشته‌شده با هوش مصنوعی برای کانال تلگرام — انتشار خودکار/دستی، صف بازبینی، فیلترها و خلاصهٔ روزانه." data-en="Turn RSS feeds into AI-written Persian posts for your Telegram channel — auto/manual publishing, review queue, filters & daily digest."></p><div class="tags"><span class="tag">Python</span><span class="tag">RSS</span><span class="tag">AI</span><span class="tag" data-fa="تلگرام" data-en="Telegram"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/News-Channel-Bot" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📝</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Daily English Bot</h3><div class="repo-name">DailyEnglishBot</div><p class="desc" data-fa="درس‌های روزانهٔ انگلیسی + آزمون با هوش مصنوعی برای کانال تلگرام — واژه + اصطلاح + مثال، جدول رتبه‌بندی هفتگی و رابط فارسی/انگلیسی." data-en="Daily AI English lessons + quizzes for Telegram channels — word, idiom & example, weekly leaderboard, FA/EN UI."></p><div class="tags"><span class="tag">Python</span><span class="tag" data-fa="انگلیسی" data-en="English"></span><span class="tag" data-fa="تلگرام" data-en="Telegram"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/DailyEnglishBot" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎛️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>MCP Studio</h3><div class="repo-name">Mcp-Studio</div><p class="desc" data-fa="IDE بصری و استودیوی تست برای سرورهای Model Context Protocol — اتصال به هر سرور MCP، بازرسی ابزارها و اجرای تعاملی فراخوانی‌ها." data-en="Visual IDE & testing studio for Model Context Protocol (MCP) servers — connect, inspect tools and run calls interactively."></p><div class="tags"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">AI</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Mcp-Studio/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Mcp-Studio" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎧</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Playlist Podcast Bot</h3><div class="repo-name">Playlist_podcast_bot</div><p class="desc" data-fa="ربات سرورلس تلگرام برای آرشیو پادکست پلی‌لیست — گردآوری، مدیریت و پخش پادکست‌ها داخل تلگرام." data-en="Serverless Telegram bot for playlist podcast archiving — collect, manage and play podcasts right inside Telegram."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag" data-fa="بات تلگرام" data-en="Telegram Bot"></span><span class="tag" data-fa="پادکست" data-en="Podcast"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/Playlist_podcast_bot" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🔀</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>9router</h3><div class="repo-name">9router_TG_Bot</div><p class="desc" data-fa="دروازهٔ چندارائه‌دهندهٔ هوش مصنوعی و مینی‌اپ تلگرام — مسیریابی و توزیع بار کلیدهای API بین Gemini، Groq، DeepSeek و OpenAI با فال‌بک هوشمند و رمزنگاری اختصاصی هر کاربر." data-en="Multi-provider AI gateway & Telegram Mini App — route and load-balance API keys across Gemini, Groq, DeepSeek & OpenAI with smart fallback and per-user encryption."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag" data-fa="مسیریاب AI" data-en="AI Router"></span><span class="tag" data-fa="مینی‌اپ تلگرام" data-en="Telegram Mini App"></span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/9router_TG_Bot" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <div class="section-title" style="margin-top:1.5rem"><span data-fa="🔍 کاوش و تحلیل" data-en="🔍 Explorer & Analytics"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">✈️</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>TG Explorer</h3><div class="repo-name">tgexplorer</div><p class="desc" data-fa="جستجو و کشف کانال‌های عمومی تلگرام با رابط کاربری ساده." data-en="Explore and search public Telegram channels with a clean web interface."></p><div class="tags"><span class="tag">HTML</span><span class="tag">Telegram</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/tgexplorer/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/tgexplorer" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">📊</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>Repodest</h3><div class="repo-name">Repodest</div><p class="desc" data-fa="داشبورد تحلیل و خلاصه مخزن با نمودارهای Chart.js." data-en="Repository analytics and digest dashboard with Chart.js visualizations."></p><div class="tags"><span class="tag">CSS</span><span class="tag">Chart.js</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/Repodest/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/Repodest" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🎄</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3>GitHub Wrapped</h3><div class="repo-name">github-wrapped</div><p class="desc" data-fa="سال کد شما — خلاصه بصری فعالیت GitHub در یک نگاه." data-en="Your year in code — GitHub activity wrapped in a beautiful visual summary."></p><div class="tags"><span class="tag">HTML</span><span class="tag">GitHub</span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/github-wrapped/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/github-wrapped" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-    <div class="repo-card"><div class="card-top"><div class="icon">🧩</div><span class="badge badge-source">● <span data-fa="سورس" data-en="Source"></span></span></div><h3>Repodest Extension</h3><div class="repo-name">Repodest-Extension</div><p class="desc" data-fa="افزونهٔ مرورگر برای شناخت سریع هر ریپو — خلاصه و تحلیل ریپو همان‌جا روی صفحهٔ گیت‌هاب." data-en="Browser extension — know any repo in seconds with a summary right on the GitHub repo page."></p><div class="tags"><span class="tag">JavaScript</span><span class="tag" data-fa="افزونهٔ مرورگر" data-en="Extension"></span><span class="tag">GitHub</span></div><div class="card-actions"><a href="https://github.com/mohsen-niksirat/Repodest-Extension" target="_blank" class="btn-src" style="flex:1"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <div class="section-title" style="margin-top:1.5rem"><span data-fa="✍️ وبلاگ" data-en="✍️ Blog"></span></div>
-  <div class="repo-grid">
-    <div class="repo-card"><div class="card-top"><div class="icon">📝</div><span class="badge badge-live">● <span data-fa="زنده" data-en="Live"></span></span></div><h3 data-fa="وبلاگ فنی من" data-en="Mohsen's Tech Blog"></h3><div class="repo-name">mohsen-tech-blog</div><p class="desc" data-fa="وبلاگ فنی — یادداشت‌ها و تجربه‌ها دربارهٔ توسعهٔ وب، هوش مصنوعی و ابزارسازی." data-en="My tech blog — notes and write-ups on web development, AI and tool building."></p><div class="tags"><span class="tag">HTML</span><span class="tag" data-fa="وبلاگ" data-en="Blog"></span></div><div class="card-actions"><a href="https://mohsen-niksirat.github.io/mohsen-tech-blog/" target="_blank" class="btn-live">▶ <span data-fa="مشاهده" data-en="Live"></span></a><a href="https://github.com/mohsen-niksirat/mohsen-tech-blog" target="_blank" class="btn-src"><span data-fa="سورس" data-en="Source"></span></a></div></div>
-  </div>
-
-  <footer class="footer">
-    <p data-fa="ساخته شده با 💜 توسط <a href='https://github.com/mohsen-niksirat'>Mohsen Niksirat</a> · ۲۰۲۶" data-en="Built with 💜 by <a href='https://github.com/mohsen-niksirat'>Mohsen Niksirat</a> · 2026"></p>
-  </footer>
-</div>
-</div>
-
-<script>
-// ── Language Toggle ──
-function setLang(lang){
-  document.documentElement.lang=lang;
-  document.documentElement.dir=lang==='fa'?'rtl':'ltr';
-  document.body.dir=lang==='fa'?'rtl':'ltr';
-  document.querySelectorAll('.ctrl-btn[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-  document.querySelectorAll('[data-fa]').forEach(el=>{
-    const t=el.getAttribute('data-'+lang);
-    if(t){if(el.tagName==='P'&&t.includes('<a '))el.innerHTML=t;else el.textContent=t;}
-  });
-  localStorage.setItem('profile-lang',lang);
-}
-setLang(localStorage.getItem('profile-lang')||'fa');
-
-// ── Theme Toggle ──
-function toggleTheme(){
-  const isLight=document.documentElement.getAttribute('data-theme')==='light';
-  const next=isLight?'dark':'light';
-  document.documentElement.setAttribute('data-theme',next);
-  document.getElementById('themeBtn').textContent=next==='dark'?'🌙':'☀️';
-  localStorage.setItem('profile-theme',next);
-}
-(function(){
-  const saved=localStorage.getItem('profile-theme')||'dark';
-  document.documentElement.setAttribute('data-theme',saved);
-  document.getElementById('themeBtn').textContent=saved==='dark'?'🌙':'☀️';
-})();
-
-// ── Mesh Background ──
-(function(){
-  const c=document.getElementById('mesh'),ctx=c.getContext('2d');
-  let w,h,particles=[],mouse={x:-1e3,y:-1e3};
-  function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
-  resize();addEventListener('resize',resize);
-  addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
-  class P{
-    constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-.5)*.3;this.vy=(Math.random()-.5)*.3;this.d=Math.random();this.r=this.d*2.5+.4;this.c=['rgba(109,92,255,','rgba(6,182,212,','rgba(244,63,94,','rgba(139,92,246,'][Math.floor(Math.random()*4)];this.a=this.d*.4+.15;this.p=Math.random()*Math.PI*2;this.ps=Math.random()*.01+.005}
-    update(){this.x+=this.vx;this.y+=this.vy;this.p+=this.ps;if(this.x<0||this.x>w)this.vx*=-1;if(this.y<0||this.y>h)this.vy*=-1}
-    draw(){const a=this.a+Math.sin(this.p)*.1;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=this.c+Math.max(0,a).toFixed(2)+')';ctx.fill();if(this.d>.6){ctx.beginPath();ctx.arc(this.x,this.y,this.r*3,0,Math.PI*2);ctx.fillStyle=this.c+(a*.15).toFixed(3)+')';ctx.fill()}}
-  }
-  for(let i=0;i<100;i++)particles.push(new P);
-  function frame(){
-    ctx.clearRect(0,0,w,h);
-    for(let i=0;i<particles.length;i++){
-      particles[i].update();particles[i].draw();
-      for(let j=i+1;j<particles.length;j++){
-        const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<150){const da=(particles[i].d+particles[j].d)/2;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].c+((.08+da*.1)*(1-d/150))+')';ctx.lineWidth=.3+da*.4;ctx.stroke()}
-      }
-      const mx=particles[i].x-mouse.x,my=particles[i].y-mouse.y,md=Math.sqrt(mx*mx+my*my);
-      if(md<200){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.strokeStyle='rgba(109,92,255,'+((.15+particles[i].d*.15)*(1-md/200))+')';ctx.lineWidth=.5+particles[i].d*.5;ctx.stroke()}
-    }
-    requestAnimationFrame(frame);
-  }
-  frame();
-
-  // ── Mouse Parallax for shapes & avatar ──
-  const avatar=document.getElementById('avatar');
-  const shapes=document.querySelectorAll('.geo-shape');
-  addEventListener('mousemove',e=>{
-    const nx=(e.clientX-innerWidth/2)/(innerWidth/2);
-    const ny=(e.clientY-innerHeight/2)/(innerHeight/2);
-    shapes.forEach((s,i)=>{
-      const speed=(i+1)*15;
-      s.style.marginLeft=nx*speed+'px';
-      s.style.marginTop=ny*speed+'px';
-    });
-    if(avatar)avatar.style.transform=`rotateY(${nx*8}deg) rotateX(${-ny*8}deg)`;
-  });
-})();
-</script>
-</body>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfilePage","@id":"https://mohsen-niksirat.github.io/Profile/#profilepage","url":"https://mohsen-niksirat.github.io/Profile/","name":"Mohsen Niksirat · محسن نیک‌سیرت","inLanguage":["en","fa"],"isPartOf":{"@id":"https://mohsen-niksirat.github.io/Profile/#website"},"mainEntity":{"@id":"https://mohsen-niksirat.github.io/Profile/#person"},"about":{"@id":"https://mohsen-niksirat.github.io/Profile/#person"},"primaryImageOfPage":"https://mohsen-niksirat.github.io/Profile/og-card.png"},{"@type":"Person","@id":"https://mohsen-niksirat.github.io/Profile/#person","name":"Mohsen Niksirat","alternateName":["محسن نیک‌سیرت","محسن نیک سیرت","Mohsen Niksirat"],"url":"https://mohsen-niksirat.github.io/Profile/","image":"https://mohsen-niksirat.github.io/Profile/avatar.png","jobTitle":"Software Engineer & AI Product Builder","description":"Computer Science & Computer Architecture graduate (B.Sc. + M.Sc.) building practical web apps, AI gateways, FSRS learning platforms, desktop tools, and 3D browser games.","nationality":{"@type":"Country","name":"Iran"},"address":{"@type":"PostalAddress","addressLocality":"Tabriz","addressCountry":"IR"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Tabriz"},{"@type":"CollegeOrUniversity","name":"University of Mohaghegh Ardabili"}],"knowsAbout":["JavaScript","TypeScript","React","Python","Rust","Tauri","Godot 4","Kotlin","FSRS Spaced Repetition","Telegram Bots","Telegram Mini Apps","Model Context Protocol","Progressive Web Apps","WCAG Accessibility"],"sameAs":["https://github.com/mohsen-niksirat","https://t.me/mohsenniksirat","https://mohsen-niksirat.github.io/mohsen-tech-blog/"],"mainEntityOfPage":"https://mohsen-niksirat.github.io/Profile/","knowsLanguage":[{"@type":"Language","name":"Persian","alternateName":"fa"},{"@type":"Language","name":"English","alternateName":"en"}]},{"@type":"WebSite","@id":"https://mohsen-niksirat.github.io/Profile/#website","url":"https://mohsen-niksirat.github.io/Profile/","name":"Mohsen Niksirat · محسن نیک‌سیرت","inLanguage":["en","fa"],"publisher":{"@id":"https://mohsen-niksirat.github.io/Profile/#person"},"about":{"@id":"https://mohsen-niksirat.github.io/Profile/#person"}}]}</script>
+    <script type="module" crossorigin src="/Profile/static/gsap-Dipo7aLe.js"></script>
+    <script type="module" crossorigin src="/Profile/static/react-CLIAPp9J.js"></script>
+    <script type="module" crossorigin src="/Profile/static/main-ArxEmb5d.js"></script>
+    <link rel="stylesheet" crossorigin href="/Profile/static/main-CnGBQvej.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main style="font-family: system-ui, sans-serif; max-width: 640px; margin: 48px auto; padding: 24px 20px; line-height: 1.6; background: #fff; color: #1d1d1f; border-radius: 12px">
+        <img src="/Profile/avatar.png" alt="Mohsen Niksirat" width="96" height="96" style="border-radius: 50%" />
+        <h1>Mohsen Niksirat · <span lang="fa">محسن نیک‌سیرت</span></h1>
+        <p>M.Sc. Computer Architecture (University of Tabriz) · B.Sc. Computer Science. Building fast, practical, offline-first web apps, AI gateways, FSRS learning tools, and 3D browser games across 47+ public repositories.</p>
+        <h2>Selected Projects</h2>
+        <ul>
+          <li><a href="/Profile/p/repodest/">Repodest</a>: GitHub repository analyzer &amp; LLM digest generator.</li>
+          <li><a href="/Profile/p/leitner-pro-max/">Readner · Leitner Pro Max</a>: FSRS vocabulary suite, PDF reader &amp; 4,500+ CEFR words.</li>
+          <li><a href="/Profile/p/9router/">9router AI Gateway</a>: Multi-provider AI router &amp; Telegram Mini App.</li>
+          <li><a href="/Profile/p/aidahl/">AIDahl</a>: BYOK multi-model Telegram AI assistant &amp; research agent.</li>
+          <li><a href="/Profile/p/horde-survival-3d/">Horde Survival 3D</a>: Browser 3D survival roguelite in Godot 4.</li>
+          <li><a href="/Profile/p/speakai-coach/">SpeakAI Coach</a>: Real-time AI voice coach &amp; IELTS band estimator.</li>
+        </ul>
+        <p>
+          <a href="https://t.me/mohsenniksirat">Telegram</a> ·
+          <a href="https://github.com/mohsen-niksirat">GitHub</a> ·
+          <a href="/Profile/p/">All projects</a> ·
+          <a href="/Profile/timeline/">Build in Public</a> ·
+          <a href="/Profile/fa/" hreflang="fa" lang="fa">فارسی</a>
+        </p>
+      </main>
+    </noscript>
+  </body>
 </html>

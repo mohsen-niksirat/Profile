@@ -1,0 +1,54 @@
+name: 🔄 Sync with GitHub
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  push:
+    branches: [main]
+    paths: ['sync.mjs', 'build.mjs', 'projects.json', '.github/workflows/sync.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: hub-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 🔄 Pull live data from GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STARS_TOKEN: ${{ secrets.STARS_TOKEN }}
+        run: node sync.mjs
+
+      - name: 🏗️ Rebuild generated pages
+        run: node build.mjs
+
+      - name: 🚀 Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          STAGE="data.json history.json p timeline sitemap.xml robots.txt"
+          git add $STAGE
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          MSG="🔄 Sync with GitHub — $(TZ=Asia/Tehran date +'%Y-%m-%d %H:%M') Tabriz"
+          git commit -m "$MSG"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git fetch origin main
+            git reset --soft origin/main
+            git add $STAGE
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "$MSG"
+          done
+          exit 1

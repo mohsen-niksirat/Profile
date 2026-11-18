@@ -1,0 +1,646 @@
+{
+  "person": {
+    "name": "Mohsen Niksirat",
+    "nameFa": "محسن نیک‌سیرت",
+    "url": "https://mohsen-niksirat.github.io/Profile/",
+    "role": "Software Engineer · AI Product Builder · Open-Source Creator",
+    "sameAs": [
+      "https://github.com/mohsen-niksirat",
+      "https://t.me/mohsenniksirat",
+      "https://mohsen-niksirat.github.io/mohsen-tech-blog/"
+    ]
+  },
+  "projects": [
+    {
+      "slug": "repodest",
+      "repo": "Repodest",
+      "name": "Repodest",
+      "icon": "📊",
+      "accent": "#6366F1",
+      "live": "https://mohsen-niksirat.github.io/Repodest/",
+      "tagline": "Understand any GitHub repository in seconds & pack it for LLMs.",
+      "taglineFa": "تحلیل فوری هر مخزن گیت‌هاب و ساخت پرامپت آماده برای هوش مصنوعی",
+      "os": "Web, Chrome Extension",
+      "lang": "JavaScript",
+      "desc": "Client-side GitHub repository analyzer and LLM-ready digest generator. Paste any GitHub URL to get a 0–100 health score, language breakdown, interactive file explorer, commit insights, and fun trophies — then pack selected files into a prompt ready for ChatGPT, Claude, or Gemini.",
+      "descFa": "تحلیلگر کاملاً سمت کاربر برای مخزن‌های گیت‌هاب و سازنده خلاصه آماده برای مدل‌های زبانی. لینک هر ریپو را وارد کنید تا امتیاز سلامت، نمودار زبان‌ها، مرورگر فایل، آمار کامیت‌ها و تروفی‌ها را ببینید و فایل‌های دلخواه را در قالب پرامپت آماده کپی کنید.",
+      "tags": ["Client-Side", "LLM Digest", "Chart.js", "Chrome Extension"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/repodest/01.webp",
+          "thumb": "/assets/shots/repodest/01-800.webp",
+          "w": 1280,
+          "h": 800,
+          "alt": "Repodest dark mode dashboard analyzing a GitHub repository with health metrics and file digest controls.",
+          "altFa": "نمای تاریک Repodest هنگام تحلیل یک مخزن گیت‌هاب همراه امتیاز سلامت و انتخابگر فایل.",
+          "caption": "Instant repo health score, language breakdown, and commit velocity.",
+          "captionFa": "امتیاز سلامت مخزن، تفکیک زبان‌ها و روند کامیت‌ها در چند ثانیه."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/repodest/02.webp",
+          "thumb": "/assets/shots/repodest/02-800.webp",
+          "w": 1280,
+          "h": 800,
+          "alt": "Repodest light theme showing repository insights and clean typography.",
+          "altFa": "نمای روشن Repodest با نمایش جزئیات و آمار مخزن.",
+          "caption": "Crisp light & dark themes plus a companion Chrome extension right on GitHub pages.",
+          "captionFa": "پوسته روشن و تاریک به‌همراه افزونه مرورگر روی خود صفحه گیت‌هاب."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/repodest/03.webp",
+          "thumb": "/assets/shots/repodest/03-800.webp",
+          "w": 1440,
+          "h": 900,
+          "alt": "Repodest browser extension overlay opened directly over a GitHub repository.",
+          "altFa": "پنل افزونه Repodest بازشده مستقیماً روی صفحه مخزن گیت‌هاب.",
+          "caption": "One-click prompt packer turns selected source files into LLM-ready context.",
+          "captionFa": "بسته‌بندی یک‌کلیکی فایل‌های کد برای ارسال مستقیم به ChatGPT، Claude و Gemini."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Does Repodest send repository code to a backend server?",
+          "a": "No. Repodest runs 100% in your browser and talks directly to the public GitHub API. Selected files are assembled locally on your machine before you copy them into your LLM of choice.",
+          "qFa": "آیا Repodest کدهای مخزن را به سرور واسط می‌فرستد؟",
+          "aFa": "خیر. Repodest کاملاً در مرورگر شما اجرا می‌شود و مستقیماً با API عمومی گیت‌هاب ارتباط می‌گیرد؛ بسته‌بندی پرامپت هم روی دستگاه خودتان انجام می‌شود."
+        },
+        {
+          "q": "Is there a browser extension version?",
+          "a": "Yes — Repodest-Extension adds a floating action button directly on github.com repository pages so you can inspect health metrics and pack files without leaving the repo.",
+          "qFa": "آیا نسخه افزونه مرورگر هم دارد؟",
+          "aFa": "بله، افزونه Repodest-Extension مستقیماً روی صفحات گیت‌هاب باز می‌شود تا بدون خروج از صفحه، خلاصه مخزن را ببینید."
+        }
+      ]
+    },
+    {
+      "slug": "leitner-pro-max",
+      "repo": "Leitner-Pro-Max",
+      "name": "Readner · Leitner Pro Max",
+      "icon": "🧠",
+      "accent": "#10B981",
+      "live": "https://mohsen-niksirat.github.io/Leitner-Pro-Max/",
+      "tagline": "FSRS spaced repetition, PDF reader & 4,500+ CEFR vocabulary.",
+      "taglineFa": "یادگیری هوشمند واژگان با الگوریتم FSRS، خواننده PDF و ۴۵۰۰+ لغت CEFR",
+      "os": "Web PWA, Android (Kotlin)",
+      "lang": "JavaScript / Kotlin",
+      "desc": "Smart vocabulary learning suite combining the modern FSRS spaced-repetition scheduler, an integrated PDF reader for click-to-card extraction, interactive WordWeb semantic graphs, 4,500+ CEFR (A1–C2) words, and support for 13 languages in an offline-first PWA — plus a native Kotlin + Jetpack Compose Android app (ReadNer).",
+      "descFa": "پلتفرم جامع یادگیری واژگان با زمان‌بند علمی FSRS، خواننده داخلی PDF برای ساخت فلش‌کارت حین مطالعه، شبکه معنایی کلمات (WordWeb)، بیش از ۴٬۵۰۰ واژه سطح‌بندی‌شده CEFR (از A1 تا C2) و پشتیبانی از ۱۳ زبان به‌صورت آفلاین؛ به‌همراه نسخه نیتیو اندروید با Kotlin.",
+      "tags": ["FSRS Algorithm", "PDF Reader", "4,500+ CEFR Words", "Offline PWA"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/leitner-pro-max/01.webp",
+          "thumb": "/assets/shots/leitner-pro-max/01-800.webp",
+          "w": 1280,
+          "h": 650,
+          "alt": "Leitner Pro Max library view showing CEFR A1-C2 decks and PDF reading workspace.",
+          "altFa": "نمای کتابخانه Leitner Pro Max شامل بسته‌های واژگان CEFR و محیط مطالعه.",
+          "caption": "Curated CEFR A1–C2 decks alongside your own PDF books and custom flashcards.",
+          "captionFa": "بسته‌های آماده سطح A1 تا C2 در کنار کتاب‌های PDF و کارت‌های شخصی شما."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/leitner-pro-max/02.webp",
+          "thumb": "/assets/shots/leitner-pro-max/02-800.webp",
+          "w": 1280,
+          "h": 649,
+          "alt": "FSRS spaced repetition review session with retention intervals.",
+          "altFa": "جلسه مرور هوشمند فلش‌کارت با الگوریتم تکرار فاصله‌دار FSRS.",
+          "caption": "FSRS adapts review intervals to your real memory curve instead of rigid boxes.",
+          "captionFa": "الگوریتم FSRS فاصله مرور هر لغت را دقیقاً متناسب با منحنی فراموشی شما تنظیم می‌کند."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/leitner-pro-max/03.webp",
+          "thumb": "/assets/shots/leitner-pro-max/03-800.webp",
+          "w": 1280,
+          "h": 655,
+          "alt": "Interactive WordWeb graph linking synonyms, roots, and related vocabulary.",
+          "altFa": "گراف تعاملی WordWeb برای نمایش ارتباط معنایی و هم‌خانواده‌های واژگان.",
+          "caption": "WordWeb connects synonyms and word families visually so words stick in context.",
+          "captionFa": "گراف WordWeb مترادف‌ها و خانواده‌های واژگانی را بصری به هم متصل می‌کند."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why FSRS instead of classic Leitner boxes?",
+          "a": "Classic Leitner resets or advances cards by fixed steps, whereas Free Spaced Repetition Scheduler (FSRS) models memory stability and difficulty per card, cutting review load by 20–30% for the same retention.",
+          "qFa": "چرا به جای جعبه‌های سنتی لایتنر از الگوریتم FSRS استفاده شده است؟",
+          "aFa": "الگوریتم FSRS پایداری حافظه و دشواری هر کارت را جداگانه مدل‌سازی می‌کند و با مرورهای کمتر، ماندگاری بسیار بالاتری در حافظه بلندمدت ایجاد می‌کند."
+        }
+      ]
+    },
+    {
+      "slug": "aidahl",
+      "repo": "AIDahl",
+      "name": "AIDahl",
+      "icon": "🤖",
+      "accent": "#8B5CF6",
+      "tagline": "OpenAI-compatible BYOK Telegram AI assistant & research agent.",
+      "taglineFa": "دستیار هوش مصنوعی تلگرام با کلید شخصی (BYOK)، استریم زنده و حالت ایجنت",
+      "os": "Telegram, Cloud / Self-Hosted",
+      "lang": "Python",
+      "desc": "Multi-provider Telegram AI assistant built on a Bring-Your-Own-Key (BYOK) architecture with OpenRouter & OpenAI-compatible endpoints, real-time message streaming, named multi-chat threads, Supabase persistence, token quotas, and an optional Manus Agent mode for image generation, editing, and deep web research.",
+      "descFa": "دستیار پیشرفته هوش مصنوعی در تلگرام با معماری BYOK (استفاده از کلید API شخصی کاربر)، پشتیبانی از OpenRouter و مدل‌های سازگار با OpenAI، پاسخ‌دهی استریم زنده، مدیریت چند گفتگوی مجزا، ذخیره‌سازی در Supabase و حالت Manus Agent برای تولید تصویر و تحقیق عمیق.",
+      "tags": ["BYOK", "Telegram Bot", "Supabase", "AI Agent"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/aidahl/01.webp",
+          "thumb": "/assets/shots/aidahl/01-800.webp",
+          "w": 1280,
+          "h": 800,
+          "alt": "AIDahl overview card highlighting BYOK multi-model routing, streaming replies, and Manus Agent mode.",
+          "altFa": "معرفی معماری AIDahl شامل پشتیبانی چندمدله BYOK، پاسخ استریم و حالت ایجنت.",
+          "caption": "Multi-provider BYOK assistant with streaming replies, named threads, and agent workflows.",
+          "captionFa": "دستیار چندمدله تلگرام با گفتگوهای نام‌گذاری‌شده، استریم آنی و ابزارهای ایجنت."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How does BYOK protect user API keys?",
+          "a": "Each Telegram user supplies their own provider key or uses scoped quotas, keeping billing transparent and eliminating shared rate-limit bottlenecks.",
+          "qFa": "مزیت معماری BYOK برای کاربران چیست؟",
+          "aFa": "هر کاربر می‌تواند کلید API اختصاصی خودش را متصل کند تا بدون محدودیت اشتراکی و با شفافیت کامل به مدل‌های روز دسترسی داشته باشد."
+        }
+      ]
+    },
+    {
+      "slug": "9router",
+      "repo": "9router_TG_Bot",
+      "name": "9router AI Gateway",
+      "icon": "🔀",
+      "accent": "#0EA5E9",
+      "tagline": "Multi-provider AI gateway, key pool & Telegram Mini App.",
+      "taglineFa": "درگاه چندسرویس‌دهنده هوش مصنوعی، توزیع بار کلیدها و مینی‌اپ تلگرام",
+      "os": "Telegram Mini App, Serverless",
+      "lang": "JavaScript",
+      "desc": "Universal Multi-Provider AI Gateway & Telegram Mini App that routes, load-balances (Round-Robin, Smart Router, automatic 429 failover), and pools API keys across Gemini, Groq, DeepSeek, OpenAI, and OpenRouter — complete with per-user AES key encryption and multimodal vision support.",
+      "descFa": "درگاه یکپارچه هوش مصنوعی و مینی‌اپ تلگرام که درخواست‌ها و کلیدهای API را بین Gemini، Groq، DeepSeek، OpenAI و OpenRouter با الگوریتم‌های Round-Robin، مسیریاب هوشمند و جایگزینی خودکار هنگام خطای Rate-Limit توزیع می‌کند؛ همراه رمزنگاری اختصاصی کلیدهای هر کاربر و پردازش تصویر.",
+      "tags": ["AI Gateway", "Load Balancing", "Telegram Mini App", "Vision AI"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/9router/01.webp",
+          "thumb": "/assets/shots/9router/01-800.webp",
+          "w": 1280,
+          "h": 720,
+          "alt": "9router universal multi-provider AI gateway and Telegram Mini App banner.",
+          "altFa": "نمای کلی درگاه هوش مصنوعی 9router و مینی‌اپ تلگرام آن.",
+          "caption": "Pool keys across Gemini, Groq, DeepSeek & OpenAI with automatic rate-limit failover.",
+          "captionFa": "تجمیع و چرخش هوشمند کلیدهای API بین چندین سرویس‌دهنده بدون قطعی."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What happens when one AI provider hits a 429 rate limit?",
+          "a": "9router automatically marks the exhausted key on cooldown and transparently retries the request against the next healthy key or fallback provider in milliseconds.",
+          "qFa": "در صورت اتمام سهمیه یا خطای ۴۲۹ یکی از کلیدها چه اتفاقی می‌افتد؟",
+          "aFa": "9router به‌صورت خودکار کلید محدودشده را موقتاً کنار می‌گذارد و درخواست را بدون وقفه روی کلید یا سرویس‌دهنده جایگزین اجرا می‌کند."
+        }
+      ]
+    },
+    {
+      "slug": "horde-survival-3d",
+      "repo": "Horde_Survival_3D_Godot",
+      "name": "Horde Survival 3D",
+      "icon": "🕹️",
+      "accent": "#F59E0B",
+      "live": "https://mohsen-niksirat.github.io/Horde_Survival_3D_Godot/",
+      "tagline": "3D roguelite wave-survival game running at 60 FPS in your browser.",
+      "taglineFa": "بازی بقای روگ‌لایت سه‌بعدی با موتور Godot 4 قابل اجرا مستقیماً در مرورگر",
+      "os": "Web (WASM / WebGL), Desktop",
+      "lang": "GDScript (Godot 4)",
+      "desc": "Browser-playable 3D survival roguelite built in Godot 4 — featuring evolving weapon loadouts, 9 distinct enemy archetypes, a 3-phase boss encounter, collectible relics, spatial combat juice, and persistent meta-progression saves, part of a cross-engine game engineering trilogy alongside Kotlin Android and Unity C# builds.",
+      "descFa": "بازی اکشن بقای سه‌بعدی در سبک روگ‌لایت ساخته‌شده با Godot 4 که مستقیماً در مرورگر اجرا می‌شود؛ شامل سلاح‌های قابل تکامل، ۹ نوع دشمن با رفتار متفاوت، باس‌فایت سه‌مرحله‌ای، آیتم‌های Relic و ذخیره دائمی پیشرفت، در کنار نسخه‌های موازی اندروید (Kotlin) و Unity C#.",
+      "tags": ["Godot 4", "3D WebGL", "Roguelite", "Game Dev"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/horde-survival-3d/01.webp",
+          "thumb": "/assets/shots/horde-survival-3d/01-800.webp",
+          "w": 1280,
+          "h": 645,
+          "alt": "Horde Survival 3D gameplay showing swarm combat, projectile rings, and XP gems in a 3D arena.",
+          "altFa": "گیم‌پلی Horde Survival 3D در میانه نبرد با موج دشمنان و افکت‌های سه‌بعدی.",
+          "caption": "Hundreds of active enemies, area projectiles, and smooth WebGL rendering in-browser.",
+          "captionFa": "نبرد همزمان با موج بزرگ دشمنان و اجرای روان سه‌بعدی در مرورگر."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/horde-survival-3d/02.webp",
+          "thumb": "/assets/shots/horde-survival-3d/02-800.webp",
+          "w": 1280,
+          "h": 641,
+          "alt": "Boss wave and evolved weapon effects in Horde Survival 3D.",
+          "altFa": "مبارزه با باس و ارتقای سلاح‌ها در Horde Survival 3D.",
+          "caption": "Weapon evolutions, relic synergies, and a multi-phase boss fight.",
+          "captionFa": "ترکیب ارتقاهای سلاح، قابلیت‌های Relic و باس چندفازی."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/horde-survival-3d/03.webp",
+          "thumb": "/assets/shots/horde-survival-3d/03-800.webp",
+          "w": 781,
+          "h": 455,
+          "alt": "Horde Survival 3D title screen and meta-progression menu.",
+          "altFa": "صفحه عنوان و منوی ارتقای دائمی بازی Horde Survival 3D.",
+          "caption": "Persistent meta-upgrades carry your progress across runs right in browser storage.",
+          "captionFa": "سیستم ارتقای دائمی بین دورهای بازی با ذخیره‌سازی محلی در مرورگر."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Do I need to install anything to play Horde Survival 3D?",
+          "a": "No — the Godot 4 project is compiled to WebAssembly and WebGL and hosted on GitHub Pages so you can play immediately in any modern desktop browser.",
+          "qFa": "آیا برای تجربه بازی نیاز به نصب فایل خاصی است؟",
+          "aFa": "خیر، بازی با خروجی WebAssembly و WebGL روی GitHub Pages منتشر شده و مستقیماً داخل مرورگر اجرا می‌شود."
+        }
+      ]
+    },
+    {
+      "slug": "tgexplorer",
+      "repo": "tgexplorer",
+      "name": "TG Explorer",
+      "icon": "✈️",
+      "accent": "#2AABEE",
+      "live": "https://mohsen-niksirat.github.io/tgexplorer/",
+      "tagline": "Discover and search public Telegram channels on the web.",
+      "taglineFa": "موتور جستجو و کاوش سریع کانال‌های عمومی تلگرام تحت وب",
+      "os": "Web PWA",
+      "lang": "HTML / JavaScript",
+      "desc": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts.",
+      "descFa": "رابط وب سریع و تمیز برای جستجو، دسته‌بندی و کشف کانال‌های عمومی تلگرام با پیش‌نمایش مشخصات کانال، فیلتر موضوعی و طراحی واکنش‌گرا برای موبایل و دسکتاپ.",
+      "tags": ["Telegram", "Search Engine", "Responsive UI", "PWA"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/tgexplorer/01.webp",
+          "thumb": "/assets/shots/tgexplorer/01-800.webp",
+          "w": 1600,
+          "h": 1125,
+          "alt": "TG Explorer search view finding Telegram channels by topic and keyword.",
+          "altFa": "صفحه جستجوی TG Explorer برای یافتن کانال‌های تلگرام بر اساس کلیدواژه و موضوع.",
+          "caption": "Instant keyword and topic search across public Telegram channels.",
+          "captionFa": "جستجوی آنی کلیدواژه و دسته‌بندی میان کانال‌های عمومی تلگرام."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/tgexplorer/02.webp",
+          "thumb": "/assets/shots/tgexplorer/02-800.webp",
+          "w": 1600,
+          "h": 1125,
+          "alt": "TG Explorer channel cards grid view.",
+          "altFa": "نمای شبکه‌ای کارت‌های کانال در TG Explorer.",
+          "caption": "Clean card grid surfacing member counts, descriptions, and direct open links.",
+          "captionFa": "نمایش منظم کارت کانال‌ها همراه تعداد اعضا، توضیحات و لینک ورود مستقیم."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/tgexplorer/03.webp",
+          "thumb": "/assets/shots/tgexplorer/03-800.webp",
+          "w": 1600,
+          "h": 1125,
+          "alt": "TG Explorer channel detail inspection view.",
+          "altFa": "نمای جزئیات و پیش‌نمایش کانال در TG Explorer.",
+          "caption": "Inspect channel details before jumping into Telegram.",
+          "captionFa": "مشاهده جزئیات کامل هر کانال پیش از باز کردن در تلگرام."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/tgexplorer/04.webp",
+          "thumb": "/assets/shots/tgexplorer/04-800.webp",
+          "w": 800,
+          "h": 1600,
+          "alt": "TG Explorer mobile layout on a smartphone screen.",
+          "altFa": "نمای موبایل اپلیکیشن TG Explorer.",
+          "caption": "Tuned for one-handed mobile browsing as an installable PWA.",
+          "captionFa": "طراحی بهینه برای موبایل با قابلیت نصب به‌عنوان PWA."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "speakai-coach",
+      "repo": "SpeakAI-Coach",
+      "name": "SpeakAI Coach",
+      "icon": "🎙️",
+      "accent": "#EC4899",
+      "live": "https://mohsen-niksirat.github.io/SpeakAI-Coach/",
+      "tagline": "Real-time AI English speaking coach & IELTS band estimator.",
+      "taglineFa": "مربی هوشمند مکالمه صوتی انگلیسی، تصحیح تلفظ و تخمین نمره آیلتس",
+      "os": "Web PWA",
+      "lang": "TypeScript",
+      "desc": "Real-time AI speaking and conversation coach for IELTS preparation and everyday English fluency — offering live voice dialogue, turn-by-turn grammar & pronunciation corrections, 8 distinct coach personas, a 6-dimension evaluation report, and realistic IELTS Speaking band estimation.",
+      "descFa": "مربی تعاملی مکالمه انگلیسی با هوش مصنوعی برای آمادگی آیلتس و مکالمه روزمره؛ مجهز به گفتگوی صوتی زنده، اصلاح لحظه‌ای گرامر و تلفظ، ۸ شخصیت مربی متنوع، گزارش ارزیابی شش‌بعدی و تخمین دقیق نمره اسپیکینگ آیلتس.",
+      "tags": ["Voice AI", "IELTS Prep", "TypeScript", "PWA"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/speakai-coach/01.webp",
+          "thumb": "/assets/shots/speakai-coach/01-800.webp",
+          "w": 1276,
+          "h": 656,
+          "alt": "SpeakAI Coach live conversation interface with AI tutor personas and feedback.",
+          "altFa": "محیط تمرین مکالمه زنده در SpeakAI Coach همراه بازخورد هوشمند.",
+          "caption": "Practice real spoken English with 8 AI coach personas and structured 6-axis feedback.",
+          "captionFa": "تمرین مکالمه صوتی با ۸ نقش مربی هوشمند و دریافت کارنامه تحلیلی شش‌محوری."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "datalens",
+      "repo": "DataLens",
+      "name": "DataLens",
+      "icon": "📈",
+      "accent": "#06B6D4",
+      "live": "https://mohsen-niksirat.github.io/DataLens/",
+      "tagline": "Local-first in-browser workbench for CSV, JSON, SQL & Excel.",
+      "taglineFa": "میزکار محلی تحلیل، رسم نمودار و تبدیل فایل‌های داده کاملاً در مرورگر",
+      "os": "Web PWA (Offline)",
+      "lang": "JavaScript",
+      "desc": "A local-first data workbench: paste or drop CSV, JSON, YAML, XML, SQL, or Excel files to inspect sortable tables, compute column statistics, render interactive SVG charts, and convert between formats — 100% client-side with zero dependencies and zero uploads.",
+      "descFa": "ورک‌بنچ تحلیل داده کاملاً سمت کلاینت: هر فایل CSV، JSON، YAML، XML، SQL یا Excel را رها کنید تا جدول تعاملی، آمار توصیفی ستون‌ها و نمودارهای SVG بسازید و فرمت‌ها را به هم تبدیل کنید — ۱۰۰٪ آفلاین و بدون ارسال هیچ داده‌ای به سرور.",
+      "tags": ["Local-First", "Zero Upload", "Data Viz", "Offline PWA"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/datalens/01.webp",
+          "thumb": "/assets/shots/datalens/01-800.webp",
+          "w": 1280,
+          "h": 800,
+          "alt": "DataLens overview card highlighting 6 supported data formats, SVG charts, and zero server uploads.",
+          "altFa": "کارت معرفی قابلیت‌های DataLens شامل پشتیبانی از ۶ فرمت داده و حفظ کامل حریم خصوصی.",
+          "caption": "Inspect, chart, and convert sensitive datasets without uploading a single byte.",
+          "captionFa": "بررسی، مصورسازی و تبدیل داده‌های حساس بدون خروج حتی یک بایت از مرورگر شما."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "codevis",
+      "repo": "CodeVis",
+      "name": "CodeVis",
+      "icon": "🧩",
+      "accent": "#14B8A6",
+      "live": "https://mohsen-niksirat.github.io/CodeVis/",
+      "tagline": "49 computer science concepts animated step-by-step on Canvas.",
+      "taglineFa": "آموزش بصری ۴۹ مفهوم علوم کامپیوتر و برنامه‌نویسی با انیمیشن‌های تعاملی Canvas",
+      "os": "Web PWA (Single HTML)",
+      "lang": "JavaScript",
+      "desc": "Visual computer science & programming concepts explained through interactive HTML5 Canvas animations — 49 topics spanning data structures, sorting, recursion, networking, and design patterns with step-by-step playback, synced code highlighting, daily streaks, and 1-click PNG cards in a zero-dependency single HTML file.",
+      "descFa": "یادگیری بصری مفاهیم برنامه‌نویسی و علوم کامپیوتر با انیمیشن‌های تعاملی Canvas؛ شامل ۴۹ مبحث از ساختمان داده و الگوریتم تا الگوهای طراحی، پخش گام‌به‌گام همگام با کد، چالش روزانه و خروجی تصویر در قالب یک فایل HTML مستقل و آفلاین.",
+      "tags": ["HTML5 Canvas", "CS Education", "Zero Dependencies", "Single-File"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/codevis/01.webp",
+          "thumb": "/assets/shots/codevis/01-800.webp",
+          "w": 1200,
+          "h": 630,
+          "alt": "CodeVis interactive computer science animation studio preview.",
+          "altFa": "پیش‌نمایش محیط انیمیشن‌های تعاملی علوم کامپیوتر در CodeVis.",
+          "caption": "Step through 49 algorithms and CS patterns with synchronized live code.",
+          "captionFa": "اجرای گام‌به‌گام ۴۹ الگوریتم و مفهوم مهندسی نرم‌افزار همگام با خطوط کد."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "mcp-studio",
+      "repo": "Mcp-Studio",
+      "name": "MCP Studio",
+      "icon": "🎛️",
+      "accent": "#A855F7",
+      "live": "https://mohsen-niksirat.github.io/Mcp-Studio/",
+      "tagline": "The visual IDE & testing studio for Model Context Protocol servers.",
+      "taglineFa": "محیط گرافیکی تست، بازرسی ابزارها و اشکال‌زدایی سرورهای MCP",
+      "os": "Web",
+      "lang": "TypeScript",
+      "desc": "Visual IDE and testing workbench for Model Context Protocol (MCP) servers — connect to endpoints, browse exposed tools, resources, and prompt schemas, inspect raw JSON-RPC traffic, and invoke tool calls interactively from a clean studio UI.",
+      "descFa": "استودیوی بصری و محیط تست برای سرورهای استاندارد Model Context Protocol (MCP)؛ امکان اتصال به سرور، بررسی اسکیمای ابزارها و منابع، مشاهده ترافیک JSON-RPC و اجرای تعاملی توابع بدون نیاز به نوشتن اسکریپت تست.",
+      "tags": ["MCP", "AI Tooling", "TypeScript", "Visual IDE"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/mcp-studio/01.webp",
+          "thumb": "/assets/shots/mcp-studio/01-800.webp",
+          "w": 1280,
+          "h": 800,
+          "alt": "MCP Studio overview showcasing interactive MCP tool runner and JSON-RPC schema inspector.",
+          "altFa": "نمای معرفی MCP Studio برای بازرسی و اجرای تعاملی ابزارهای سرور MCP.",
+          "caption": "Inspect schemas, test tool invocations, and debug MCP servers visually.",
+          "captionFa": "بررسی اسکیمای ابزارها و تست زنده فراخوانی‌های سرور MCP در مرورگر."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "a11y-inspector",
+      "repo": "A11y-Inspector",
+      "name": "A11y Inspector",
+      "icon": "♿",
+      "accent": "#22C55E",
+      "live": "https://mohsen-niksirat.github.io/A11y-Inspector/",
+      "tagline": "Privacy-first WCAG accessibility auditor in-browser & for CI.",
+      "taglineFa": "ممیزی دسترس‌پذیری وب (WCAG) کاملاً در مرورگر به‌همراه ابزار خط فرمان CI",
+      "os": "Web PWA, Node.js CLI",
+      "lang": "JavaScript",
+      "desc": "In-browser HTML accessibility auditor and CI-ready CLI — evaluates WCAG contrast ratios, heading hierarchy, ARIA attributes, and form semantics, generates a 0–100 health score with actionable fix hints, and supports 6 languages offline.",
+      "descFa": "ابزار ممیزی دسترس‌پذیری صفحات وب بر پایه استاندارد WCAG؛ بررسی کنتراست رنگ، ساختار تگ‌ها، صفات ARIA و فرم‌ها با امتیاز ۰ تا ۱۰۰، راهنمای اصلاح خطا، پشتیبانی از ۶ زبان به‌صورت آفلاین و نسخه CLI برای پایپ‌لاین‌های CI.",
+      "tags": ["WCAG 2.2", "Accessibility", "CLI + PWA", "6 Languages"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/a11y-inspector/01.webp",
+          "thumb": "/assets/shots/a11y-inspector/01-800.webp",
+          "w": 1440,
+          "h": 1500,
+          "alt": "A11y Inspector live preview auditing HTML markup.",
+          "altFa": "پیش‌نمایش زنده بررسی دسترس‌پذیری کد HTML در A11y Inspector.",
+          "caption": "Paste or drop HTML to audit accessibility rules with zero external requests.",
+          "captionFa": "تحلیل آنی دسترس‌پذیری کدهای HTML بدون ارسال داده به بیرون."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/a11y-inspector/02.webp",
+          "thumb": "/assets/shots/a11y-inspector/02-800.webp",
+          "w": 1440,
+          "h": 1500,
+          "alt": "A11y Inspector findings list categorized by severity and WCAG criterion.",
+          "altFa": "فهرست خطاها و پیشنهادهای اصلاحی دسته‌بندی‌شده بر اساس معیارهای WCAG.",
+          "caption": "Detailed findings grouped by severity with exact DOM selectors and WCAG references.",
+          "captionFa": "جزئیات دقیق هر مشکل به تفکیک شدت اهمیت و سلکتور مربوطه."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/a11y-inspector/03.webp",
+          "thumb": "/assets/shots/a11y-inspector/03-800.webp",
+          "w": 1440,
+          "h": 1500,
+          "alt": "A11y Inspector exportable accessibility score report.",
+          "altFa": "گزارش امتیاز کلی دسترس‌پذیری قابل خروجی گرفتن در A11y Inspector.",
+          "caption": "Exportable audit reports plus a zero-config CLI for automated pull-request checks.",
+          "captionFa": "گزارش کامل قابل خروجی به‌همراه ابزار CLI برای بررسی خودکار در گیت‌هاب."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "bountyradar",
+      "repo": "BountyRadar",
+      "name": "BountyRadar",
+      "icon": "🎯",
+      "accent": "#F97316",
+      "live": "https://mohsen-niksirat.github.io/BountyRadar/",
+      "tagline": "Local Windows radar for paid open-source bounties & freelance gigs.",
+      "taglineFa": "رادار هوشمند یافتن باونتی‌های متن‌باز و پروژه‌های فریلنسری با امتیازدهی GO/STOP",
+      "os": "Windows, Web",
+      "lang": "Python",
+      "desc": "Local Windows application that discovers paid open-source bounties and freelance opportunities across 10 developer specializations — complete with preflight GO / CAUTION / STOP scoring, competition & payout analysis, Windows toast notifications in watch mode, and a bilingual EN/FA UI.",
+      "descFa": "نرم‌افزار دسکتاپ ویندوز برای رصد خودکار باونتی‌های دلاری متن‌باز و فرصت‌های فریلنسری در ۱۰ پروفایل تخصصی برنامه‌نویسی؛ مجهز به سیستم امتیازدهی هوشمند GO / CAUTION / STOP، پایش پس‌زمینه با اعلان Toast ویندوز و رابط دوزبانه.",
+      "tags": ["Python", "Open-Source Bounties", "Windows App", "Bilingual"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/bountyradar/01.webp",
+          "thumb": "/assets/shots/bountyradar/01-800.webp",
+          "w": 1536,
+          "h": 864,
+          "alt": "BountyRadar hero interface scanning open-source bounties.",
+          "altFa": "نمای اصلی رادار باونتی‌ها در نرم‌افزار BountyRadar.",
+          "caption": "Scans live open-source bounties matched to 10 freelancer skill profiles.",
+          "captionFa": "پایش لحظه‌ای باونتی‌های متن‌باز متناسب با ۱۰ حوزه مهارتی."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/bountyradar/02.webp",
+          "thumb": "/assets/shots/bountyradar/02-800.webp",
+          "w": 1400,
+          "h": 900,
+          "alt": "BountyRadar dashboard with GO, CAUTION, and STOP preflight scores.",
+          "altFa": "داشبورد امتیازدهی هوشمند GO/CAUTION/STOP در BountyRadar.",
+          "caption": "Preflight GO / CAUTION / STOP scoring weighs reward, repo activity, and existing PRs.",
+          "captionFa": "تحلیل ریسک و رقابت هر باونتی پیش از شروع کدنویسی."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/bountyradar/03.webp",
+          "thumb": "/assets/shots/bountyradar/03-800.webp",
+          "w": 1200,
+          "h": 700,
+          "alt": "BountyRadar background watch mode with native Windows notifications.",
+          "altFa": "حالت پایش خودکار پس‌زمینه و اعلان ویندوز در BountyRadar.",
+          "caption": "Background watch mode alerts you with native Windows toasts when fresh bounties drop.",
+          "captionFa": "اعلان فوری روی دسکتاپ ویندوز به محض انتشار باونتی جدید."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "ravaan",
+      "repo": "Ravaan",
+      "name": "Ravaan — روان",
+      "icon": "⌨️",
+      "accent": "#3B82F6",
+      "tagline": "Smart Windows typing assistant for Persian/English bilingual writers.",
+      "taglineFa": "دستیار هوشمند تایپ دوزبانه فارسی و انگلیسی در ویندوز (نیم‌فاصله، اصلاح کیبورد و تاریخ شمسی)",
+      "os": "Windows",
+      "lang": "Python",
+      "desc": "Windows system-tray typing assistant crafted for bilingual Persian/English typists: instant mistyped keyboard-layout conversion, automatic smart ZWNJ (نیم‌فاصله), Persian autocorrect, text-expansion snippets, clipboard history, and instant Jalali date insertion.",
+      "descFa": "دستیار سبک و همیشه در دسترس ویندوز برای تایپیست‌ها و برنامه‌نویسان دوزبانه فارسی/انگلیسی؛ تبدیل فوری متن‌هایی که با کیبورد اشتباه تایپ شده‌اند، درج هوشمند نیم‌فاصله، اصلاح خودکار املایی، اسنیپت‌های متنی و درج سریع تاریخ شمسی.",
+      "tags": ["Persian / RTL", "Smart ZWNJ", "Windows Utility", "Python"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/ravaan/01.webp",
+          "thumb": "/assets/shots/ravaan/01-800.webp",
+          "w": 1600,
+          "h": 900,
+          "alt": "Ravaan converting mistyped English keyboard layout characters into proper Persian script.",
+          "altFa": "تبدیل آنی تایپ اشتباه انگلیسی/فارسی با یک کلید میانبر در روان.",
+          "caption": "Fix an entire sentence typed on the wrong keyboard layout with one shortcut.",
+          "captionFa": "اصلاح فوری جمله‌هایی که فراموش کرده‌اید زبان کیبورد را برایشان عوض کنید."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/ravaan/02.webp",
+          "thumb": "/assets/shots/ravaan/02-800.webp",
+          "w": 1600,
+          "h": 900,
+          "alt": "Ravaan smart ZWNJ half-space and Persian typography rules.",
+          "altFa": "اعمال خودکار نیم‌فاصله هوشمند و نگارش استاندارد فارسی در روان.",
+          "caption": "Automatic Persian ZWNJ (half-space) for prefixes, plurals, and verb suffixes.",
+          "captionFa": "درج هوشمند نیم‌فاصله در «می»، «ها» و پسوندهای فارسی هنگام تایپ."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/ravaan/03.webp",
+          "thumb": "/assets/shots/ravaan/03-800.webp",
+          "w": 1600,
+          "h": 900,
+          "alt": "Ravaan snippet expansion and Jalali date insertion.",
+          "altFa": "امکانات اسنیپت متنی و درج خودکار تاریخ شمسی در نرم‌افزار روان.",
+          "caption": "Text-expansion snippets and live Jalali dates in any Windows app.",
+          "captionFa": "اسنیپت‌های پرتکرار و درج سریع تاریخ شمسی در تمام محیط‌های ویندوز."
+        }
+      ],
+      "faq": []
+    },
+    {
+      "slug": "devcompass",
+      "repo": "DevCompass",
+      "name": "DevCompass",
+      "icon": "🧭",
+      "accent": "#EAB308",
+      "live": "https://mohsen-niksirat.github.io/DevCompass/",
+      "tagline": "2-minute bilingual tech stack career quiz & shareable card PWA.",
+      "taglineFa": "کوییز دوزبانه «چه استکی یاد بگیرم؟» با ۸ مسیر شغلی و کارت نتیجه قابل اشتراک",
+      "os": "Web PWA (Offline)",
+      "lang": "HTML / JavaScript",
+      "desc": "Free 2-minute bilingual (FA/EN) career personality quiz that matches newcomers to the right software engineering track across 8 paths — complete with radar breakdowns, learning roadmaps, shareable visual cards, and friend-challenge URLs in a zero-backend offline PWA.",
+      "descFa": "کوییز تعاملی ۲ دقیقه‌ای و دوزبانه برای انتخاب مسیر ورود به دنیای برنامه‌نویسی میان ۸ شاخه تخصصی؛ همراه تحلیل شخصیتی، نقشه راه شروع، کارت گرافیکی قابل اشتراک‌گذاری و لینک چالش دوستان به‌صورت PWA کاملاً آفلاین.",
+      "tags": ["Bilingual FA/EN", "Career Quiz", "Offline PWA", "Single-File"],
+      "media": [
+        {
+          "type": "image",
+          "src": "/assets/shots/devcompass/01.webp",
+          "thumb": "/assets/shots/devcompass/01-800.webp",
+          "w": 500,
+          "h": 805,
+          "alt": "DevCompass interactive Persian RTL quiz question screen.",
+          "altFa": "صفحه سؤالات تعاملی کوییز مسیر شغلی در DevCompass.",
+          "caption": "Scenario-driven questions in fluent Persian & English — no jargon required.",
+          "captionFa": "سؤالات موقعیت‌محور به دو زبان فارسی و انگلیسی بدون اصطلاحات گیج‌کننده."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/devcompass/02.webp",
+          "thumb": "/assets/shots/devcompass/02-800.webp",
+          "w": 500,
+          "h": 805,
+          "alt": "DevCompass matched career track result screen with roadmap.",
+          "altFa": "صفحه نتیجه مسیر پیشنهادی و نقشه راه یادگیری در DevCompass.",
+          "caption": "Personalized stack match with concrete first steps and tool recommendations.",
+          "captionFa": "پیشنهاد استک مناسب همراه نقشه راه گام‌به‌گام برای شروع یادگیری."
+        },
+        {
+          "type": "image",
+          "src": "/assets/shots/devcompass/03.webp",
+          "thumb": "/assets/shots/devcompass/03-800.webp",
+          "w": 500,
+          "h": 805,
+          "alt": "DevCompass shareable social card and friend challenge link.",
+          "altFa": "کارت گرافیکی نتیجه و قابلیت به چالش کشیدن دوستان در DevCompass.",
+          "caption": "Generate a shareable result card or send a challenge link to compare with friends.",
+          "captionFa": "ساخت کارت تصویری نتیجه و ارسال لینک مقایسه برای دوستان."
+        }
+      ],
+      "faq": []
+    }
+  ]
+}

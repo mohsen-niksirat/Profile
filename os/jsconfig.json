@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "#components/*": ["src/components/*"],
+      "#constants": ["src/constants/index.js"],
+      "#constants/*": ["src/constants/*"],
+      "#store/*": ["src/store/*"],
+      "#hoc/*": ["src/hoc/*"],
+      "#windows": ["src/windows/index.js"],
+      "#windows/*": ["src/windows/*"]
+    }
+  },
+  "include": ["src"]
+}

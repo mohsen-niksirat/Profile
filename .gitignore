@@ -1,0 +1,5 @@
+node_modules/
+os/node_modules/
+graphify-out/
+.DS_Store
+*.zip
