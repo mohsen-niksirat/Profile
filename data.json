@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T07:36:20.036Z",
+  "generatedAt": "2026-11-19T20:45:35.529Z",
   "totals": {
     "stars": 119,
     "forks": 7,
@@ -49,7 +49,7 @@
       "stars": 8,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-19T02:34:55Z",
+      "pushedAt": "2026-11-19T20:35:44Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -129,18 +129,27 @@
       "slug": "tgexplorer",
       "tag": "Live",
       "name": "tgexplorer",
-      "at": "2026-11-19T02:34:55Z",
+      "at": "2026-11-19T20:35:44Z",
       "url": "https://mohsen-niksirat.github.io/tgexplorer/",
       "body": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts."
+    },
+    {
+      "repo": "CineScore",
+      "slug": null,
+      "tag": "Live",
+      "name": "CineScore",
+      "at": "2026-11-19T09:16:49Z",
+      "url": "https://mohsen-niksirat.github.io/CineScore/",
+      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "Profile",
       "slug": null,
       "tag": "Live",
       "name": "Profile",
-      "at": "2026-11-18T20:40:55Z",
+      "at": "2026-11-19T07:36:21Z",
       "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": ""
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "mohsen-tech-blog",
@@ -150,15 +159,6 @@
       "at": "2026-11-18T10:47:28Z",
       "url": "https://mohsen-niksirat.github.io/mohsen-tech-blog/",
       "body": ""
-    },
-    {
-      "repo": "CineScore",
-      "slug": null,
-      "tag": "Live",
-      "name": "CineScore",
-      "at": "2026-11-18T08:58:14Z",
-      "url": "https://mohsen-niksirat.github.io/CineScore/",
-      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "Ravaan",
