@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:40:53.603Z",
+  "generatedAt": "2026-11-19T07:36:20.036Z",
   "totals": {
     "stars": 119,
     "forks": 7,
@@ -49,7 +49,7 @@
       "stars": 8,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-18T20:30:48Z",
+      "pushedAt": "2026-11-19T02:34:55Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -117,6 +117,10 @@
     {
       "m": "2026-11-18",
       "v": 119
+    },
+    {
+      "m": "2026-11-19",
+      "v": 119
     }
   ],
   "timeline": [
@@ -125,7 +129,7 @@
       "slug": "tgexplorer",
       "tag": "Live",
       "name": "tgexplorer",
-      "at": "2026-11-18T20:30:48Z",
+      "at": "2026-11-19T02:34:55Z",
       "url": "https://mohsen-niksirat.github.io/tgexplorer/",
       "body": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts."
     },
@@ -134,7 +138,7 @@
       "slug": null,
       "tag": "Live",
       "name": "Profile",
-      "at": "2026-11-18T16:03:42Z",
+      "at": "2026-11-18T20:40:55Z",
       "url": "https://mohsen-niksirat.github.io/Profile/",
       "body": ""
     },
