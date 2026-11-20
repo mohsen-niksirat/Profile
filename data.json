@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-20T07:27:45.392Z",
+  "generatedAt": "2026-11-20T20:29:55.854Z",
   "totals": {
-    "stars": 119,
+    "stars": 128,
     "forks": 7,
     "repos": 47,
-    "followers": 54,
-    "last30": 1
+    "followers": 55,
+    "last30": 10
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
   "growthSource": "daily-snapshots",
   "stats": {
     "repodest": {
-      "stars": 18,
+      "stars": 19,
       "forks": 2,
       "language": "JavaScript",
       "pushedAt": "2026-11-12T08:03:31Z",
@@ -39,17 +39,17 @@
       "description": "Universal Multi-Provider AI Gateway & Telegram Mini App. Intelligently route, load-balance (Round-Robin, Smart Router, Fallback), and pool API keys across Gemini, Groq, DeepSeek, OpenAI with per-user encryption & vision support."
     },
     "horde-survival-3d": {
-      "stars": 6,
+      "stars": 7,
       "forks": 0,
       "language": "GDScript",
       "pushedAt": "2026-11-10T06:13:08Z",
       "description": "3D version of HordeSurvival - You can play it in your browsers"
     },
     "tgexplorer": {
-      "stars": 8,
+      "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-20T02:22:09Z",
+      "pushedAt": "2026-11-20T20:28:00Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -95,7 +95,7 @@
       "description": "Local Windows app that finds paid freelance & open-source bounties for any freelancer type — frontend, backend, mobile, data/ML, DevOps, security, docs/writing, design, full-stack."
     },
     "ravaan": {
-      "stars": 1,
+      "stars": 2,
       "forks": 0,
       "language": "Python",
       "pushedAt": "2026-11-16T15:47:03Z",
@@ -124,7 +124,7 @@
     },
     {
       "m": "2026-11-20",
-      "v": 119
+      "v": 128
     }
   ],
   "timeline": [
@@ -133,27 +133,27 @@
       "slug": "tgexplorer",
       "tag": "Live",
       "name": "tgexplorer",
-      "at": "2026-11-20T02:22:09Z",
+      "at": "2026-11-20T20:28:00Z",
       "url": "https://mohsen-niksirat.github.io/tgexplorer/",
       "body": "A fast, distraction-free web directory and search interface for exploring public Telegram channels — featuring instant search, curated topic grids, channel preview modals, subscriber insights, and responsive desktop & mobile layouts."
-    },
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-19T20:45:36Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "CineScore",
       "slug": null,
       "tag": "Live",
       "name": "CineScore",
-      "at": "2026-11-19T09:16:49Z",
+      "at": "2026-11-20T08:59:25Z",
       "url": "https://mohsen-niksirat.github.io/CineScore/",
       "body": "🎬 CineScore — Movie rating and scoring system"
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-20T07:27:46Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "mohsen-tech-blog",
@@ -199,6 +199,15 @@
       "at": "2026-11-13T06:43:54Z",
       "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.4",
       "body": "# Ravaan (روان) v2.7.4\r \r ---\r"
+    },
+    {
+      "repo": "Playlist_podcast_bot",
+      "slug": null,
+      "tag": "Open Source",
+      "name": "Playlist_podcast_bot",
+      "at": "2026-11-12T08:24:08Z",
+      "url": "https://github.com/mohsen-niksirat/Playlist_podcast_bot",
+      "body": "ربات سرورلس تلگرام آرشیو پادکست پلی‌لیست (Playlist Podcast Bot)"
     },
     {
       "repo": "Repodest",
@@ -379,15 +388,6 @@
       "at": "2026-10-12T17:14:02Z",
       "url": "https://github.com/mohsen-niksirat/ReadNer/releases/tag/v0.1.0",
       "body": "معرفی امکانات اصلی شامل:\r 🧠 الگوریتم تکرار فاصله‌دار علمی FSRS و جعبه لایتنر\r 🗣️ مربی مکالمه صوتی دوطرفه SpeakAI Voice Coach با تشخیص گفتار و تلفظ محلی (TTS)\r"
-    },
-    {
-      "repo": "kite-downloader",
-      "slug": null,
-      "tag": "Kite_0.1.0_x64-setup",
-      "name": "Kite_0.1.0_x64-setup",
-      "at": "2026-10-11T22:42:46Z",
-      "url": "https://github.com/mohsen-niksirat/kite-downloader/releases/tag/Kite_0.1.0_x64-setup",
-      "body": ""
     },
     {
       "repo": "CinePlay",
