@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-21T07:21:34.394Z",
+  "generatedAt": "2026-11-21T19:25:23.389Z",
   "totals": {
     "stars": 129,
     "forks": 8,
-    "repos": 47,
-    "followers": 56,
+    "repos": 48,
+    "followers": 58,
     "last30": 11
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
@@ -49,7 +49,7 @@
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-21T07:03:38Z",
+      "pushedAt": "2026-11-21T16:47:26Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -133,6 +133,78 @@
   ],
   "timeline": [
     {
+      "repo": "VPN-Finder",
+      "slug": null,
+      "tag": "Live",
+      "name": "VPN-Finder",
+      "at": "2026-11-21T18:51:00Z",
+      "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
+      "body": ""
+    },
+    {
+      "repo": "api-key-manager",
+      "slug": null,
+      "tag": "Live",
+      "name": "api-key-manager",
+      "at": "2026-11-21T15:24:07Z",
+      "url": "https://mohsen-niksirat.github.io/api-key-manager/",
+      "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
+    },
+    {
+      "repo": "Repodest-Extension",
+      "slug": null,
+      "tag": "v1.5.0",
+      "name": "Repodest for GitHub v1.5.0",
+      "at": "2026-11-21T14:58:08Z",
+      "url": "https://github.com/mohsen-niksirat/Repodest-Extension/releases/tag/v1.5.0",
+      "body": "**Full Changelog**: https://github.com/mohsen-niksirat/Repodest-Extension/compare/v1.4.0...v1.5.0"
+    },
+    {
+      "repo": "Repodest-Extension",
+      "slug": null,
+      "tag": "v1.4.0",
+      "name": "Repodest for GitHub v1.4.0",
+      "at": "2026-11-21T14:58:04Z",
+      "url": "https://github.com/mohsen-niksirat/Repodest-Extension/releases/tag/v1.4.0",
+      "body": "**Full Changelog**: https://github.com/mohsen-niksirat/Repodest-Extension/compare/v1.3.0...v1.4.0"
+    },
+    {
+      "repo": "Cinema",
+      "slug": null,
+      "tag": "Live",
+      "name": "Cinema",
+      "at": "2026-11-21T14:17:13Z",
+      "url": "https://mohsen-niksirat.github.io/Cinema/",
+      "body": "🎬 Cinema Sermovie — Movie browsing and discovery platform"
+    },
+    {
+      "repo": "tgexplorer",
+      "slug": "tgexplorer",
+      "tag": "v1.8.1",
+      "name": "v1.8.1",
+      "at": "2026-11-21T10:55:28Z",
+      "url": "https://github.com/mohsen-niksirat/tgexplorer/releases/tag/v1.8.1",
+      "body": "# 📜 Changelog\r \r Full version history of Telegram Explorer. The latest release is summarized in the\r"
+    },
+    {
+      "repo": "CineScore",
+      "slug": null,
+      "tag": "Live",
+      "name": "CineScore",
+      "at": "2026-11-21T08:40:18Z",
+      "url": "https://mohsen-niksirat.github.io/CineScore/",
+      "body": "🎬 CineScore — Movie rating and scoring system"
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-21T07:21:35Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
+    },
+    {
       "repo": "tgexplorer",
       "slug": "tgexplorer",
       "tag": "v1.8.0",
@@ -140,24 +212,6 @@
       "at": "2026-11-20T20:51:01Z",
       "url": "https://github.com/mohsen-niksirat/tgexplorer/releases/tag/v1.8.0",
       "body": "- **Design system** — Telegram-native tokens (`themeParams` integration), flat surfaces with no decorative gradients or glassmorphism, and a dark theme that is no longer pitch black. - **Icons** — every UI emoji replaced by a single consistent `20×20` inline S"
-    },
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-20T20:29:57Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
-    },
-    {
-      "repo": "CineScore",
-      "slug": null,
-      "tag": "Live",
-      "name": "CineScore",
-      "at": "2026-11-20T08:59:25Z",
-      "url": "https://mohsen-niksirat.github.io/CineScore/",
-      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "mohsen-tech-blog",
@@ -176,15 +230,6 @@
       "at": "2026-11-16T15:49:53Z",
       "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v3.0.0",
       "body": "# Ravaan (روان) v3.0.0\r \r ---\r"
-    },
-    {
-      "repo": "Cinema",
-      "slug": null,
-      "tag": "Live",
-      "name": "Cinema",
-      "at": "2026-11-16T14:41:00Z",
-      "url": "https://mohsen-niksirat.github.io/Cinema/",
-      "body": "🎬 Cinema Sermovie — Movie browsing and discovery platform"
     },
     {
       "repo": "Biosphera",
@@ -304,15 +349,6 @@
       "body": "Visual computer science & programming concepts explained through interactive HTML5 Canvas animations — 49 topics spanning data structures, sorting, recursion, networking, and design patterns with step-by-step playback, synced code highlighting, daily streaks, and 1-click PNG cards in a zero-dependency single HTML file."
     },
     {
-      "repo": "api-key-manager",
-      "slug": null,
-      "tag": "Live",
-      "name": "api-key-manager",
-      "at": "2026-11-03T15:53:38Z",
-      "url": "https://mohsen-niksirat.github.io/api-key-manager/",
-      "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
-    },
-    {
       "repo": "Mcp-Studio",
       "slug": "mcp-studio",
       "tag": "v1.5.3",
@@ -385,15 +421,6 @@
       "body": "Turn any GitHub repository into a modern, high-converting landing page — in seconds."
     },
     {
-      "repo": "ReadNer",
-      "slug": null,
-      "tag": "v0.1.0",
-      "name": "LeitnerProMax v0.1.0",
-      "at": "2026-10-12T17:14:02Z",
-      "url": "https://github.com/mohsen-niksirat/ReadNer/releases/tag/v0.1.0",
-      "body": "معرفی امکانات اصلی شامل:\r 🧠 الگوریتم تکرار فاصله‌دار علمی FSRS و جعبه لایتنر\r 🗣️ مربی مکالمه صوتی دوطرفه SpeakAI Voice Coach با تشخیص گفتار و تلفظ محلی (TTS)\r"
-    },
-    {
       "repo": "CinePlay",
       "slug": null,
       "tag": "Live",
@@ -464,33 +491,6 @@
       "at": "2026-09-16T21:44:27Z",
       "url": "https://mohsen-niksirat.github.io/DevCompass/",
       "body": "Free 2-minute bilingual (FA/EN) career personality quiz that matches newcomers to the right software engineering track across 8 paths — complete with radar breakdowns, learning roadmaps, shareable visual cards, and friend-challenge URLs in a zero-backend offline PWA."
-    },
-    {
-      "repo": "promptopia",
-      "slug": null,
-      "tag": "Live",
-      "name": "promptopia",
-      "at": "2026-09-13T21:45:00Z",
-      "url": "https://mohsen-niksirat.github.io/promptopia/",
-      "body": "گالری پرامپت آماده هوش مصنوعی — کپی کن، در جیمینای یا چت‌جی‌پی‌تی بساز | Gallery of ready-made AI image prompts — copy & create in Gemini or ChatGPT. PWA, bilingual FA/EN."
-    },
-    {
-      "repo": "A11y-Inspector",
-      "slug": "a11y-inspector",
-      "tag": "Live",
-      "name": "A11y-Inspector",
-      "at": "2026-09-11T23:40:42Z",
-      "url": "https://mohsen-niksirat.github.io/A11y-Inspector/",
-      "body": "In-browser HTML accessibility auditor and CI-ready CLI — evaluates WCAG contrast ratios, heading hierarchy, ARIA attributes, and form semantics, generates a 0–100 health score with actionable fix hints, and supports 6 languages offline."
-    },
-    {
-      "repo": "Horde_Survival_3D_Unity",
-      "slug": null,
-      "tag": "Open Source",
-      "name": "Horde_Survival_3D_Unity",
-      "at": "2026-09-08T21:57:27Z",
-      "url": "https://github.com/mohsen-niksirat/Horde_Survival_3D_Unity",
-      "body": ""
     }
   ]
 }
