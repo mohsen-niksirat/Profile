@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-21T19:25:23.389Z",
+  "generatedAt": "2026-11-22T07:02:11.460Z",
   "totals": {
-    "stars": 129,
+    "stars": 130,
     "forks": 8,
     "repos": 48,
-    "followers": 58,
-    "last30": 11
+    "followers": 60,
+    "last30": 12
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
   "growthSource": "daily-snapshots",
@@ -49,7 +49,7 @@
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-21T16:47:26Z",
+      "pushedAt": "2026-11-22T06:44:38Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -129,6 +129,10 @@
     {
       "m": "2026-11-21",
       "v": 129
+    },
+    {
+      "m": "2026-11-22",
+      "v": 130
     }
   ],
   "timeline": [
@@ -137,9 +141,18 @@
       "slug": null,
       "tag": "Live",
       "name": "VPN-Finder",
-      "at": "2026-11-21T18:51:00Z",
+      "at": "2026-11-22T04:18:07Z",
       "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
       "body": ""
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-21T19:25:24Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "api-key-manager",
@@ -194,15 +207,6 @@
       "at": "2026-11-21T08:40:18Z",
       "url": "https://mohsen-niksirat.github.io/CineScore/",
       "body": "🎬 CineScore — Movie rating and scoring system"
-    },
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-21T07:21:35Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "tgexplorer",
