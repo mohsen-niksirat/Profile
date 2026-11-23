@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-22T19:48:15.005Z",
+  "generatedAt": "2026-11-23T07:51:06.180Z",
   "totals": {
-    "stars": 131,
+    "stars": 133,
     "forks": 8,
     "repos": 48,
     "followers": 60,
-    "last30": 13
+    "last30": 15
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
   "growthSource": "daily-snapshots",
@@ -32,7 +32,7 @@
       "description": "OpenAI-compatible Telegram assistant with BYOK (users bring their own API keys), plus optional Manus Agent mode for image/edit/research tasks."
     },
     "9router": {
-      "stars": 2,
+      "stars": 4,
       "forks": 0,
       "language": "JavaScript",
       "pushedAt": "2026-11-04T23:42:07Z",
@@ -49,7 +49,7 @@
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-22T17:09:13Z",
+      "pushedAt": "2026-11-23T07:34:17Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -133,6 +133,10 @@
     {
       "m": "2026-11-22",
       "v": 131
+    },
+    {
+      "m": "2026-11-23",
+      "v": 133
     }
   ],
   "timeline": [
@@ -141,9 +145,18 @@
       "slug": null,
       "tag": "Live",
       "name": "VPN-Finder",
-      "at": "2026-11-22T19:31:37Z",
+      "at": "2026-11-23T01:56:05Z",
       "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
-      "body": ""
+      "body": "Telegram Mini App + Bot that browses the PublicVPNList catalog (API v1) by country and protocol (VLESS, Shadowsocks, VMess, OpenVPN, Hysteria2, Trojan)."
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-22T19:48:16Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "Cinema",
@@ -162,15 +175,6 @@
       "at": "2026-11-22T08:39:04Z",
       "url": "https://mohsen-niksirat.github.io/CineScore/",
       "body": "🎬 CineScore — Movie rating and scoring system"
-    },
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-22T07:02:12Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "api-key-manager",
