@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-23T07:51:06.180Z",
+  "generatedAt": "2026-11-24T00:00:17.009Z",
   "totals": {
-    "stars": 133,
+    "stars": 134,
     "forks": 8,
     "repos": 48,
     "followers": 60,
-    "last30": 15
+    "last30": 16
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
   "growthSource": "daily-snapshots",
@@ -18,7 +18,7 @@
       "description": "Repodest is a client-side GitHub repository analyzer and LLM-ready digest generator. Paste any GitHub URL, get a health score, language breakdown, file explorer, commit insights, and fun trophies — then pack selected files into a prompt you can paste straight into ChatGPT, Claude, or Gemini."
     },
     "leitner-pro-max": {
-      "stars": 4,
+      "stars": 5,
       "forks": 0,
       "language": "JavaScript",
       "pushedAt": "2026-11-07T19:43:56Z",
@@ -42,14 +42,14 @@
       "stars": 7,
       "forks": 0,
       "language": "GDScript",
-      "pushedAt": "2026-11-10T06:13:08Z",
+      "pushedAt": "2026-11-23T22:59:18Z",
       "description": "3D version of HordeSurvival - You can play it in your browsers"
     },
     "tgexplorer": {
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-23T07:34:17Z",
+      "pushedAt": "2026-11-23T21:20:16Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -98,7 +98,7 @@
       "stars": 2,
       "forks": 0,
       "language": "Python",
-      "pushedAt": "2026-11-16T15:47:03Z",
+      "pushedAt": "2026-11-23T18:11:10Z",
       "description": "Ravaan (روان) — Windows typing assistant for bilingual Persian/English typists: layout conversion, smart ZWNJ, autocorrect, snippets, Jalali dates, and more."
     },
     "devcompass": {
@@ -137,6 +137,10 @@
     {
       "m": "2026-11-23",
       "v": 133
+    },
+    {
+      "m": "2026-11-24",
+      "v": 134
     }
   ],
   "timeline": [
@@ -145,16 +149,34 @@
       "slug": null,
       "tag": "Live",
       "name": "VPN-Finder",
-      "at": "2026-11-23T01:56:05Z",
+      "at": "2026-11-23T20:44:56Z",
       "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
       "body": "Telegram Mini App + Bot that browses the PublicVPNList catalog (API v1) by country and protocol (VLESS, Shadowsocks, VMess, OpenVPN, Hysteria2, Trojan)."
+    },
+    {
+      "repo": "Ravaan",
+      "slug": "ravaan",
+      "tag": "v3.1.0",
+      "name": "Ravaan v3.1.0",
+      "at": "2026-11-23T18:13:57Z",
+      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v3.1.0",
+      "body": "# Ravaan (روان) v3.1.0\r \r ---\r"
+    },
+    {
+      "repo": "CineScore",
+      "slug": null,
+      "tag": "Live",
+      "name": "CineScore",
+      "at": "2026-11-23T09:36:47Z",
+      "url": "https://mohsen-niksirat.github.io/CineScore/",
+      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "Profile",
       "slug": null,
       "tag": "Live",
       "name": "Profile",
-      "at": "2026-11-22T19:48:16Z",
+      "at": "2026-11-23T07:51:07Z",
       "url": "https://mohsen-niksirat.github.io/Profile/",
       "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
@@ -166,15 +188,6 @@
       "at": "2026-11-22T14:11:20Z",
       "url": "https://mohsen-niksirat.github.io/Cinema/",
       "body": "🎬 Cinema Sermovie — Movie browsing and discovery platform"
-    },
-    {
-      "repo": "CineScore",
-      "slug": null,
-      "tag": "Live",
-      "name": "CineScore",
-      "at": "2026-11-22T08:39:04Z",
-      "url": "https://mohsen-niksirat.github.io/CineScore/",
-      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "api-key-manager",
@@ -310,15 +323,6 @@
       "at": "2026-11-05T22:16:30Z",
       "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.1",
       "body": "# Ravaan (روان) v2.7.1\r \r ---\r"
-    },
-    {
-      "repo": "Ravaan",
-      "slug": "ravaan",
-      "tag": "v2.7.0",
-      "name": "Ravaan v2.7.0",
-      "at": "2026-11-05T19:48:56Z",
-      "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.0",
-      "body": "# Ravaan (روان) v2.7.0\r \r ---\r"
     },
     {
       "repo": "9router_TG_Bot",
