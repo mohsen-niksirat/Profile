@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-27T08:45:37.690Z",
+  "generatedAt": "2026-11-27T21:26:06.005Z",
   "totals": {
     "stars": 137,
     "forks": 7,
-    "repos": 49,
+    "repos": 50,
     "followers": 57,
     "last30": 19
   },
@@ -49,7 +49,7 @@
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-27T01:44:40Z",
+      "pushedAt": "2026-11-27T21:17:06Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -157,20 +157,56 @@
   ],
   "timeline": [
     {
+      "repo": "Biosphera",
+      "slug": null,
+      "tag": "v3.0.0",
+      "name": "Biosphera v3.0.0 — Recurrent Brains, Habitats & Bioluminescence",
+      "at": "2026-11-27T21:24:13Z",
+      "url": "https://github.com/mohsen-niksirat/Biosphera/releases/tag/v3.0.0",
+      "body": "## What's New in v3.0.0 - **Recurrent Neural Memory & Morphology:** 13-input -> [9] -> 4 brain with internal-state inputs (Age, Repro Readiness) and 2 per-organism recurrent memory neurons, plus evolvable jaw power, armor, fin count, and fat reserves. - **Micr"
+    },
+    {
+      "repo": "9router",
+      "slug": null,
+      "tag": "Live",
+      "name": "9router",
+      "at": "2026-11-27T19:37:11Z",
+      "url": "https://mohsen-niksirat.github.io/9router/",
+      "body": "اپلیکیشن وب ۱۰۰٪ استاتیک (آماده برای GitHub Pages) با رویکرد BYOK (Bring Your Own Key) — بدون نیاز به سرور!"
+    },
+    {
+      "repo": "api-key-manager",
+      "slug": null,
+      "tag": "Live",
+      "name": "api-key-manager",
+      "at": "2026-11-27T15:09:57Z",
+      "url": "https://mohsen-niksirat.github.io/api-key-manager/",
+      "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
+    },
+    {
       "repo": "VPN-Finder",
       "slug": null,
       "tag": "Live",
       "name": "VPN-Finder",
-      "at": "2026-11-27T03:24:27Z",
+      "at": "2026-11-27T12:53:38Z",
       "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
       "body": "Telegram Mini App + Bot that browses the PublicVPNList catalog (API v1) by country and protocol (VLESS, Shadowsocks, VMess, OpenVPN, Hysteria2, Trojan)."
+    },
+    {
+      "repo": "CineScore",
+      "slug": null,
+      "tag": "Live",
+      "name": "CineScore",
+      "at": "2026-11-27T10:00:49Z",
+      "url": "https://mohsen-niksirat.github.io/CineScore/",
+      "body": "🎬 CineScore — Movie rating and scoring system"
     },
     {
       "repo": "Profile",
       "slug": null,
       "tag": "Live",
       "name": "Profile",
-      "at": "2026-11-26T21:41:59Z",
+      "at": "2026-11-27T08:45:39Z",
       "url": "https://mohsen-niksirat.github.io/Profile/",
       "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
@@ -182,33 +218,6 @@
       "at": "2026-11-26T15:34:10Z",
       "url": "https://github.com/mohsen-niksirat/9router_TG_Bot",
       "body": "Universal Multi-Provider AI Gateway & Telegram Mini App that routes, load-balances (Round-Robin, Smart Router, automatic 429 failover), and pools API keys across Gemini, Groq, DeepSeek, OpenAI, and OpenRouter — complete with per-user AES key encryption and multimodal vision support."
-    },
-    {
-      "repo": "CineScore",
-      "slug": null,
-      "tag": "Live",
-      "name": "CineScore",
-      "at": "2026-11-26T09:56:41Z",
-      "url": "https://mohsen-niksirat.github.io/CineScore/",
-      "body": "🎬 CineScore — Movie rating and scoring system"
-    },
-    {
-      "repo": "9router",
-      "slug": null,
-      "tag": "Live",
-      "name": "9router",
-      "at": "2026-11-25T23:57:19Z",
-      "url": "https://mohsen-niksirat.github.io/9router/",
-      "body": "اپلیکیشن وب ۱۰۰٪ استاتیک (آماده برای GitHub Pages) با رویکرد BYOK (Bring Your Own Key) — بدون نیاز به سرور!"
-    },
-    {
-      "repo": "api-key-manager",
-      "slug": null,
-      "tag": "Live",
-      "name": "api-key-manager",
-      "at": "2026-11-25T23:50:48Z",
-      "url": "https://mohsen-niksirat.github.io/api-key-manager/",
-      "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
     },
     {
       "repo": "Repodest",
@@ -290,15 +299,6 @@
       "at": "2026-11-16T15:49:53Z",
       "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v3.0.0",
       "body": "# Ravaan (روان) v3.0.0\r \r ---\r"
-    },
-    {
-      "repo": "Biosphera",
-      "slug": null,
-      "tag": "Live",
-      "name": "Biosphera",
-      "at": "2026-11-14T05:13:42Z",
-      "url": "https://mohsen-niksirat.github.io/Biosphera/",
-      "body": "In-browser digital life simulation powered by genetic algorithms, tiny neural networks, and natural selection. Zero dependencies. 100% Client-Side. 60 FPS Emergent Evolution"
     },
     {
       "repo": "Ravaan",
