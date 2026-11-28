@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-27T21:26:06.005Z",
+  "generatedAt": "2026-11-28T07:59:10.091Z",
   "totals": {
     "stars": 137,
     "forks": 7,
     "repos": 50,
-    "followers": 57,
+    "followers": 56,
     "last30": 19
   },
   "bio": "CS grad (BSc + MSc) building practical web apps & tools. Languages, finance, and productivity — shipped with AI-assisted development",
@@ -49,7 +49,7 @@
       "stars": 9,
       "forks": 1,
       "language": "HTML",
-      "pushedAt": "2026-11-27T21:17:06Z",
+      "pushedAt": "2026-11-28T03:21:52Z",
       "description": "A web app to explore public Telegram channels"
     },
     "speakai-coach": {
@@ -153,9 +153,49 @@
     {
       "m": "2026-11-27",
       "v": 137
+    },
+    {
+      "m": "2026-11-28",
+      "v": 137
     }
   ],
   "timeline": [
+    {
+      "repo": "VPN-Finder",
+      "slug": null,
+      "tag": "Live",
+      "name": "VPN-Finder",
+      "at": "2026-11-28T03:40:19Z",
+      "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
+      "body": "Telegram Mini App + Bot that browses the PublicVPNList catalog (API v1) by country and protocol (VLESS, Shadowsocks, VMess, OpenVPN, Hysteria2, Trojan)."
+    },
+    {
+      "repo": "News-Channel-Bot",
+      "slug": null,
+      "tag": "Live",
+      "name": "News-Channel-Bot",
+      "at": "2026-11-28T01:35:04Z",
+      "url": "https://mohsen-niksirat.github.io/News-Channel-Bot/",
+      "body": "🤖 Turn RSS news feeds into AI-written Persian posts for your Telegram channel — auto/manual publishing, review queue, filters & digest."
+    },
+    {
+      "repo": "Biosphera",
+      "slug": null,
+      "tag": "v3.1.0",
+      "name": "Biosphera v3.1.0 — Kin Recognition, Pathogens, Morphospace & Auto-Director",
+      "at": "2026-11-27T21:46:31Z",
+      "url": "https://github.com/mohsen-niksirat/Biosphera/releases/tag/v3.1.0",
+      "body": "## What's New in v3.1.0 - **Kin Recognition & Conspecific Bite-Inhibition:** 14-input -> [10] -> 4 brain with genetic kin-similarity sensing (inputs[13]) and friendly-fire inhibition enabling emergent schooling and pack-hunting. - **Immunity & Pathogen Waves:*"
+    },
+    {
+      "repo": "Profile",
+      "slug": null,
+      "tag": "Live",
+      "name": "Profile",
+      "at": "2026-11-27T21:26:07Z",
+      "url": "https://mohsen-niksirat.github.io/Profile/",
+      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
+    },
     {
       "repo": "Biosphera",
       "slug": null,
@@ -184,15 +224,6 @@
       "body": "A privacy-first, offline-first web application for managing your API keys across multiple providers. Built as a PWA (Progressive Web App) using plain HTML/CSS/JS - no server required, and all data stays locally in your browser."
     },
     {
-      "repo": "VPN-Finder",
-      "slug": null,
-      "tag": "Live",
-      "name": "VPN-Finder",
-      "at": "2026-11-27T12:53:38Z",
-      "url": "https://mohsen-niksirat.github.io/VPN-Finder/",
-      "body": "Telegram Mini App + Bot that browses the PublicVPNList catalog (API v1) by country and protocol (VLESS, Shadowsocks, VMess, OpenVPN, Hysteria2, Trojan)."
-    },
-    {
       "repo": "CineScore",
       "slug": null,
       "tag": "Live",
@@ -200,15 +231,6 @@
       "at": "2026-11-27T10:00:49Z",
       "url": "https://mohsen-niksirat.github.io/CineScore/",
       "body": "🎬 CineScore — Movie rating and scoring system"
-    },
-    {
-      "repo": "Profile",
-      "slug": null,
-      "tag": "Live",
-      "name": "Profile",
-      "at": "2026-11-27T08:45:39Z",
-      "url": "https://mohsen-niksirat.github.io/Profile/",
-      "body": "Mohsen Niksirat · محسن نیک‌سیرت — macOS / iOS Portfolio OS"
     },
     {
       "repo": "9router_TG_Bot",
@@ -326,15 +348,6 @@
       "at": "2026-11-12T05:05:14Z",
       "url": "https://github.com/mohsen-niksirat/Ravaan/releases/tag/v2.7.3",
       "body": "# Ravaan (روان) v2.7.3\r \r ---\r"
-    },
-    {
-      "repo": "News-Channel-Bot",
-      "slug": null,
-      "tag": "Live",
-      "name": "News-Channel-Bot",
-      "at": "2026-11-12T03:28:03Z",
-      "url": "https://mohsen-niksirat.github.io/News-Channel-Bot/",
-      "body": "🤖 Turn RSS news feeds into AI-written Persian posts for your Telegram channel — auto/manual publishing, review queue, filters & digest."
     },
     {
       "repo": "Leitner-Pro-Max",
@@ -506,15 +519,6 @@
       "at": "2026-09-20T18:48:37Z",
       "url": "https://github.com/mohsen-niksirat/AIDahl",
       "body": "Multi-provider Telegram AI assistant built on a Bring-Your-Own-Key (BYOK) architecture with OpenRouter & OpenAI-compatible endpoints, real-time message streaming, named multi-chat threads, Supabase persistence, token quotas, and an optional Manus Agent mode for image generation, editing, and deep web research."
-    },
-    {
-      "repo": "BountyRadar",
-      "slug": "bountyradar",
-      "tag": "Live",
-      "name": "BountyRadar",
-      "at": "2026-09-19T23:18:16Z",
-      "url": "https://mohsen-niksirat.github.io/BountyRadar/",
-      "body": "Local Windows application that discovers paid open-source bounties and freelance opportunities across 10 developer specializations — complete with preflight GO / CAUTION / STOP scoring, competition & payout analysis, Windows toast notifications in watch mode, and a bilingual EN/FA UI."
     }
   ]
 }
